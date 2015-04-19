@@ -1,0 +1,66 @@
+/*--------- slider ---------*/
+#slide {
+    position: relative;
+    overflow: hidden;
+    width: 36em;
+    margin: 2.5em 0 0 1.3em;
+    z-index: 1;
+}
+
+.slider {
+    height: 17em;
+    z-index: 1;
+}
+
+.sliderbk {
+    display: inline-block;
+    background: url(../images/slider-bg-half.png) 0 0 no-repeat;
+}
+
+.items {
+    display: none;
+}
+
+.pagination {
+    display: none;
+}
+
+.prev {
+    position: absolute;
+    top: 70px;
+    left: 5px;
+    display: block;
+    width: 30px;
+    height: 35px;
+    background: url(../images/prev-half.png) 0 0 no-repeat;
+    z-index: 99;
+}
+
+.prev:hover {
+    background-position: 0 bottom;
+}
+
+.next {
+    position: absolute;
+    top: 70px;
+    right: 65px;
+    display: block;
+    width: 30px;
+    height: 35px;
+    background: url(../images/next-half.png) 0 bottom no-repeat;
+    z-index: 99;
+}
+
+.next:hover {
+    background-position: 0 0;
+}
+
+.banner {
+    display: none;
+}
+
+@media screen and (max-width: 1100px) {
+    .sliderbk {
+        display: none;
+    }
+}
