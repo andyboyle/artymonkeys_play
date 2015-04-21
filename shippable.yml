@@ -18,3 +18,5 @@ notifications:
   email:
     - andyjcboyle@gmail.com
 
+archive: true
+
