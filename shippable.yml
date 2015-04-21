@@ -8,11 +8,11 @@ jdk:
 
 script:
   - export SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=512M"
-  - sbt clean scoverage:test
+  - sbt clean dist
 
 after_script:
-  - mkdir -p shippable/codecoverage
-  - mv target/scala-2.11/coverage-report/cobertura.xml $PWD/shippable/codecoverage/
+  - mkdir -p shippable/
+  - mv target/universal/artymonkeys_play-1.0-SNAPSHOT.zip $PWD/shippable/
 
 notifications:
   email:
