@@ -3,8 +3,9 @@ package controllers
 import play.api.Play.current
 import play.api.data.Form
 import play.api.data.Forms._
-import play.api.libs.mailer.{Email, MailerPlugin}
+import play.api.libs.mailer._
 import play.api.mvc.{Action, Results}
+import java.io.File
 
 trait EmailEnquiry extends EmailSenderBase {
   this: Results =>
@@ -31,6 +32,7 @@ trait EmailEnquiry extends EmailSenderBase {
         "Phone: " + phone + "\n" +
         "Email: " + email + "\n" +
         "\nMessage:\n\n" + message)
+
     )
 
     try {
@@ -41,15 +43,49 @@ trait EmailEnquiry extends EmailSenderBase {
         error = true
     }
 
+    val thankYouEnquiryLine1 = "Thanks for your enquiry to Arty Monkeys."
+    val thankYouEnquiryLine2 = "We'll respond to your query as soon as possible."
+    val thankYouEnquiryLine3 = "Kind Regards,"
+    val thankYouEnquiryLine4 = "Yvonne & Kelley"
+    val thankYouEnquiryLine5 = "*** This is an automated message, please don't reply directly. Thanks! ***"
+
     val confirmationEmail = Email(
       "Confirmation Of Your Enquiry In Arty Monkeys",
       "No Reply Arty Monkeys <" + NO_REPLY_ARTY_MONKEYS + ">",
       Seq(name + " <" + email + ">"),
 
-      bodyText = Some("Thanks your enquiry to Arty Monkeys.\n\n\n" +
-        "We'll respond to your query as soon as possible.\n\n\n" +
-        "Kind Regards,\n\nYvonne & Kelley\n"
-        + "\n\n*** This is an automated message, please don't reply directly. Thanks! ***")
+      attachments = Seq(
+        AttachmentFile("artyMonkeysLogoCrop.jpg", new File(current.classloader.getResource("public/images/artyMonkeysLogoCrop.jpg").getPath))
+      ),
+
+      bodyText = Some(thankYouEnquiryLine1 + "\n\n\n" +
+        thankYouEnquiryLine2 + "\n\n\n" +
+        thankYouEnquiryLine3 + "\n\n" + "thankYouEnquiryLine4\n"
+        + "\n\n" + thankYouEnquiryLine5),
+
+      bodyHtml = Some(
+        """
+      <html>
+      <head>
+<style>
+body {
+  background-color: lightgray;
+}
+p {
+  color: purple;
+  font-weight: bold;
+}
+</style>
+</head>
+        <body bgcolor=”#ffffff”>
+        """ +
+          "<p>" + thankYouEnquiryLine1 + "</p>" +
+          "<p>" + thankYouEnquiryLine2 + "</p><br>" +
+          "<p>" + thankYouEnquiryLine3 + "</p>" +
+          "<p>" + thankYouEnquiryLine4 + "</p><br><br>" +
+          "<p>" + thankYouEnquiryLine5 + "</p>" +
+          "</body></html>"
+      )
     )
 
     try {

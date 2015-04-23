@@ -3,17 +3,18 @@
 # ~~~~
 
 # Home page
-GET         /                     controllers.Application.index
-GET         /index.html           controllers.Application.index
-GET         /about.html           controllers.Application.about
-GET         /classes.html         controllers.Application.classes
-GET         /contacts.html        controllers.Application.contacts
-GET         /skills.html          controllers.Application.skills
+GET         /                       controllers.Application.index
+GET         /index.html             controllers.Application.index
+GET         /about.html             controllers.Application.about
+GET         /classes.html           controllers.Application.classes
+GET         /contacts.html          controllers.Application.contacts
+GET         /skills.html            controllers.Application.skills
+GET         /monkeynews.html        controllers.Application.monkeynews
 
 # Map static resources from the /public folder to the /assets URL path
-GET         /assets/*file         controllers.Assets.at(path="/public", file)
+GET         /assets/*file           controllers.Assets.at(path="/public", file)
 
-POST        /                     controllers.Application.emailOfRegisteredInterest
-POST        /index.html           controllers.Application.emailOfRegisteredInterest
-POST        /contacts.html        controllers.Application.emailOfEnquiry
+POST        /                       controllers.Application.emailOfRegisteredInterest
+POST        /index.html             controllers.Application.emailOfRegisteredInterest
+POST        /contacts.html          controllers.Application.emailOfEnquiry
 

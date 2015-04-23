@@ -24,4 +24,8 @@ object Application extends Controller with EmailInterestRegistered with EmailEnq
     Ok(views.html.skills())
   }
 
+  def monkeynews = Action {
+    Ok(views.html.monkeynews())
+  }
+
 }

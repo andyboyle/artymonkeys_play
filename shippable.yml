@@ -20,3 +20,8 @@ notifications:
 
 archive: true
 
+env:
+  global:
+    - AWS_ACCESS_KEY_ID=AKIAJWRYGAJUINSOO4VQ
+    - secure: XftQ6fHwQhMMSkgm7Kw2Q1QdRXyf0+eyR/p3PAa5
+
