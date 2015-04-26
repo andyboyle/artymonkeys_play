@@ -1,12 +1,10 @@
 package controllers
 
-import java.io.File
-
-import org.apache.commons.mail.EmailAttachment
+import play.Play
 import play.api.Play.current
 import play.api.data.Form
 import play.api.data.Forms._
-import play.api.libs.mailer.{AttachmentData, AttachmentFile, Email, MailerPlugin}
+import play.api.libs.mailer.{AttachmentFile, Email, MailerPlugin}
 import play.api.mvc.{Action, Results}
 
 trait EmailInterestRegistered extends EmailSenderBase {
@@ -32,7 +30,6 @@ trait EmailInterestRegistered extends EmailSenderBase {
       bodyText = Some("Name : " + name + "\n" +
         "Phone: " + phone + "\n" +
         "Email: " + email + "\n")
-
     )
 
     try {
@@ -55,22 +52,22 @@ trait EmailInterestRegistered extends EmailSenderBase {
       Seq(name + " <" + email + ">"),
 
       attachments = Seq(
-        AttachmentFile("artyMonkeysLogoCrop.jpg", new File(current.classloader.getResource("public/images/artyMonkeysLogoCrop.jpg").getPath))
-      ),
+        AttachmentFile("artyMonkeysLogoCrop.jpg", Play.application().getFile("conf/artyMonkeysLogoCrop.jpg"))
+        ),
 
-      bodyText = Some(
-        thankYou1OpeningLine + "\n\n" +
-          thankYou2Body + "\n\n\n" +
-          thankYou3KindRegards + "\n\n" +
-          thankYou4ArtyMonkeys + "\n\n\n\n" +
-          thankYou5AutoMessage + "\n\n\n"
-      ),
+        bodyText = Some(
+          thankYou1OpeningLine + "\n\n" +
+            thankYou2Body + "\n\n\n" +
+            thankYou3KindRegards + "\n\n" +
+            thankYou4ArtyMonkeys + "\n\n\n\n" +
+            thankYou5AutoMessage + "\n\n\n"
+        ),
 
-      bodyHtml = Some( """
+        bodyHtml = Some( """
       <html>
       <head>
 <style>
-body {background-color: lightgray}
+body {background-color: gray}
 p {
   color: purple
   font-weight: bold;
@@ -78,20 +75,22 @@ p {
 </style>
 </head>
         <body bgcolor=”#ffffff”>
-                       """ +
-        "<p>" + thankYou1OpeningLine + "</p>" +
-        "<p>" + thankYou2Body + "</p><br>" +
-        "<p>" + thankYou3KindRegards + "</p>" +
-        "<p>" + thankYou4ArtyMonkeys + "</p><br><br>" +
-        "<p>" + thankYou5AutoMessage + "</p>" +
-        "</body></html>")
-    )
+                         """ +
+          "<p>" + thankYou1OpeningLine + "</p>" +
+          "<p>" + thankYou2Body + "</p><br>" +
+          "<p>" + thankYou3KindRegards + "</p>" +
+          "<p>" + thankYou4ArtyMonkeys + "</p><br><br>" +
+          "<p>" + thankYou5AutoMessage + "</p>" +
+          "</body></html>")
+      )
 
     try {
       MailerPlugin.send(confirmationEmail)
+      //      MailerPlugin.send(theemail)
     } catch {
       case ex: Exception =>
         println("oh2 oh2 : " + ex)
+        ex.printStackTrace()
         error = true
     }
 
