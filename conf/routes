@@ -14,8 +14,9 @@ GET         /monkeynews.html        controllers.Application.monkeynews
 # Map static resources from the /public folder to the /assets URL path
 GET         /assets/*file           controllers.Assets.at(path="/public", file)
 
-GET		/login						controllers.Application.login
-POST	/login 						controllers.Application.doLogin
+GET         /login                  controllers.Application.login
+POST        /login                  controllers.Application.doLogin
+GET         /logout                 controllers.Application.logout
 
 POST        /                       controllers.Application.emailOfRegisteredInterest
 POST        /index.html             controllers.Application.emailOfRegisteredInterest

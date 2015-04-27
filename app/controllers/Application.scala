@@ -5,14 +5,9 @@ import play.api.data.Form
 import play.api.data.Forms._
 import play.api.mvc._
 
-import scala.text
 
 object Application extends Controller
 with EmailInterestRegistered with EmailEnquiry with Secured {
-
-//  def index = IsAuthenticated { username => request =>
-//    Ok(views.html.index("You have been successfully authenticated"))
-//  }
 
   def index = Action {
     Ok(views.html.index("Your new application is ready."))
@@ -34,7 +29,10 @@ with EmailInterestRegistered with EmailEnquiry with Secured {
     Ok(views.html.skills())
   }
 
-  def monkeynews = IsAuthenticated { username => request =>
+  //  def monkeynews = IsAuthenticated { username => request =>
+  //    Ok(views.html.monkeynews())
+  //  }
+  def monkeynews = Action {
     Ok(views.html.monkeynews())
   }
 
@@ -42,7 +40,7 @@ with EmailInterestRegistered with EmailEnquiry with Secured {
     tuple(
       "user" -> text,
       "password" -> text
-    ) verifying ("Invalid user or password", result => result match {
+    ) verifying("Invalid user or password", result => result match {
       case (user, password) if user == "user" && password == "password" => true
       case _ => false
     })
@@ -50,20 +48,20 @@ with EmailInterestRegistered with EmailEnquiry with Secured {
 
   override def onUnauthorized(request: RequestHeader) = Results.Redirect(routes.Application.login())
 
-  def doLogin = Action { implicit request =>
+  def doLogin() = Action { implicit request =>
     Logger.info("Authenticating user")
     loginForm.bindFromRequest.fold(
       formWithErrors => BadRequest(views.html.login(formWithErrors, routes.Application.login)),
-      user => Redirect(routes.Application.index).withSession("user" -> user._1)
+      user => Redirect(routes.Application.index()).withSession("user" -> user._1)
     )
   }
 
   def login = Action { implicit request =>
-    Ok(views.html.login(loginForm, routes.Application.doLogin))
+    Ok(views.html.login(loginForm, routes.Application.doLogin()))
   }
 
   def logout = Action {
-    Redirect(routes.Application.login).withNewSession.flashing(
+    Redirect(routes.Application.index()).withNewSession.flashing(
       "success" -> "You've been logged out"
     )
   }
