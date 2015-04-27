@@ -1,41 +1,34 @@
 package controllers
 
-import play.api.Logger
-import play.api.data.Form
+import play.api._
 import play.api.data.Forms._
+import play.api.data._
 import play.api.mvc._
 
-import scala.text
 
-object Application extends Controller
-with EmailInterestRegistered with EmailEnquiry with Secured {
+trait Secured {
+  self: Controller =>
 
-//  def index = IsAuthenticated { username => request =>
-//    Ok(views.html.index("You have been successfully authenticated"))
-//  }
+  /**
+   * Retrieve the connected user id.
+   */
+  def username(request: RequestHeader) = request.session.get("user")
 
-  def index = Action {
-    Ok(views.html.index("Your new application is ready."))
-  }
+  /**
+   * Redirect to login if the use in not authorized.
+   */
+  def onUnauthorized(request: RequestHeader): Result
+
+  def IsAuthenticated(f: => String => Request[AnyContent] => Result) =
+    Security.Authenticated(username, onUnauthorized) { user =>
+      Action(request => f(user)(request))
+    }
+}
+
+object Application extends Controller with Secured {
 
   def about = Action {
     Ok(views.html.about())
-  }
-
-  def classes = Action {
-    Ok(views.html.classes())
-  }
-
-  def contacts = Action {
-    Ok(views.html.contacts())
-  }
-
-  def skills = Action {
-    Ok(views.html.skills())
-  }
-
-  def monkeynews = IsAuthenticated { username => request =>
-    Ok(views.html.monkeynews())
   }
 
   lazy val loginForm = Form(
@@ -48,7 +41,11 @@ with EmailInterestRegistered with EmailEnquiry with Secured {
     })
   )
 
-  override def onUnauthorized(request: RequestHeader) = Results.Redirect(routes.Application.login())
+  def onUnauthorized(request: RequestHeader) = Results.Redirect(routes.Application.login())
+
+  def index = IsAuthenticated { username => request =>
+    Ok(views.html.index("You have been successfully authenticated"))
+  }
 
   def doLogin = Action { implicit request =>
     Logger.info("Authenticating user")
