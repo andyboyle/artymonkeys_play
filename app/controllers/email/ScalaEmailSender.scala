@@ -1,10 +1,6 @@
-package controllers
+package controllers.email
 
-import java.util.Properties
-
-import play.api.mvc.{Action, Controller}
-import play.api.data._
-import play.api.data.Forms._
+import play.api.mvc.Controller
 
 object ScalaEmailSender extends Controller {
 //

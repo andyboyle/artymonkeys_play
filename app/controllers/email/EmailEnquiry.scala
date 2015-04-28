@@ -1,4 +1,4 @@
-package controllers
+package controllers.email
 
 import play.Play
 import play.api.Play.current

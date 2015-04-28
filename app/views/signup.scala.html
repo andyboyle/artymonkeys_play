@@ -1,0 +1,18 @@
+@(signupForm:Form[(String,String)], signupRoute:Call)(implicit flash:Flash)
+
+<h1>Please Sign Up</h1>
+
+@{signupForm.globalError.map { error =>
+    <span class="error">{error.message}</span>
+}}
+
+@flash.get("success").map { message =>
+    <span class="success">@message</span>
+}
+
+@helper.form(signupRoute) {
+    @helper.inputText(field = signupForm("email"), args = 'placeholder -> "Email", '_showConstraints -> false, '_label -> "")
+    @helper.inputPassword(field = signupForm("password"), args = 'placeholder -> "Password", '_showConstraints -> false, '_label -> "")
+    <button type="submit">Sign Up</button>
+}
+

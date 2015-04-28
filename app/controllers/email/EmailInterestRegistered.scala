@@ -1,5 +1,6 @@
-package controllers
+package controllers.email
 
+import controllers.dao._
 import play.Play
 import play.api.Play.current
 import play.api.data.Form
@@ -9,6 +10,8 @@ import play.api.mvc.{Action, Results}
 
 trait EmailInterestRegistered extends EmailSenderBase {
   this: Results =>
+
+  val customerDao = new CustomerDao
 
   val interestForm = Form(
     tuple(
@@ -21,6 +24,11 @@ trait EmailInterestRegistered extends EmailSenderBase {
   def emailOfRegisteredInterest = Action { implicit request =>
     var error = false
     val (name, phone, email) = interestForm.bindFromRequest.get
+
+    customerDao.addUser(
+      EmailWrapper(Some(email)),
+      NameWrapper(Some(name)),
+      PhoneWrapper(Some(phone)))
 
     val emailOfRegistrationInterestToInfoArtyMonkeys = Email(
       "Registration Of Interest",
@@ -53,40 +61,38 @@ trait EmailInterestRegistered extends EmailSenderBase {
 
       attachments = Seq(
         AttachmentFile("artyMonkeysLogoCrop.jpg", Play.application().getFile("conf/artyMonkeysLogoCrop.jpg"))
-        ),
+      ),
 
-        bodyText = Some(
-          thankYou1OpeningLine + "\n\n" +
-            thankYou2Body + "\n\n\n" +
-            thankYou3KindRegards + "\n\n" +
-            thankYou4ArtyMonkeys + "\n\n\n\n" +
-            thankYou5AutoMessage + "\n\n\n"
-        ),
+      bodyText = Some(
+        thankYou1OpeningLine + "\n\n" +
+          thankYou2Body + "\n\n\n" +
+          thankYou3KindRegards + "\n\n" +
+          thankYou4ArtyMonkeys + "\n\n\n\n" +
+          thankYou5AutoMessage + "\n\n\n"
+      ),
 
-        bodyHtml = Some( """
+      bodyHtml = Some( """
       <html>
       <head>
 <style>
 body {background-color: gray}
 p {
   color: purple
-  font-weight: bold;
 }
 </style>
 </head>
         <body bgcolor=”#ffffff”>
-                         """ +
-          "<p>" + thankYou1OpeningLine + "</p>" +
-          "<p>" + thankYou2Body + "</p><br>" +
-          "<p>" + thankYou3KindRegards + "</p>" +
-          "<p>" + thankYou4ArtyMonkeys + "</p><br><br>" +
-          "<p>" + thankYou5AutoMessage + "</p>" +
-          "</body></html>")
-      )
+                       """ +
+        "<p>" + thankYou1OpeningLine + "</p>" +
+        "<p>" + thankYou2Body + "</p><br>" +
+        "<p>" + thankYou3KindRegards + "</p>" +
+        "<p>" + thankYou4ArtyMonkeys + "</p><br><br>" +
+        "<p>" + thankYou5AutoMessage + "</p>" +
+        "</body></html>")
+    )
 
     try {
       MailerPlugin.send(confirmationEmail)
-      //      MailerPlugin.send(theemail)
     } catch {
       case ex: Exception =>
         println("oh2 oh2 : " + ex)
