@@ -1,6 +1,6 @@
 package controllers
 
-import controllers.dao.UsersDao
+import controllers.dao.{CustomerDao, UsersDao}
 import controllers.email.{EmailInterestRegistered, EmailEnquiry}
 import play.api.Logger
 import play.api.data.Form
@@ -12,6 +12,7 @@ object Application extends Controller
 with EmailInterestRegistered with EmailEnquiry with Secured {
 
   val usersDao = new UsersDao()
+  val customersDao = new CustomerDao()
 
   def index = Action {
     Ok(views.html.index("Your new application is ready."))
@@ -33,9 +34,6 @@ with EmailInterestRegistered with EmailEnquiry with Secured {
     Ok(views.html.skills())
   }
 
-  //  def monkeynews = IsAuthenticated { username => request =>
-  //    Ok(views.html.monkeynews())
-  //  }
   def monkeynews = Action {
     Ok(views.html.monkeynews())
   }
@@ -96,6 +94,11 @@ with EmailInterestRegistered with EmailEnquiry with Secured {
     Redirect(routes.Application.index()).withNewSession.flashing(
       "success" -> "You've been logged out"
     )
+  }
+
+  def customers = IsAuthenticated { username => request =>
+    val customers = customersDao.retrieveAllCustomers()
+    Ok(views.html.showCustomers(customers))
   }
 
 }

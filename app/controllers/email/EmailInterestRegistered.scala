@@ -11,8 +11,6 @@ import play.api.mvc.{Action, Results}
 trait EmailInterestRegistered extends EmailSenderBase {
   this: Results =>
 
-  val customerDao = new CustomerDao
-
   val interestForm = Form(
     tuple(
       "name" -> text,

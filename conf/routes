@@ -24,3 +24,4 @@ POST        /                       controllers.Application.emailOfRegisteredInt
 POST        /index.html             controllers.Application.emailOfRegisteredInterest
 POST        /contacts.html          controllers.Application.emailOfEnquiry
 
+GET         /customers.html         controllers.Application.customers

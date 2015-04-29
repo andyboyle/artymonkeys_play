@@ -1,5 +1,6 @@
 package controllers.email
 
+import controllers.dao.{CustomerDao, PhoneWrapper, NameWrapper, EmailWrapper}
 import play.Play
 import play.api.Play.current
 import play.api.data.Form
@@ -22,6 +23,11 @@ trait EmailEnquiry extends EmailSenderBase {
   def emailOfEnquiry = Action { implicit request =>
     var error = false
     val (name, phone, email, message) = enquiryForm.bindFromRequest.get
+
+    customerDao.addUser(
+      EmailWrapper(Some(email)),
+      NameWrapper(Some(name)),
+      PhoneWrapper(Some(phone)))
 
     val emailEnquiry = Email(
       "Enquiry To Arty Monkeys",

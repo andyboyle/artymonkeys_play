@@ -1,7 +1,7 @@
 package controllers.dao
 
-import com.mongodb.BasicDBObjectBuilder
 import com.mongodb.casbah.Imports._
+import controllers.model.Customer
 
 case class NameWrapper(name: Option[String])
 
@@ -10,24 +10,20 @@ case class EmailWrapper(email: Option[String])
 case class PhoneWrapper(phone: Option[String])
 
 class CustomerDao {
-  val mongoClient = MongoClient("localhost", 27017)
-  val artyMonkeysDatabase = mongoClient("artymonkeys")
-  private val customersCollection = artyMonkeysDatabase.getCollection("customers")
+
+  val customersCollection = MongoConnection()("artymonkeys")("customers")
 
   def addUser(email: EmailWrapper, name: NameWrapper, phone: PhoneWrapper): Boolean = {
-    val id =
-      email.email.getOrElse("NoEmail") + "_" +
-      name.name.getOrElse("NoName") + "_" +
-      phone.phone.getOrElse("NoPhone")
-
-    val customerDbObjBuilder = new BasicDBObjectBuilder()
-      .add("_id", id)
-      .add("name", name.name)
-      .add("phone", phone.phone)
-      .add("email", email.email)
+    val id = email.email.getOrElse("NoEmail")
 
     try {
-      customersCollection.insert(customerDbObjBuilder.get)
+      val customerObj = MongoDBObject(
+        "_id" -> id,
+        "name" -> name.name,
+        "phone" -> phone.phone,
+        "email" -> email.email
+      )
+      customersCollection += customerObj
       true
     }
     catch {
@@ -37,6 +33,19 @@ class CustomerDao {
         false
       }
     }
+  }
+
+  def retrieveAllCustomers(): Seq[Customer] = {
+    println("Retrieving customers now ...")
+    val customersCursor = customersCollection.find()
+    val allCustomers = for {customerObj <- customersCursor} yield {
+      println("the cust is : " + customerObj)
+      val customerName = NameWrapper(Some(customerObj.get("name").asInstanceOf[String]))
+      val customerEmail = EmailWrapper(Some(customerObj.get("email").asInstanceOf[String]))
+      val customerPhone = PhoneWrapper(Some(customerObj.get("phone").asInstanceOf[String]))
+      Customer(customerName, customerEmail, customerPhone)
+    }
+    allCustomers.toSeq
   }
 
 
