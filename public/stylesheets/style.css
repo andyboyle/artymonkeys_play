@@ -1055,7 +1055,7 @@ h4 {
         align-content: center;
         text-align: center;
         min-width: 0;
-        font-size: 0.9em;
+        font-size: 1.2em;
     }
 
     .classes_table td {
@@ -1063,7 +1063,7 @@ h4 {
         font-weight: bold;
         background: white;
         color: purple;
-        font-size: 0.8em;
+        font-size: 1em;
         padding: 0.3em 0.6em;
     }
 
@@ -1139,6 +1139,16 @@ h4 {
 
     .monkeynews {
         display: inline-block;
+        width: 97%;
+    }
+
+    #venuesarticle {
+        margin: 2em 2em 0 0;
+        width: 97%;
+    }
+
+    #pricingarticle {
+        margin: 2em 0 0 0;
         width: 97%;
     }
 
