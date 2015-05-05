@@ -1,11 +1,11 @@
 package controllers
 
+import play.Play
 import play.api.Play.current
 import play.api.data.Form
 import play.api.data.Forms._
 import play.api.libs.mailer._
 import play.api.mvc.{Action, Results}
-import java.io.File
 
 trait EmailEnquiry extends EmailSenderBase {
   this: Results =>
@@ -55,7 +55,7 @@ trait EmailEnquiry extends EmailSenderBase {
       Seq(name + " <" + email + ">"),
 
       attachments = Seq(
-        AttachmentFile("artyMonkeysLogoCrop.jpg", new File(current.classloader.getResource("public/images/artyMonkeysLogoCrop.jpg").getPath))
+        AttachmentFile("artyMonkeysLogoCrop.jpg", Play.application().getFile("conf/artyMonkeysLogoCrop.jpg"))
       ),
 
       bodyText = Some(thankYouEnquiryLine1 + "\n\n\n" +
