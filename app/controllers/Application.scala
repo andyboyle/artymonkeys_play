@@ -36,7 +36,6 @@ object Application extends Controller with EmailInterestRegistered with EmailEnq
 
 object SecureAction extends ActionBuilder[Request] {
   def invokeBlock[A](request: Request[A], block: (Request[A]) => Future[Result]) = {
-    Logger.debug("Calling Secure Action")
     val secureRequest = new SecureRequest[A](request)
     val httpsPortVal = System.getProperty("https.port")
     val httpsPort = if (httpsPortVal != null) httpsPortVal else "443"
