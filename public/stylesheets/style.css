@@ -43,6 +43,12 @@ html {
     url('../fonts/Purisa.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Cabin Sketch';
+    src: local('Cabin Sketch'),
+    url('../fonts/CabinSketch-Bold.ttf') format('truetype');
+}
+
 .menu_trigger {
     display: none;
 }
@@ -88,8 +94,8 @@ a {
 
 .current {
     text-decoration: underline;
-    -moz-text-decoration-color: red;
-    text-decoration-color: red;
+    -moz-text-decoration-color: white;
+    text-decoration-color: white;
 }
 
 a:hover {
