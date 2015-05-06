@@ -43,6 +43,12 @@ html {
     url('../fonts/Purisa.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Cabin Sketch';
+    src: local('Cabin Sketch'),
+    url('../fonts/CabinSketch-Bold.ttf') format('truetype');
+}
+
 .menu_trigger {
     display: none;
 }
@@ -70,7 +76,7 @@ body {
     font-size: 0.9em;
     line-height: 1.5em;
     font-family: Purisa, "Times New Roman", Times, serif;
-    color: #bf8b37;
+    color: brown;
 }
 
 #main_header {
@@ -86,14 +92,20 @@ a {
     cursor: pointer;
 }
 
+.current {
+    text-decoration: underline;
+    -moz-text-decoration-color: white;
+    text-decoration-color: white;
+}
+
 a:hover {
     text-decoration: none;
 }
 
 #main_menu {
     padding: 0.1em 0;
-    margin: 4em 0 0 0;
-    vertical-align: top;
+    margin: 0.2em 0 2em 0;
+    /*vertical-align: top;*/
 
     display: inline-block;
     background: white;
@@ -155,7 +167,7 @@ form {
 }
 
 #wrapper_skills {
-    width: 80%;
+    width: 850px;
     margin: auto;
     text-align: left;
 }
@@ -181,7 +193,7 @@ article {
     text-align: left;
     vertical-align: top;
     display: inline-block;
-    background: #FFFBCC;
+    background: #dabb33;
     padding: 1em;
     margin: 2em;
     width: 40%;
@@ -189,7 +201,7 @@ article {
 }
 
 time {
-    color: #999999;
+    color: #555555;
 }
 
 p {
@@ -204,7 +216,7 @@ dl {
 
 h1 {
     font-size: 1.2em;
-    color: red;
+    color: blue;
     font-weight: bold;
     letter-spacing: -1px;
 }
@@ -218,25 +230,31 @@ h2 {
 
 h3 {
     font-size: 2em;
-    color: red;
+    color: blue;
     font-family: 'Cabin Sketch', serif;
     margin: 0 0 1em 0;
 }
 
-.registerinterestcontainer {
-    display: block;
-    margin: 0.3em 0.5em 1.2em 0.5em;
+h4 {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: purple;
 }
 
-.artymonkeys_blurb {
+.registerinterestcontainer {
+    display: block;
+    margin: 1.3em 0.5em 1.2em 0.5em;
+}
+
+#artymonkeys_blurb {
     display: block;
     color: #3e0ded;
     text-shadow: 1px 1px 1px #e78787;
     text-align: center;
     font-size: 1.2em;
     line-height: 1.8em;
-    vertical-align: top;
-    margin: 0 2em;
+    /*vertical-align: top;*/
+    margin: 0;
 }
 
 #briarlands_icon {
@@ -256,25 +274,39 @@ h3 {
 #newclasses {
 }
 
+#classesstarting {
+    color: red;
+}
+
+#venuesarticle {
+    margin: 2em 2em 0 0;
+    width: 30%;
+}
+
+#pricingarticle {
+    margin: 2em 0 0 0;
+    width: 65%;
+}
+
 .boxoffer {
     margin: 0.5em;
-    border: solid 1px darkred;
+    border: solid 1px red;
 }
 
 .offer {
     font-size: 0.8em;
-    color: darkred;
+    color: red;
     text-align: left;
     margin: 0.5em 0;
     width: 85%;
 }
 
-.artymonkeys_blurb_sub {
+#artymonkeys_blurb_sub {
     display: inline-block;
-    color: red;
+    color: yellow;
     text-shadow: 1px 1px 1px brown;
     text-align: center;
-    font-size: 1.2em;
+    font-size: 1.8em;
     font-style: italic;
     line-height: 1.2em;
     vertical-align: top;
@@ -413,12 +445,30 @@ h3 {
 #blurb_and_email_sender {
     vertical-align: top;
     display: inline-block;
-    width: 50%;
+    width: 55%;
     margin: 0.5em 0 0 0;
 }
 
 .inlineblocked {
     display: inline-block;
+}
+
+.blocked {
+    display: block;
+}
+
+.monkeytime {
+    margin-bottom: 0.7em;
+    display: block;
+}
+
+.monkeynews {
+    display: inline-block;
+    width: 60%;
+}
+
+.monkeyh3 {
+    margin-bottom: 0.3em;
 }
 
 .centered {
@@ -459,13 +509,12 @@ h3 {
     color: orange;
 }
 
-
 .clr-contact {
     color: red;
 }
 
 .clr-yvonne {
-    color: chocolate;
+    color: purple;
 }
 
 .clr-kelley {
@@ -546,6 +595,56 @@ h3 {
     padding: 5px 10px 5px 10px;
 }
 
+.classes_table table {
+    border-collapse: collapse;
+    box-shadow: 1em 1em 1em darkblue;
+    border-radius: 10px;
+}
+
+.classes_table ul {
+    list-style-type: none;
+    margin: 0.2em 0;
+}
+
+.classes_table li {
+    margin: 0.7em 0;
+}
+
+.classes_table table, th, td {
+    border: 1px solid darkblue;
+}
+
+.classes_table th {
+    padding: 0.2em 0;
+    background-color: lightblue;
+    color: darkblue;
+    align-content: center;
+    text-align: center;
+    font-size: 1.3em;
+}
+
+.classes_table td {
+    text-align: left;
+    font-weight: bold;
+    background: #d3d4ff;
+    color: purple;
+    font-size: 1em;
+    padding: 0.5em;
+}
+
+.latestnewstime {
+    color: #140676;
+}
+
+.latestnews {
+    color: #991122;
+}
+
+.othervenuessoon {
+    text-align: center;
+    color: red;
+}
+
 @media screen and (max-width: 1100px) {
 
     #artymonkeys_logo {
@@ -589,9 +688,9 @@ h3 {
         margin-bottom: 0;
     }
 
-    .artymonkeys_blurb {
-        display: inline-block;
-        max-width: 50%;
+    #artymonkeys_blurb {
+        display: block;
+        max-width: 30%;
         font-size: 1.3em;
         line-height: 1.7em;
         vertical-align: top;
@@ -679,7 +778,7 @@ h3 {
         font-size: 0.7em;
     }
 
-    .artymonkeys_blurb {
+    #artymonkeys_blurb {
         text-align: center;
         display: inline-block;
         font-size: 1em;
@@ -860,13 +959,14 @@ h3 {
         margin-bottom: 0.5em;
     }
 
-    .artymonkeys_blurb {
-        text-align: center;
-        display: block;
-        width: 100%;
-        max-width: 100%;
-        font-size: 1.2em;
-        padding: 0.4em;
+    #artymonkeys_blurb {
+        display: none;
+        /*text-align: center;*/
+        /*display: block;*/
+        /*width: 100%;*/
+        /*max-width: 100%;*/
+        /*font-size: 1.2em;*/
+        /*padding: 0.4em;*/
     }
 
     article {
@@ -932,6 +1032,44 @@ h3 {
         background: lightslategrey;
         color: yellow;
         font-size: 0.8em;
+        padding: 0.3em 0.6em;
+    }
+
+    .classes_table table {
+        border-collapse: inherit;
+        box-shadow: 0 0 0 green;
+        border-radius: 4px;
+    }
+
+    .classes_table ul {
+        list-style-type: none;
+        margin: 0.1em auto;
+    }
+
+    .classes_table li {
+        margin: 1em 0;
+    }
+
+    .classes_table table, th, td {
+        border: 1px solid forestgreen;
+    }
+
+    .classes_table th {
+        padding: 1em 0;
+        background-color: forestgreen;
+        color: coral;
+        align-content: center;
+        text-align: center;
+        min-width: 0;
+        font-size: 1.2em;
+    }
+
+    .classes_table td {
+        text-align: left;
+        font-weight: bold;
+        background: white;
+        color: purple;
+        font-size: 1em;
         padding: 0.3em 0.6em;
     }
 
@@ -1004,4 +1142,20 @@ h3 {
         text-align: justify;
         padding: 0.75em 0;
     }
+
+    .monkeynews {
+        display: inline-block;
+        width: 97%;
+    }
+
+    #venuesarticle {
+        margin: 2em 0 0 0;
+        width: 97%;
+    }
+
+    #pricingarticle {
+        margin: 2em 0 0 0;
+        width: 97%;
+    }
+
 }

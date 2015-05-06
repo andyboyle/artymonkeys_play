@@ -5,8 +5,10 @@ import controllers.email.{EmailInterestRegistered, EmailEnquiry}
 import play.api.Logger
 import play.api.data.Form
 import play.api.data.Forms._
+import play.api.libs.concurrent.Execution.Implicits._
 import play.api.mvc._
-import com.mongodb.casbah.Imports._
+
+import scala.concurrent.Future
 
 object Application extends Controller
 with EmailInterestRegistered with EmailEnquiry with Secured {
@@ -14,27 +16,27 @@ with EmailInterestRegistered with EmailEnquiry with Secured {
   val usersDao = new UsersDao()
   val customersDao = new CustomerDao()
 
-  def index = Action {
+  def index = SecureAction {
     Ok(views.html.index("Your new application is ready."))
   }
 
-  def about = Action {
+  def about = SecureAction {
     Ok(views.html.about())
   }
 
-  def classes = Action {
+  def classes = SecureAction {
     Ok(views.html.classes())
   }
 
-  def contacts = Action {
+  def contacts = SecureAction {
     Ok(views.html.contacts())
   }
 
-  def skills = Action {
+  def skills = SecureAction {
     Ok(views.html.skills())
   }
 
-  def monkeynews = Action {
+  def monkeynews = SecureAction {
     Ok(views.html.monkeynews())
   }
 
@@ -102,3 +104,21 @@ with EmailInterestRegistered with EmailEnquiry with Secured {
   }
 
 }
+
+object SecureAction extends ActionBuilder[Request] {
+  def invokeBlock[A](request: Request[A], block: (Request[A]) => Future[Result]) = {
+    val secureRequest = new SecureRequest[A](request)
+    val httpsPortVal = System.getProperty("https.port")
+    val httpsPort = if (httpsPortVal != null) httpsPortVal else "443"
+    if ( request.secure ) {
+      block(secureRequest)
+    } else {
+      Future(Results.Redirect(s"https://${request.domain}:" + httpsPort + s"${request.uri}"))
+    }
+  }
+}
+
+class SecureRequest[A](request: Request[A]) extends WrappedRequest[A](request) {
+  override def secure = true
+}
+

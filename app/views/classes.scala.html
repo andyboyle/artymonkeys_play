@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Arty Monkeys - Schedule</title>
+        <title>Arty Monkeys - Schedule and Pricing</title>
         <meta charset="utf-8">
         <meta name="description" content="Art and Language Classes for children in the Stirling and Falkirk area">
-        <meta name="keywords" content="Art,Monkey,Kids,Toddler,Classes,Paint,Craft,Stirling,Falkirk">
+        <meta name="keywords" content="Art,Monkey,Kids,Toddler,Classes,Paint,Craft,Stirling,Falkirk,Central Scotland">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel='shortcut icon' href="@routes.Assets.at("images/monkeyFace.jpg")" type='image/x-icon'/>
         <link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.at("stylesheets/style.css")">
         <link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.at("stylesheets/slider.css")">
-        <link href='http://fonts.googleapis.com/css?family=Cabin+Sketch:400,700' rel='stylesheet' type='text/css'>
         <script src="@routes.Assets.at("javascripts/jquery-1.7.min.js")"></script>
         <script src="@routes.Assets.at("javascripts/jquery.easing.1.3.js")"></script>
         <script src="@routes.Assets.at("javascripts/tms-0.4.1.js")"></script>
@@ -52,21 +51,78 @@
                     <img id="menu_icon" src="@routes.Assets.at("images/menuIcon.png")">
                 </span>
 
-                <nav id="main_menu" class="inlineblocked">
-                    <ul>
-                        <li><a href="index.html" class="clr-home">Home</a></li>
-                        <li><a href="about.html" class="clr-about">About Us</a></li>
-                        <li><a href="skills.html" class="clr-skills">Skills</a></li>
-                        <li class="current"><a href="classes.html" class="clr-classes">Classes</a></li>
-                        <li><a href="monkeynews.html" class="clr-monkeynews">Monkey News</a></li>
-                        <li><a href="contacts.html" class="clr-contact">Contact Us</a></li>
-                    </ul>
-                </nav>
+                <div class="inlineblocked">
+                    <nav id="main_menu">
+                        <ul>
+                            <li><a href="index.html" class="clr-home">Home</a></li>
+                            <li><a href="about.html" class="clr-about">About Us</a></li>
+                            <li><a href="skills.html" class="clr-skills">Skills</a></li>
+                            <li class="current"><a href="classes.html" class="clr-classes">Classes</a></li>
+                            <li><a href="monkeynews.html" class="clr-monkeynews">Monkey News</a></li>
+                            <li><a href="contacts.html" class="clr-contact">Contact Us</a></li>
+                        </ul>
+                    </nav>
+                    <p id="artymonkeys_blurb">Encouraging creativity & imagination through fun arts and crafts classes</p>
+                </div>
+
             </div>
         </header>
-        <div id="wrapper">
+        <div id="wrapper_skills">
             <section id="main_section" class="classes_top_margin">
-                <article>
+                <table class="classes_table">
+                    <tr>
+                        <th>Venue</th>
+                        <th>Day</th>
+                        <th>Time</th>
+                        <th>Ages</th>
+                        <th>Class Dates<br>Block 1</th>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">Briarlands Farm<br>Blairdrummond, Stirling
+                            <a id="briarlands_icon" href="http://briarlandsfarm.co.uk/">
+                                <img src="@routes.Assets.at("images/briarlands.jpg")"/></a>
+                        </td>
+                        <td>Thursdays</td>
+                        <td>10:15 - 11:00</td>
+                        <td>18 months - 5 years</td>
+                        <td rowspan="2">
+                            <ul>
+                                <li>28th May</li>
+                                <li>4th June</li>
+                                <li>11th June</li>
+                                <li>18th June</li>
+                                <li>25th June</li>
+                                <li>2nd July</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Thursdays</td>
+                        <td>11:30 - 12:15</td>
+                        <td>18 months - 5 years</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="othervenuessoon">Other venues and days coming soon!</td>
+                    </tr>
+                </table>
+
+                <article id="pricingarticle">
+                    <h3 class="top-6 p6 clr-4">Pricing</h3>
+                    <h4>What does the price include?</h4>
+                    <p>Our aim is to provide our arty monkeys with as many different art and craft
+                        experiences as possible, using a wide range of materials. We will supply waterproof aprons
+                        to protect their clothing and all our products are child friendly.
+                    </p>
+                    <p>Every week your child will take home their masterpieces!</p>
+                    <br>
+                    <h4>* £6 per class</h4>
+                    <br>
+                    <h4>* Special Offer for block bookings: £30 for 6 classes</h4>
+                    <br>
+
+                </article>
+
+                <article id="venuesarticle">
 
                     <h3>Our Venues</h3>
 
@@ -74,41 +130,11 @@
                         starting on Thursday 28th May.
                     </p>
 
-                    <div id="briarlands_icon"><a href="http://briarlandsfarm.co.uk/">
-                        <img src="@routes.Assets.at("images/briarlands.jpg")"/></a>
-                    </div>
-
                     <br>
 
                     <p class="p7">We are currently in discussions with other venues.</p>
-                        <!--
-            <h3 class="top-4 p6">Briarlands Farm</h3>
-            <p class="p7">Some things about this venue<br>And for futher info here is <a href="#" class="link">more...</a>
-            </p>
-            <br>
-            <h3 class="top-4 p6">Some Place In Dunblane</h3>
-            <p class="p7">Some things about this venue<br>And for futher info here is <a href="#" class="link">more...</a>
-            </p>
-            <br>
-            <h3 class="top-4 p6">Killearn Coffee Shop</h3>
-            <p class="p7">Some things about this venue<br>And for futher info here is <a href="#" class="link">more...</a>
-            </p>
-            <br>
-            <h3 class="top-4 p6">Another Locations</h3>
-            <p class="p7">Some things about this venue<br>And for futher info here is <a href="#" class="link">more...</a>
-            </p>
-            -->
                 </article>
 
-                <article>
-                    <h3 class="top-6 p6 clr-4">Our Classes</h3>
-
-                    <p class="p7">You and your little monkey(s) will have 45 minutes creative fun together.
-                        We guarantee that no two classes will be the same.</p>
-                    <br>
-                    <p>Best of all ... you get to take home whatever you create to show off to other loved ones!
-                    </p>
-                </article>
             </section>
         </div>
 
