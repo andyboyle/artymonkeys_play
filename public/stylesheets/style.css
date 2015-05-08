@@ -167,9 +167,19 @@ form {
 }
 
 #wrapper_skills {
-    width: 850px;
+    width: 66%;
     margin: auto;
-    text-align: left;
+    text-align: center;
+}
+
+.onebooked {
+    padding: 0.3em;
+    border-radius: 10px;
+    font-size: 0.95em;
+    display: inline;
+    color: red;
+    font-weight: bold;
+    background: aliceblue;
 }
 
 #main_section {
@@ -193,7 +203,8 @@ article {
     text-align: left;
     vertical-align: top;
     display: inline-block;
-    background: #dabb33;
+    /*background: #dabb33;*/
+    background: #E9E0E0;
     padding: 1em;
     margin: 2em;
     width: 40%;
@@ -243,7 +254,7 @@ h4 {
 
 .registerinterestcontainer {
     display: block;
-    margin: 1.3em 0.5em 1.2em 0.5em;
+    margin: 1.5em 0.5em 0 0.5em;
 }
 
 #artymonkeys_blurb {
@@ -258,7 +269,7 @@ h4 {
 }
 
 #briarlands_icon {
-    margin: 1em;
+    margin: 2em 1em 1em 1em;
     display: inline-block;
     border: 1px solid #991122;
     box-shadow: 5px 5px 5px #991122;
@@ -278,6 +289,10 @@ h4 {
     color: red;
 }
 
+#classesstartingsub {
+    margin-bottom: 0.5em;
+}
+
 #venuesarticle {
     margin: 2em 2em 0 0;
     width: 30%;
@@ -290,12 +305,12 @@ h4 {
 
 .boxoffer {
     margin: 0.5em;
-    border: solid 1px red;
+    border: solid 1px darkred;
 }
 
 .offer {
     font-size: 0.8em;
-    color: red;
+    color: darkred;
     text-align: left;
     margin: 0.5em 0;
     width: 85%;
@@ -310,9 +325,24 @@ h4 {
     font-style: italic;
     line-height: 1.2em;
     vertical-align: top;
-    margin: 0.9em 1em 0 0;
+    margin: 0 1em 0 0;
     width: 70%;
 }
+
+#classes_full {
+    display: inline-block;
+    color: #f33;
+    text-shadow: 1px 1px 1px #124;
+    text-align: center;
+    font-size: 0.7em;
+    font-style: oblique;
+    line-height: 1.4em;
+    vertical-align: top;
+    margin: 0;
+    width: 95%;
+}
+
+
 
 #news_article {
     display: inline-block;
@@ -368,13 +398,21 @@ h4 {
     -webkit-transform: translate(0, -8px);
 }
 
+#sociallinks {
+    margin-top: 2em;
+    float: left;
+}
+
 #facebook_icon {
-    margin-left: 0.2em;
+    display: block;
+    margin: 0 0.7em 0.7em 0.7em ;
 }
 
 #twitter_icon {
-    margin-left: 3em;
+    display: block;
+    margin: 0.7em 0 0 1em;
 }
+
 
 .inputtextbox {
     float: left;
@@ -630,14 +668,15 @@ h4 {
     color: purple;
     font-size: 1em;
     padding: 0.5em;
+    white-space: nowrap;
 }
 
 .latestnewstime {
-    color: #140676;
+    color: #1406df;
 }
 
 .latestnews {
-    color: #991122;
+    color: red;
 }
 
 .othervenuessoon {
@@ -1121,6 +1160,20 @@ h4 {
         border-radius: 4px;
         cursor: pointer;
     }
+
+    #sociallinks {
+        margin-top: 0;
+        float: none;
+    }
+
+    #facebook_icon {
+        margin: 0;
+    }
+
+    #twitter_icon {
+        margin: 0;
+    }
+
 
     #facebook_icon {
         display: inline-block;
