@@ -77,31 +77,42 @@
                 <div id="blurb_and_email_sender">
 
                     <div id="newclasses">
-                        <div id="artymonkeys_blurb_sub"><p>Classes starting on Thursday 28th May at Briarlands Farm
-                        </p>
-                        </div>
+                        <div id="artymonkeys_blurb_sub">
+                            <div id="classesstartingsub" >Classes starting on Thursday 28th May at Briarlands Farm</div>
 
+                            <p id="classes_full">
+                                10:15am class on Thursday 28th May is now full!
+                            </p>
+                            <p id="classes_full">See <a href="classes.html">available
+                                classes</a>
+                            </p>
+                        </div>
                         <div id="briarlands_icon"><a href="http://briarlandsfarm.co.uk/">
                             <img src="@routes.Assets.at("images/briarlands.jpg")"/></a>
                         </div>
 
                     </div>
 
-                    <form method="post" class="registerinterestcontainer">
-                        <div class="inlineblocked">
-                            <input class="inputemailtextbox_first" placeholder="Your Name" type="text" name="name" required>
-                            <input class="inputemailtextbox" placeholder="Best Phone Number" type="tel" name="phone" required>
-                            <input class="inputemailtextbox_last" placeholder="Enter Your Best Email" type="email" name="email" required>
-                        </div>
-                        <div class="inlineblocked">
-                            <input class="registerinterestbutton" type="submit" value="Register Interest">
-                        </div>
-                    </form>
+                    <div id="sociallinks">
+                        <a href="https://www.facebook.com/artymonkeys.uk"><img id="facebook_icon"
+                        src="@routes.Assets.at("images/facebook.jpg")"/></a>
+                        <a href="https://twitter.com/arty_monkeys">
+                            <img id="twitter_icon" src="@routes.Assets.at("images/twitter.png")"/></a>
+                    </div>
 
-                    <a href="https://www.facebook.com/artymonkeys.uk"><img id="facebook_icon"
-                    src="@routes.Assets.at("images/facebook.jpg")"/></a>
-                    <a href="https://twitter.com/arty_monkeys">
-                        <img id="twitter_icon" src="@routes.Assets.at("images/twitter.png")"/></a>
+                    <div class="inlineblocked">
+                        <form method="post" class="registerinterestcontainer">
+                            <div class="inlineblocked">
+                                <input class="inputemailtextbox_first" placeholder="Your Name" type="text" name="name">
+                                <input class="inputemailtextbox" placeholder="Best Phone Number" type="tel" name="phone">
+                                <input class="inputemailtextbox_last" placeholder="Enter Your Best Email" type="email" name="email">
+                            </div>
+                            <div class="inlineblocked">
+                                <input class="registerinterestbutton" type="submit" value="Register Interest">
+                            </div>
+                        </form>
+                    </div>
+
                 </div>
 
                 <div class="sliderbk">
@@ -119,9 +130,18 @@
                 <article id="news_article">
                     <h3>News</h3>
 
-                    <time datetime="Thursday 29th April 2015" class="latestnewstime" pubdate>
-                        posted Thursday 29th April 2015</time>
+                    <time datetime="Friday 8th May 2015" class="latestnewstime" pubdate>
+                        posted Friday 8th May 2015</time>
                     <div class="latestnews">
+                        <p>The 10:15-11:00am class at Briarlands Farm on 28th of May is now full!</p>
+                        <p>Spaces are still available for the 11:30-12:15 class</p>
+                        <p>Register your interest NOW!</p>
+                    </div>
+                    <br>
+
+                    <time datetime="Thursday 29th April 2015" pubdate>
+                        posted Thursday 29th April 2015</time>
+                    <div>
                         <p>Spaces are filling up fast for our classes at Briarlands Farm!</p>
                         <p>All our classes are suitable for ages 18 months to 5 years ... come and join the fun!</p>
                         <p>Just register your interest NOW!</p>
@@ -160,7 +180,7 @@
                     <p>Through exploring different materials such as paint, clay,
                         sponges, rollers and textured papers we will help develop your child's cognitive, social and
                         language skills.</p>
-                        <br>
+                    <br>
                     <p>Our weekly classes are all based on popular stories or nursery rhymes which gives
                         children a context
                         for their ideas and creativity.
