@@ -252,6 +252,10 @@ h4 {
     color: purple;
 }
 
+#navbar {
+    float: right;
+}
+
 .registerinterestcontainer {
     display: block;
     margin: 1.5em 0.5em 0 0.5em;
@@ -1074,43 +1078,83 @@ h4 {
         padding: 0.3em 0.6em;
     }
 
+
     .classes_table table {
-        border-collapse: inherit;
-        box-shadow: 0 0 0 green;
-        border-radius: 4px;
+        border-collapse: collapse;
+        box-shadow: none;
+        border-radius: 0;
     }
 
     .classes_table ul {
         list-style-type: none;
-        margin: 0.1em auto;
+        margin: 0 0;
     }
 
     .classes_table li {
-        margin: 1em 0;
+        margin: 0;
     }
 
     .classes_table table, th, td {
-        border: 1px solid forestgreen;
+        border: 1px solid darkblue;
     }
 
     .classes_table th {
-        padding: 1em 0;
-        background-color: forestgreen;
-        color: coral;
+        padding: 0 0;
+        background-color: lightblue;
+        color: darkblue;
         align-content: center;
         text-align: center;
-        min-width: 0;
-        font-size: 1.2em;
+        font-size: 1em;
     }
 
     .classes_table td {
         text-align: left;
         font-weight: bold;
-        background: white;
+        background: #d3d4ff;
         color: purple;
         font-size: 1em;
-        padding: 0.3em 0.6em;
+        padding: 0;
+        white-space: pre-wrap;
     }
+
+
+    /* Remove Table */
+    /*.classes_table table, th, td {*/
+        /*display: none;*/
+    /*}*/
+
+    /*.classes_table th {*/
+        /*display: none;*/
+    /*}*/
+
+    /*.classes_table td {*/
+        /*display: none;*/
+    /*}*/
+
+    /*.classes_table table {*/
+        /*display: none;*/
+    /*}*/
+
+    /*.classes_table ul {*/
+        /*display: none;*/
+    /*}*/
+
+    /*.classes_table li {*/
+        /*display: none;*/
+    /*}*/
+
+    /*.classes_table table, th, td {*/
+        /*display: none;*/
+    /*}*/
+
+    /*.classes_table th {*/
+        /*display: none;*/
+    /*}*/
+
+    /*.classes_table td {*/
+        /*display: none;*/
+    /*}*/
+
 
     #contactus {
         max-width: 97%;
@@ -1211,4 +1255,7 @@ h4 {
         width: 97%;
     }
 
+    #briarlands_icon {
+        display: none;
+    }
 }

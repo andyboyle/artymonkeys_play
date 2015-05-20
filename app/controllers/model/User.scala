@@ -1,8 +1,5 @@
 package controllers.model
 
-/**
- * Created by andy on 19/05/15.
- */
-class User {
+import controllers.dao.EmailWrapper
 
-}
+case class User(id: String, email: EmailWrapper)

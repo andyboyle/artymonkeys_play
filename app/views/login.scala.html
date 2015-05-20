@@ -1,20 +1,20 @@
-@(loginForm:Form[(String,String)], loginRoute:Call)(implicit flash:Flash)
+<!DOCTYPE html>
+<html lang="en">
+    <head>
 
-<h1>Please log in</h1>
-
-<p>Use "user" and "password" (minus the quotes)</p>
-
-@{loginForm.globalError.map { error =>
-    <span class="error">{error.message}</span>
-}}
-
-@flash.get("success").map { message =>
-    <span class="success">@message</span>
-}
-
-@helper.form(loginRoute) {
-    @helper.inputText(field = loginForm("user"), args = 'placeholder -> "User", '_showConstraints -> false, '_label -> "")
-    @helper.inputPassword(field = loginForm("password"), args = 'placeholder -> "Password", '_showConstraints -> false, '_label -> "")
-    <button type="submit">Login</button>
-}
-
+        <script type="text/javascript" src="//www.gstatic.com/authtoolkit/js/gitkit.js"></script>
+        <link type=text/css rel=stylesheet href="//www.gstatic.com/authtoolkit/css/gitkit.css" />
+        <script type=text/javascript>
+  window.google.identitytoolkit.signInButton(
+    '#navbar', // accepts any CSS selector
+    {
+      widgetUrl: "oauth2callback",
+      signOutUrl: "logoutsuccess.html",
+    }
+  );
+        </script>
+    </head>
+    <body>
+        <div id="navbar"></div>
+    </body>
+</html>

@@ -1,6 +1,6 @@
 name := "artymonkeys_play"
 
-version := "1.0-SNAPSHOT"
+version := "1.1-SNAPSHOT"
 
 lazy val `artymonkeys_play` = (project in file(".")).enablePlugins(PlayScala)
 
@@ -10,7 +10,9 @@ libraryDependencies ++= Seq(jdbc, anorm, cache, ws,
   "javax.mail" % "mail" % "1.4.1",
   "com.typesafe.play" % "play-mailer_2.11" % "2.4.0",
   "org.mongodb" %% "casbah" % "2.8.1",
-  "be.objectify" %% "deadbolt-scala" % "2.3.3"
+  "be.objectify" %% "deadbolt-scala" % "2.3.3",
+  "io.jsonwebtoken" % "jjwt" % "0.5",
+  "com.google.guava" % "guava" % "18.0"
 )
 
 unmanagedResourceDirectories in Test <+= baseDirectory(_ / "target/web/public/test")

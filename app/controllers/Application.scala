@@ -1,124 +1,87 @@
 package controllers
 
-import controllers.dao.{CustomerDao, UsersDao}
-import controllers.email.{EmailInterestRegistered, EmailEnquiry}
-import play.api.Logger
-import play.api.data.Form
-import play.api.data.Forms._
-import play.api.libs.concurrent.Execution.Implicits._
+import controllers.dao.{CustomerDao, UserDao}
+import controllers.email.{EmailEnquiry, EmailInterestRegistered}
 import play.api.mvc._
-
-import scala.concurrent.Future
 
 object Application extends Controller
 with EmailInterestRegistered with EmailEnquiry with Secured {
 
-  val usersDao = new UsersDao()
+  val usersDao = new UserDao()
   val customersDao = new CustomerDao()
 
-  def index = SecureAction {
+  def index = SecureAction { request =>
+    println("Index Success: " + request.cookies.get("gtoken"))
     Ok(views.html.index("Your new application is ready."))
   }
 
-  def about = SecureAction {
+  def about = SecureAction { request =>
+    println("About Success: " + request.cookies.get("gtoken"))
     Ok(views.html.about())
   }
 
-  def classes = SecureAction {
+  def classes = SecureAction { request =>
+    println("Classes Success: " + request.cookies.get("gtoken"))
     Ok(views.html.classes())
   }
 
-  def contacts = SecureAction {
+  def contacts = SecureAction { request =>
+    println("Contacts Success: " + request.cookies.get("gtoken"))
     Ok(views.html.contacts())
   }
 
-  def skills = SecureAction {
+  def skills = SecureAction { request =>
+    println("Skills Success: " + request.cookies.get("gtoken"))
     Ok(views.html.skills())
   }
 
-  def monkeynews = SecureAction {
+  def monkeynews = SecureAction { request =>
+    println("Monkey News Success: " + request.cookies.get("gtoken"))
     Ok(views.html.monkeynews())
   }
 
-  lazy val loginForm = Form(
-    tuple(
-      "user" -> text,
-      "password" -> text
-    ) verifying("Invalid user or password", result => result match {
-      case (user, password) if user == "user" && password == "password" => true
-      case _ => false
-    })
-  )
-
-  lazy val signupForm = Form(
-    tuple(
-      "email" -> text,
-      "password" -> text
-    ) verifying("Invalid user or password", result => result match {
-      case (email, password)   => {
-        if ( usersDao.addUser(email, password )) {
-          true
-        } else {
-          false
-        }
-      }
-      case _ => false
-    })
-  )
-
-  override def onUnauthorized(request: RequestHeader) = Results.Redirect(routes.Application.login())
-
-  def doLogin() = Action { implicit request =>
-    Logger.info("Authenticating user")
-    loginForm.bindFromRequest.fold(
-      formWithErrors => BadRequest(views.html.login(formWithErrors, routes.Application.login())),
-      user => Redirect(routes.Application.index()).withSession("user" -> user._1)
-    )
+  def oauth2call = SecureAction { request =>
+    println("Oauth 2 callback Success: " + request.session)
+    Ok(views.html.oauth())
   }
 
-  def doSignup() = Action { implicit request =>
-    Logger.info("Checking user signup details okay")
-    signupForm.bindFromRequest.fold(
-      formWithErrors => BadRequest(views.html.signup(formWithErrors, routes.Application.signup())),
-      user => Redirect(routes.Application.index()).withSession("user" -> user._1)
-    )
+  def loginSuccess = SecureAction { request =>
+    // TODO: Stop login here for invalid users
+    println("Login Success: " + request.cookies.get("gtoken"))
+    val gtokenOption = request.cookies.get("gtoken")
+    if (gtokenOption.isDefined) {
+      val gtoken = gtokenOption.get
+
+    }
+    Ok(views.html.loginsuccess())
   }
 
-  def login = Action { implicit request =>
-    Ok(views.html.login(loginForm, routes.Application.doLogin()))
-  }
-
-  def signup = Action { implicit request =>
-    Ok(views.html.signup(signupForm, routes.Application.doSignup()))
-  }
-
-  def logout = Action {
+  def logoutSuccess = SecureAction {
+//    Ok(views.html.logoutsuccess())
     Redirect(routes.Application.index()).withNewSession.flashing(
       "success" -> "You've been logged out"
     )
   }
 
-  def customers = IsAuthenticated { username => request =>
-    val customers = customersDao.retrieveAllCustomers()
-    Ok(views.html.showCustomers(customers))
+  def login = SecureAction { implicit request =>
+    Ok(views.html.login())
   }
 
-}
+  def logout = SecureAction {
+    Redirect(routes.Application.index()).withNewSession.flashing(
+      "success" -> "You've been logged out"
+    )
+  }
 
-object SecureAction extends ActionBuilder[Request] {
-  def invokeBlock[A](request: Request[A], block: (Request[A]) => Future[Result]) = {
-    val secureRequest = new SecureRequest[A](request)
-    val httpsPortVal = System.getProperty("https.port")
-    val httpsPort = if (httpsPortVal != null) httpsPortVal else "443"
-    if ( request.secure ) {
-      block(secureRequest)
+  def customers = SecureAction { request =>
+    val user = userIdFromHeader(request)
+    val users = usersDao.retrieveAllUsers()
+    if (user.isDefined && users.exists(theuser => theuser.id == user.get.toString.replace("\"", ""))) {
+      val allCustomers = customersDao.retrieveAllCustomers()
+      Ok(views.html.showCustomers(allCustomers))
     } else {
-      Future(Results.Redirect(s"https://${request.domain}:" + httpsPort + s"${request.uri}"))
+      Unauthorized("You do not have access to this resource")
     }
   }
-}
 
-class SecureRequest[A](request: Request[A]) extends WrappedRequest[A](request) {
-  override def secure = true
 }
-

@@ -1,8 +1,22 @@
 package controllers.dao
 
-/**
- * Created by andy on 19/05/15.
- */
+import com.mongodb.casbah.Imports._
+import controllers.model.{User, Customer}
+
 class UserDao {
+
+  val userCollection = MongoConnection()("artymonkeys")("users")
+
+  def retrieveAllUsers(): Seq[User] = {
+    println("Retrieving users now ...")
+    val userCursor = userCollection.find()
+    val allusers = for {userObj <- userCursor} yield {
+      println("the user is : " + userObj)
+      val userId = userObj.get("_id").asInstanceOf[String]
+      val userEmail = EmailWrapper(Some(userObj.get("email").asInstanceOf[String]))
+      User(userId, userEmail)
+    }
+    allusers.toSeq
+  }
 
 }
