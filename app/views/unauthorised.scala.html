@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Arty Monkeys - Customers</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Art and Language Classes for children in the Stirling and Falkirk area">
+    <meta name="keywords" content="Art,Monkey,Kids,Toddler,Classes,Paint,Craft,Stirling,Falkirk">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='shortcut icon' href="@routes.Assets.at("images/monkeyFace.jpg")" type='image/x-icon'/>
+    <link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.at("stylesheets/style.css")">
+    <script type="text/javascript" src="//www.gstatic.com/authtoolkit/js/gitkit.js"></script>
+    <link type=text/css rel=stylesheet href="//www.gstatic.com/authtoolkit/css/gitkit.css" />
+    <script type=text/javascript>
+  window.google.identitytoolkit.signInButton(
+    '#navbar', // accepts any CSS selector
+    {
+      widgetUrl: "oauth2callback",
+      signOutUrl: "logoutsuccess.html",
+    }
+  );
+        </script>
+  </head>
+  <body>
+    <header id="main_header">
+      <div class="fixedContainer">
+        <div id="navbar"></div>
+        <span class="home_icon_trigger">
+          <a href="index.html">
+            <img id="home_icon" src="@routes.Assets.at("images/home.png")">
+          </a>
+        </span>
+
+        <figure>
+          <img id="artymonkeys_logo" src="@routes.Assets.at("images/artyMonkeysLogoCrop.jpg")">
+        </figure>
+
+        <span class="menu_trigger">
+          <img id="menu_icon" src="@routes.Assets.at("images/menuIcon.png")">
+        </span>
+
+        <div class="inlineblocked">
+          <nav id="main_menu">
+            <ul>
+              <li class="current"><a href="index.html" class="clr-home">Home</a></li>
+              <li><a href="about.html" class="clr-about">About Us</a></li>
+              <li><a href="skills.html" class="clr-skills">Skills</a></li>
+              <li><a href="classes.html" class="clr-classes">Classes</a></li>
+              <li><a href="monkeynews.html" class="clr-monkeynews">Monkey News</a></li>
+              <li><a href="contacts.html" class="clr-contact">Contact Us</a></li>
+            </ul>
+          </nav>
+
+          <p id="artymonkeys_blurb">Encouraging creativity & imagination through fun arts and crafts classes</p>
+        </div>
+      </div>
+    </header>
+    <div id="wrapper_skills">
+      <section id="main_section" class="skills_top_margin">
+
+        <h2>Sorry, you are unauthorised for this resource.</h2>
+
+      </section>
+    </div>
+  </body>
+</html>

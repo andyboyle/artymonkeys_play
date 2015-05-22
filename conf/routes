@@ -3,30 +3,31 @@
 # ~~~~
 
 # Home page
-GET         /                         controllers.Application.index
-GET         /index.html               controllers.Application.index
-GET         /about.html               controllers.Application.about
-GET         /classes.html             controllers.Application.classes
-GET         /contacts.html            controllers.Application.contacts
-GET         /skills.html              controllers.Application.skills
-GET         /monkeynews.html          controllers.Application.monkeynews
+GET         /                          controllers.Application.index
+GET         /index.html                controllers.Application.index
+GET         /about.html                controllers.Application.about
+GET         /classes.html              controllers.Application.classes
+GET         /contacts.html             controllers.Application.contacts
+GET         /skills.html               controllers.Application.skills
+GET         /monkeynews.html           controllers.Application.monkeynews
 
 # Map static resources from the /public folder to the /assets URL path
-GET         /assets/*file             controllers.Assets.at(path="/public", file)
+GET         /assets/*file              controllers.Assets.at(path="/public", file)
 
-GET         /login                    controllers.Application.login
+GET         /login                     controllers.Application.login
 #POST        /login                    controllers.Application.doLogin
-GET         /logout                   controllers.Application.logout
+GET         /logout                    controllers.Application.logout
 #GET         /signup                   controllers.Application.signup
 #POST        /signup                   controllers.Application.doSignup
 
-POST        /                         controllers.Application.emailOfRegisteredInterest
-POST        /index.html               controllers.Application.emailOfRegisteredInterest
-POST        /contacts.html            controllers.Application.emailOfEnquiry
+POST        /                          controllers.Application.emailOfRegisteredInterest
+POST        /index.html                controllers.Application.emailOfRegisteredInterest
+POST        /contacts.html             controllers.Application.emailOfEnquiry
 
-GET         /customers.html           controllers.Application.customers
-GET         /oauth2callback           controllers.Application.oauth2call
-POST        /oauth2callback           controllers.Application.oauth2call
+GET         /customers.html            controllers.Application.customers
+GET         /oauth2callback            controllers.Application.oauth2call
+POST        /oauth2callback            controllers.Application.oauth2call
+GET         /unauthorised              controllers.Application.unauthorised
 
-GET         /loginsuccess.html        controllers.Application.loginSuccess
+GET         /loginsuccess.html         controllers.Application.loginSuccess
 GET         /logoutsuccess.html        controllers.Application.logoutSuccess

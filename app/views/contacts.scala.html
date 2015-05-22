@@ -1,3 +1,5 @@
+@(adminAccess: Boolean)
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -33,23 +35,49 @@
             })
         });
     </script>
+        <script type="text/javascript" src="//www.gstatic.com/authtoolkit/js/gitkit.js"></script>
+        <link type=text/css rel=stylesheet href="//www.gstatic.com/authtoolkit/css/gitkit.css" />
+        <script type=text/javascript>
+  window.google.identitytoolkit.signInButton(
+    '#navbar', // accepts any CSS selector
+    {
+      widgetUrl: "oauth2callback",
+      signOutUrl: "logoutsuccess.html",
+    }
+  );
+        </script>
+
     </head>
     <body>
         <header id="main_header">
             <div class="fixedContainer">
+                <div id="navbar"></div>
                 <span class="home_icon_trigger">
                     <a href="index.html">
                         <img id="home_icon" src="@routes.Assets.at("images/home.png")">
                     </a>
                 </span>
 
-                <figure>
+                <figure id="artymonkeys_logo_img">
                     <img id="artymonkeys_logo" src="@routes.Assets.at("images/artyMonkeysLogoCrop.jpg")">
                 </figure>
 
                 <span class="menu_trigger">
                     <img id="menu_icon" src="@routes.Assets.at("images/menuIcon.png")">
                 </span>
+
+                @if( adminAccess ) {
+                    <div>
+                        <nav id="admin_menu">
+                            <ul>
+                                <li><a href="loginsuccess.html" class="clr-about">Admin Home</a></li>
+                                <li><a href="customers.html" class="clr-skills">Customers</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                } else {
+                    <div id="no_login_header_space"></div>
+                }
 
                 <div class="inlineblocked">
                     <nav id="main_menu">

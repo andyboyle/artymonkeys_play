@@ -1,5 +1,5 @@
 @import controllers.model.Customer
-@(customers: Seq[Customer])
+@(adminAccess: Boolean, customers: Seq[Customer])
 
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +33,7 @@
                     </a>
                 </span>
 
-                <figure>
+                <figure id="artymonkeys_logo_img">
                     <img id="artymonkeys_logo" src="@routes.Assets.at("images/artyMonkeysLogoCrop.jpg")">
                 </figure>
 
@@ -41,14 +41,30 @@
                     <img id="menu_icon" src="@routes.Assets.at("images/menuIcon.png")">
                 </span>
 
+                @if( adminAccess ) {
+                    <div>
+                        <nav id="admin_menu">
+                            <ul>
+                                <li><a href="loginsuccess.html" class="clr-about">Admin Home</a></li>
+                                <li class="current"><a href="customers.html" class="clr-skills">Customers</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                } else {
+                    <div id="no_login_header_space"></div>
+                }
+
                 <div class="inlineblocked">
                     <nav id="main_menu">
                         <ul>
-                            <li><a href="loginsuccess.html" class="clr-home">Home</a></li>
-                            <li class="current"><a href="customers.html" class="clr-about">Customers</a></li>
+                            <li><a href="index.html" class="clr-home">Home</a></li>
+                            <li><a href="about.html" class="clr-about">About Us</a></li>
+                            <li><a href="skills.html" class="clr-skills">Skills</a></li>
+                            <li><a href="classes.html" class="clr-classes">Classes</a></li>
+                            <li><a href="monkeynews.html" class="clr-monkeynews">Monkey News</a></li>
+                            <li><a href="contacts.html" class="clr-contact">Contact Us</a></li>
                         </ul>
                     </nav>
-
                     <p id="artymonkeys_blurb">Encouraging creativity & imagination through fun arts and crafts classes</p>
                 </div>
             </div>

@@ -5,39 +5,39 @@ import controllers.email.{EmailEnquiry, EmailInterestRegistered}
 import play.api.mvc._
 
 object Application extends Controller
-with EmailInterestRegistered with EmailEnquiry with Secured {
+with EmailInterestRegistered with EmailEnquiry with Secured  {
 
   val usersDao = new UserDao()
   val customersDao = new CustomerDao()
 
   def index = SecureAction { request =>
     println("Index Success: " + request.cookies.get("gtoken"))
-    Ok(views.html.index("Your new application is ready."))
+    Ok(views.html.index(isAdminUser(request)))
   }
 
   def about = SecureAction { request =>
     println("About Success: " + request.cookies.get("gtoken"))
-    Ok(views.html.about())
+    Ok(views.html.about(isAdminUser(request)))
   }
 
   def classes = SecureAction { request =>
     println("Classes Success: " + request.cookies.get("gtoken"))
-    Ok(views.html.classes())
+    Ok(views.html.classes(isAdminUser(request)))
   }
 
   def contacts = SecureAction { request =>
     println("Contacts Success: " + request.cookies.get("gtoken"))
-    Ok(views.html.contacts())
+    Ok(views.html.contacts(isAdminUser(request)))
   }
 
   def skills = SecureAction { request =>
     println("Skills Success: " + request.cookies.get("gtoken"))
-    Ok(views.html.skills())
+    Ok(views.html.skills(isAdminUser(request)))
   }
 
   def monkeynews = SecureAction { request =>
     println("Monkey News Success: " + request.cookies.get("gtoken"))
-    Ok(views.html.monkeynews())
+    Ok(views.html.monkeynews(isAdminUser(request)))
   }
 
   def oauth2call = SecureAction { request =>
@@ -46,18 +46,15 @@ with EmailInterestRegistered with EmailEnquiry with Secured {
   }
 
   def loginSuccess = SecureAction { request =>
-    // TODO: Stop login here for invalid users
-    println("Login Success: " + request.cookies.get("gtoken"))
-    val gtokenOption = request.cookies.get("gtoken")
-    if (gtokenOption.isDefined) {
-      val gtoken = gtokenOption.get
-
+    if ( isAdminUser(request)) {
+      Ok(views.html.loginsuccess(isAdminUser(request)))
+    } else {
+      Unauthorized(views.html.unauthorised())
     }
-    Ok(views.html.loginsuccess())
   }
 
   def logoutSuccess = SecureAction {
-//    Ok(views.html.logoutsuccess())
+    //    Ok(views.html.logoutsuccess())
     Redirect(routes.Application.index()).withNewSession.flashing(
       "success" -> "You've been logged out"
     )
@@ -73,14 +70,26 @@ with EmailInterestRegistered with EmailEnquiry with Secured {
     )
   }
 
+  def unauthorised = SecureAction {
+    Ok(views.html.unauthorised())
+  }
+
   def customers = SecureAction { request =>
+    if (isAdminUser(request)) {
+      val allCustomers = customersDao.retrieveAllCustomers()
+      Ok(views.html.showCustomers(true, allCustomers))
+    } else {
+      Unauthorized(views.html.unauthorised())
+    }
+  }
+
+  private def isAdminUser(request: Request[AnyContent]): Boolean = {
     val user = userIdFromHeader(request)
     val users = usersDao.retrieveAllUsers()
     if (user.isDefined && users.exists(theuser => theuser.id == user.get.toString.replace("\"", ""))) {
-      val allCustomers = customersDao.retrieveAllCustomers()
-      Ok(views.html.showCustomers(allCustomers))
+      true
     } else {
-      Unauthorized("You do not have access to this resource")
+      false
     }
   }
 

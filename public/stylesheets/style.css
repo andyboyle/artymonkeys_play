@@ -102,9 +102,66 @@ a:hover {
     text-decoration: none;
 }
 
+#no_login_header_space {
+    margin-top: 3em;
+}
+
+#admin_menu {
+    padding: 0;
+    margin-bottom: 1.3em;
+    /*vertical-align: top;*/
+
+    display: inline-block;
+    background: white;
+    font-weight: bold;
+    font-family: Purisa, "Times New Roman", Times, serif;
+    text-transform: uppercase;
+
+    background: -webkit-gradient(linear,
+    left top,
+    left bottom,
+    color-stop(0%, yellow),
+    color-stop(40%, darkorange),
+    color-stop(100%, orangered));
+
+    background: -moz-linear-gradient(top, seagreen, darkseagreen, mediumseagreen);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+
+}
+
+#admin_menu ul.menu li.menu a {
+    text-decoration: none;
+    border-bottom: none;
+}
+
+#admin_menu li:hover {
+    background-color: seagreen;
+}
+
+#admin_menu li {
+    display: inline-block;
+    list-style: none;
+    padding: 0.2em 1em;
+}
+
+#admin_menu li a {
+    font-size: 1.1em;
+    line-height: 1.2em;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #000;
+    -webkit-transition-property: color, background;
+    -webkit-transition-duration: 0.5s, 0.5s;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
 #main_menu {
-    padding: 0.1em 0;
-    margin: 0.2em 0 2em 0;
+    padding: 0.05em 0;
+    margin: 0.1em 0 2em 1em;
     /*vertical-align: top;*/
 
     display: inline-block;
@@ -139,7 +196,7 @@ a:hover {
 #main_menu li {
     display: inline-block;
     list-style: none;
-    padding: 0.2em 2em;
+    padding: 0.2em 1em;
 }
 
 #main_menu li a {
@@ -253,8 +310,24 @@ h4 {
 }
 
 #navbar {
+    font-size: smaller;
     float: right;
+    display: block;
+    /*width: 10%;*/
 }
+
+#navbar li {
+    color: forestgreen;
+}
+
+
+/*span .gitkit-account-chip-name {*/
+    /*display: none;*/
+/*}*/
+/**/
+/*span .gitkit-account-chip-email-label {*/
+    /*display: none;*/
+/*}*/
 
 .registerinterestcontainer {
     display: block;
@@ -268,7 +341,6 @@ h4 {
     text-align: center;
     font-size: 1.2em;
     line-height: 1.8em;
-    /*vertical-align: top;*/
     margin: 0;
 }
 
@@ -479,8 +551,15 @@ h4 {
     float: right;
 }
 
-#artymonkeys_logo {
-    display: inline-block;
+/*#artymonkeys_logo {*/
+    /*float: left;*/
+    /*display: inline-block;*/
+    /*background: white;*/
+/*}*/
+
+#artymonkeys_logo_img {
+    float: left;
+    /*display: inline-block;*/
     background: white;
 }
 
