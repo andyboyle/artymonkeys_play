@@ -1,7 +1,7 @@
 package controllers.dao
 
 import com.mongodb.casbah.Imports._
-import controllers.model.{User, Customer}
+import controllers.model.{EmailWrapper, User}
 
 class UserDao {
 

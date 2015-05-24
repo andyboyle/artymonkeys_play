@@ -1,13 +1,7 @@
 package controllers.dao
 
 import com.mongodb.casbah.Imports._
-import controllers.model.Customer
-
-case class NameWrapper(name: Option[String])
-
-case class EmailWrapper(email: Option[String])
-
-case class PhoneWrapper(phone: Option[String])
+import controllers.model.{PhoneWrapper, EmailWrapper, NameWrapper, Customer}
 
 class CustomerDao {
 

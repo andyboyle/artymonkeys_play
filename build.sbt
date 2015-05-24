@@ -12,7 +12,8 @@ libraryDependencies ++= Seq(jdbc, anorm, cache, ws,
   "org.mongodb" %% "casbah" % "2.8.1",
   "be.objectify" %% "deadbolt-scala" % "2.3.3",
   "io.jsonwebtoken" % "jjwt" % "0.5",
-  "com.google.guava" % "guava" % "18.0"
+  "com.google.guava" % "guava" % "18.0",
+  "com.github.simplyscala" %% "scalatest-embedmongo" % "0.2.2" % "test"
 )
 
 unmanagedResourceDirectories in Test <+= baseDirectory(_ / "target/web/public/test")
