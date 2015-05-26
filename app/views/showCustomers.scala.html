@@ -82,8 +82,13 @@
                     </tr>
                 @for(customer <- customers) {
                     <tr>
-                        <td>@customer.nameWrapper.name</td>
-                        <td>@customer.emailWrapper.email</td>
+                        <td>@customer.knownas.getOrElse("No Name")</td>
+                        <td>
+                            <a href="mailto:@{customer.emailWrapper.email}">
+                                @{customer.emailWrapper.email}
+                            </a>
+
+                        </td>
                         <td>@customer.phoneWrapper.phone</td>
                     </tr>
                 }

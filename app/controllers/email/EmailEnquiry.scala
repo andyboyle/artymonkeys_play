@@ -26,7 +26,7 @@ trait EmailEnquiry extends EmailSenderBase {
 
     customerDao.addUser(
       EmailWrapper(Some(email)),
-      NameWrapper(Some(name)),
+      Some(name),
       PhoneWrapper(Some(phone)))
 
     val emailEnquiry = Email(

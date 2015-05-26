@@ -11,6 +11,13 @@ import play.api.mvc.{Action, Results}
 trait EmailInterestRegistered extends EmailSenderBase {
   this: Results =>
 
+  val thankYou1OpeningLine = "Thanks for your interest in Arty Monkeys."
+  val thankYou2Body = "We'll be in touch soon."
+  val thankYou3KindRegards = "Kind Regards,"
+  val thankYou4ArtyMonkeys = "Yvonne & Kelley"
+  val thankYou5AutoMessage = "*** This is an automated message, please don't reply directly. Thanks! ***"
+
+
   val interestForm = Form(
     tuple(
       "name" -> text,
@@ -23,10 +30,7 @@ trait EmailInterestRegistered extends EmailSenderBase {
     var error = false
     val (name, phone, email) = interestForm.bindFromRequest.get
 
-    customerDao.addUser(
-      EmailWrapper(Some(email)),
-      NameWrapper(Some(name)),
-      PhoneWrapper(Some(phone)))
+    customerDao.addUser(EmailWrapper(Some(email)), Some(name), PhoneWrapper(Some(phone)))
 
     val emailOfRegistrationInterestToInfoArtyMonkeys = Email(
       "Registration Of Interest",
@@ -45,12 +49,6 @@ trait EmailInterestRegistered extends EmailSenderBase {
         println("oh oh : " + ex)
         error = true
     }
-
-    val thankYou1OpeningLine = "Thanks for your interest in Arty Monkeys."
-    val thankYou2Body = "We'll be in touch soon."
-    val thankYou3KindRegards = "Kind Regards,"
-    val thankYou4ArtyMonkeys = "Yvonne & Kelley"
-    val thankYou5AutoMessage = "*** This is an automated message, please don't reply directly. Thanks! ***"
 
     val confirmationEmail = Email(
       "Confirmation Of Your Interest In Arty Monkeys",
