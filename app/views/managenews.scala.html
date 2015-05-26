@@ -1,5 +1,5 @@
-@import controllers.model.Customer
-@(adminAccess: Boolean, customers: Seq[Customer])
+@import controllers.model.NewsHomeItem
+@(adminAccess: Boolean, newsItems: Seq[NewsHomeItem])
 
 <!DOCTYPE html>
 <html lang="en">
@@ -41,13 +41,13 @@
                     <img id="menu_icon" src="@routes.Assets.at("images/menuIcon.png")">
                 </span>
 
-                @if( adminAccess ) {
+                @if(adminAccess) {
                     <div>
                         <nav id="admin_menu">
                             <ul>
                                 <li><a href="loginsuccess.html" class="clr-about">Admin Home</a></li>
-                                <li><a href="managenews.html" class="clr-skills">Manage News</a></li>
-                                <li class="current"><a href="customers.html" class="clr-classes">Customers</a></li>
+                                <li class="current"><a href="managenews.html" class="clr-skills">Manage News</a></li>
+                                <li><a href="customers.html" class="clr-classes">Customers</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -67,33 +67,28 @@
                         </ul>
                     </nav>
                     <p id="artymonkeys_blurb">Encouraging creativity & imagination through fun arts and crafts classes</p>
+
                 </div>
             </div>
         </header>
-        <div id="wrapper_skills">
+        <div id="wrapper">
             <section id="main_section" class="skills_top_margin">
 
-                <h2>Customers</h2>
+                <h2>Manage News</h2>
 
                 <table class="skills_table">
                     <tr>
-                        <th>Customer Name</th>
-                        <th>Email</th>
-                        <th>Phone Number</th>
+                        <th>Posted</th>
+                        <th>News Detail</th>
                     </tr>
-                @for(customer <- customers) {
-                    <tr>
-                        <td>@customer.knownas.getOrElse("No Name")</td>
-                        <td>
-                            <a href="mailto:@{customer.emailWrapper.email}">
-                                @{customer.emailWrapper.email}
-                            </a>
-
-                        </td>
-                        <td>@customer.phoneWrapper.phone</td>
-                    </tr>
-                }
+                    @for(newsItem <- newsItems) {
+                        <tr>
+                            <td>@newsItem.posted</td>
+                            <td>@newsItem.newsDetails</td>
+                        </tr>
+                    }
                 </table>
+
 
             </section>
         </div>

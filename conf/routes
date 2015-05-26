@@ -24,10 +24,11 @@ POST        /                          controllers.Application.emailOfRegistered
 POST        /index.html                controllers.Application.emailOfRegisteredInterest
 POST        /contacts.html             controllers.Application.emailOfEnquiry
 
-GET         /customers.html            controllers.Application.customers
 GET         /oauth2callback            controllers.Application.oauth2call
 POST        /oauth2callback            controllers.Application.oauth2call
 GET         /unauthorised              controllers.Application.unauthorised
 
 GET         /loginsuccess.html         controllers.Application.loginSuccess
+GET         /customers.html            controllers.Application.customers
 GET         /logoutsuccess.html        controllers.Application.logoutSuccess
+GET         /managenews.html           controllers.Application.managenews

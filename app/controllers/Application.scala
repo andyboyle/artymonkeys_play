@@ -1,6 +1,6 @@
 package controllers
 
-import controllers.dao.{CustomerDao, UserDao}
+import controllers.dao.{NewsHomeDao, CustomerDao, UserDao}
 import controllers.email.{EmailEnquiry, EmailInterestRegistered}
 import play.api.mvc._
 
@@ -9,6 +9,7 @@ with EmailInterestRegistered with EmailEnquiry with Secured  {
 
   val usersDao = new UserDao()
   val customersDao = new CustomerDao()
+  val newsHomeDao = new NewsHomeDao()
 
   def index = SecureAction { request =>
     println("Index Success: " + request.cookies.get("gtoken"))
@@ -72,6 +73,15 @@ with EmailInterestRegistered with EmailEnquiry with Secured  {
 
   def unauthorised = SecureAction {
     Ok(views.html.unauthorised())
+  }
+
+  def managenews = SecureAction { request =>
+    if (isAdminUser(request)) {
+      val newsItems = newsHomeDao.getLastNewsItems()
+      Ok(views.html.managenews(true, newsItems))
+    } else {
+      Unauthorized(views.html.unauthorised())
+    }
   }
 
   def customers = SecureAction { request =>
