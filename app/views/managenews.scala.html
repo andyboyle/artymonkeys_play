@@ -33,10 +33,6 @@
                     </a>
                 </span>
 
-                <figure id="artymonkeys_logo_img">
-                    <img id="artymonkeys_logo" src="@routes.Assets.at("images/artyMonkeysLogoCrop.jpg")">
-                </figure>
-
                 <span class="menu_trigger">
                     <img id="menu_icon" src="@routes.Assets.at("images/menuIcon.png")">
                 </span>
@@ -66,17 +62,15 @@
                             <li><a href="contacts.html" class="clr-contact">Contact Us</a></li>
                         </ul>
                     </nav>
-                    <p id="artymonkeys_blurb">Encouraging creativity & imagination through fun arts and crafts classes</p>
-
                 </div>
             </div>
         </header>
         <div id="wrapper">
             <section id="main_section" class="skills_top_margin">
 
-                <h2>Manage News</h2>
+                <h2 id="managenewsh2">Manage News</h2>
 
-                <table class="skills_table">
+                <table class="newshome_table">
                     <tr>
                         <th>Posted</th>
                         <th>News Detail</th>
@@ -84,7 +78,11 @@
                     @for(newsItem <- newsItems) {
                         <tr>
                             <td>@newsItem.posted</td>
-                            <td>@newsItem.newsDetails</td>
+                            <td>
+                            @for(line <- newsItem.newsDetails ) {
+                                <p>@line</p>
+                            }
+                            </td>
                         </tr>
                     }
                 </table>

@@ -5,4 +5,4 @@ import org.joda.time.LocalDate
 
 case class NewsHomeItem(id: ObjectId,
                         posted: LocalDate,
-                        newsDetails: String)
+                        newsDetails: Seq[String])

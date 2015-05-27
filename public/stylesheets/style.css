@@ -676,6 +676,49 @@ h4 {
     max-height: 530px;
 }
 
+#managenewsh2 {
+    margin: 1em;
+    color: #8d1a50;
+}
+
+.newshome_table table {
+    border-collapse: collapse;
+    border-radius: 10px;
+}
+
+.newshome_table ul {
+    list-style-type: none;
+}
+
+.newshome_table li {
+    margin: 10px 0;
+    font-style: italic;
+    color: limegreen;
+}
+
+.newshome_table table, th, td {
+    border: 1px solid #f486f6;
+}
+
+.newshome_table th {
+    padding: 0.5em 0;
+    background-color: #E9E0E0;
+    color: #ab3990;
+    align-content: center;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.newshome_table td {
+    text-align: left;
+    font-weight: bold;
+    background: #a0c0a0;
+    color: #773ecc;
+    font-size: 1em;
+    padding: 5px 10px 5px 10px;
+    max-width: 550px;
+}
+
 .skills_table table {
     border-collapse: collapse;
     box-shadow: 5px 5px 10px seagreen;
