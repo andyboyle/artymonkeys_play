@@ -108,7 +108,7 @@ a:hover {
 
 #admin_menu {
     padding: 0;
-    margin-bottom: 1.3em;
+    margin-bottom: 0.3em;
     /*vertical-align: top;*/
 
     display: inline-block;
@@ -181,7 +181,6 @@ a:hover {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-
 }
 
 #main_menu ul.menu li.menu a {
@@ -211,6 +210,60 @@ a:hover {
     -moz-border-radius: 5px;
     border-radius: 5px;
 }
+
+
+#main_menu_less_padding {
+    padding: 0;
+    margin: 0;
+    /*vertical-align: top;*/
+
+    display: inline-block;
+    background: white;
+    font-weight: bold;
+    font-family: Purisa, "Times New Roman", Times, serif;
+    text-transform: uppercase;
+
+    background: -webkit-gradient(linear,
+    left top,
+    left bottom,
+    color-stop(0%, seagreen),
+    color-stop(40%, darkseagreen),
+    color-stop(100%, mediumseagreen));
+
+    background: -moz-linear-gradient(top, seagreen, darkseagreen, mediumseagreen);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#main_menu_less_padding ul.menu li.menu a {
+    text-decoration: none;
+    border-bottom: none;
+}
+
+#main_menu_less_padding li:hover {
+    background-color: seagreen;
+}
+
+#main_menu_less_padding li {
+    display: inline-block;
+    list-style: none;
+    padding: 0.2em 1em;
+}
+
+#main_menu_less_padding li a {
+    font-size: 1.1em;
+    line-height: 1.2em;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #000;
+    -webkit-transition-property: color, background;
+    -webkit-transition-duration: 0.5s, 0.5s;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
 
 form {
     margin: 0;
@@ -244,6 +297,13 @@ form {
     width: 100%;
     margin-top: 9em;
 }
+
+#main_section_admin {
+    text-align: center;
+    width: 100%;
+    margin-top: 4.7em;
+}
+
 
 #main_footer {
     clear: both;
