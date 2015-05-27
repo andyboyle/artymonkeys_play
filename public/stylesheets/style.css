@@ -269,7 +269,7 @@ h4 {
 }
 
 #briarlands_icon {
-    margin: 2em 1em 1em 1em;
+    margin: 0;
     display: inline-block;
     border: 1px solid #991122;
     box-shadow: 5px 5px 5px #991122;
@@ -325,8 +325,8 @@ h4 {
     font-style: italic;
     line-height: 1.2em;
     vertical-align: top;
-    margin: 0 1em 0 0;
-    width: 70%;
+    margin-top: 0.5em;
+    width: 80%;
 }
 
 #classes_full {
