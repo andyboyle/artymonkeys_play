@@ -31,4 +31,6 @@ GET         /unauthorised              controllers.Application.unauthorised
 GET         /loginsuccess.html         controllers.Application.loginSuccess
 GET         /customers.html            controllers.Application.customers
 GET         /logoutsuccess.html        controllers.Application.logoutSuccess
+
 GET         /managenews.html           controllers.Application.managenews
+POST         /managenews.html           controllers.Application.managenewspost

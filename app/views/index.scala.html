@@ -1,4 +1,5 @@
-@(adminAccess: Boolean)
+@import controllers.model.NewsHomeItem
+@(adminAccess: Boolean, newsItems: Seq[NewsHomeItem])
 
 <!DOCTYPE html>
 <html lang="en">
@@ -65,7 +66,7 @@
                     <img id="menu_icon" src="@routes.Assets.at("images/menuIcon.png")">
                 </span>
 
-                @if( adminAccess ) {
+                @if(adminAccess) {
                     <div>
                         <nav id="admin_menu">
                             <ul>
@@ -156,64 +157,21 @@
                     </nav>
                 </div>
 
-
                 <article id="news_article">
                     <h3>News</h3>
 
-                    <time datetime="Tuesday 26th May 2015" class="latestnewstime" pubdate>
-                        posted Tuesday 26th May 2015</time>
-                    <div class="latestnews">
-                        <p>New classes starting at
-                            <a href="https://www.facebook.com/pages/Baristas-Coffee-House/587426837984057">
-                                Baristas Coffee House</a>
-                            in Falkirk!</p>
-                        <p>Classes start on Tuesday 9th June at 10am.</p>
-                        <p>Sign up for individual classes or a 4 week block.</p>
-                        <p>Taking orders now! Register interest above, or
-                            <a href="contacts.html">contact us</a>
-                        </p>
-                    </div>
-                    <br>
+                    @for(newsItem <- newsItems) {
+                        <time datetime="@newsItem.posted" pubdate>
+                            Posted @newsItem.posted
+                        </time>
 
-                    <time datetime="Friday 8th May 2015" pubdate>
-                        posted Friday 8th May 2015</time>
-                    <div>
-                        <p>The 10:15-11:00am class at Briarlands Farm on 28th of May is now full!</p>
-                        <p>Spaces are still available for the 11:30-12:15 class</p>
-                        <p>Register your interest NOW!</p>
-                    </div>
-                    <br>
-
-                    <time datetime="Thursday 29th April 2015" pubdate>
-                        posted Thursday 29th April 2015</time>
-                    <div>
-                        <p>Spaces are filling up fast for our classes at Briarlands Farm!</p>
-                        <p>All our classes are suitable for ages 18 months to 5 years ... come and join the fun!</p>
-                        <p>Just register your interest NOW!</p>
-                    </div>
-                    <br>
-
-
-                    <time datetime="Friday 17th April 2015" pubdate>posted Friday 17th April 2015</time>
-                    <p> We are very excited…our first Arty Monkeys class at Briarlands Farm starts on Thursday 28th May!
-                        Bookings for places are filling fast so register your details with us now!</p>
-
-                    <div class="boxoffer">
-                        <p class="offer">
-                            * Early bird discount, register in April to receive your first class half price
-                        </p>
-
-                        <p class="offer">
-                            * Discount for block bookings
-                        </p>
-                    </div>
-
-                    <br>
-
-                    <time datetime="Wednesday 1st April 2015" pubdate>posted 1st April 2015</time>
-                    <p>Coming soon to Stirling and the surrounding area.</p>
-
-                    <p>Register your interest now!</p>
+                        <div>
+                        @for(line <- newsItem.newsDetails) {
+                            <p>@line</p>
+                        }
+                        </div>
+                        <br>
+                    }
                 </article>
 
                 <article id="what_we_do_article">

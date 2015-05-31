@@ -13,7 +13,7 @@ with EmailInterestRegistered with EmailEnquiry with Secured  {
 
   def index = SecureAction { request =>
     println("Index Success: " + request.cookies.get("gtoken"))
-    Ok(views.html.index(isAdminUser(request)))
+    Ok(views.html.index(isAdminUser(request),newsHomeDao.getLastNewsItems()))
   }
 
   def about = SecureAction { request =>
@@ -77,8 +77,15 @@ with EmailInterestRegistered with EmailEnquiry with Secured  {
 
   def managenews = SecureAction { request =>
     if (isAdminUser(request)) {
-      val newsItems = newsHomeDao.getLastNewsItems()
-      Ok(views.html.managenews(true, newsItems))
+      Ok(views.html.managenews(true, newsHomeDao.getLastNewsItems()))
+    } else {
+      Unauthorized(views.html.unauthorised())
+    }
+  }
+
+  def managenewspost = SecureAction { request =>
+    if (isAdminUser(request)) {
+      Ok(views.html.managenews(true, newsHomeDao.getLastNewsItems()))
     } else {
       Unauthorized(views.html.unauthorised())
     }

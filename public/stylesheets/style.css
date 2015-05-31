@@ -298,6 +298,12 @@ form {
     margin-top: 9em;
 }
 
+#main_section_contact_us {
+    text-align: center;
+    width: 100%;
+    margin-top: 7em;
+}
+
 #main_section_admin {
     text-align: center;
     width: 100%;
@@ -370,13 +376,16 @@ h4 {
 }
 
 #navbar {
-    font-size: smaller;
+    font-size: x-small;
+    color: white;
+    background: white;
     float: right;
     display: block;
     /*width: 10%;*/
 }
 
 #navbar li {
+    background: white;
     color: forestgreen;
 }
 
@@ -388,6 +397,12 @@ h4 {
 /*span .gitkit-account-chip-email-label {*/
     /*display: none;*/
 /*}*/
+
+.formelement {
+    display: inline-block;
+    margin-right: 3em;
+    margin-bottom:  2em;
+}
 
 .registerinterestcontainer {
     display: block;
@@ -561,19 +576,18 @@ h4 {
 }
 
 .inputtextboxmail {
-    display: block;
-    margin-bottom: 25px;
-    margin-left: 40px;
-    padding: 5px;
+    display: inline-block;
+    margin-left: 0.4em;
+    padding: 3px;
     color: blue;
     font-size: 0.9em;
     background-color: lightgray;
-    border-radius: 8px;
+    border-radius: 7px;
 }
 
 .messagetextboxmail {
-    min-width: 340px;
-    min-height: 400px;
+    width: 80%;
+    height: 10em;
     display: block;
     margin-top: 0;
     margin-bottom: 25px;
@@ -585,10 +599,15 @@ h4 {
     border-radius: 8px;
 }
 
-#emailmessage {
-    display: block;
-    transform: translate(-20px, -245px);
-    float: right;
+/*#emailmessage {*/
+    /*display: block;*/
+    /*transform: translate(-20px, -245px);*/
+    /*float: right;*/
+/*}*/
+
+.select {
+    color: red;
+    background: blue;
 }
 
 .sendemailbutton {
@@ -727,13 +746,12 @@ h4 {
 }
 
 #contactus {
-
-    max-width: 250px;
+    width: 15%;
 }
 
 #emailus {
-    min-width: 650px;
-    max-height: 530px;
+    width: 70%
+    /*max-height: 530px;*/
 }
 
 #managenewsh2 {
@@ -1371,7 +1389,7 @@ h4 {
 
     #emailmessage {
         display: block;
-        transform: translate(0, 0);
+        /*transform: translate(0, 0);*/
         float: none;
     }
 

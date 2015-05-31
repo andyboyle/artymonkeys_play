@@ -1,7 +1,7 @@
 @(adminAccess: Boolean)
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
     <head>
         <title>Arty Monkeys - Contacts</title>
         <meta charset="utf-8">
@@ -66,7 +66,7 @@
                     <img id="menu_icon" src="@routes.Assets.at("images/menuIcon.png")">
                 </span>
 
-                @if( adminAccess ) {
+                @if(adminAccess) {
                     <div>
                         <nav id="admin_menu">
                             <ul>
@@ -95,11 +95,10 @@
 
                 </div>
 
-
             </div>
         </header>
         <div id="wrapper">
-            <section id="main_section" class="contacts_top_margin">
+            <section id="main_section_contact_us" class="contacts_top_margin">
 
                 <article id="contactus">
                     <h3>Contact Us</h3>
@@ -120,35 +119,58 @@
 
                 <article id="emailus">
                     <h3 class="clr-4">Contact Form</h3>
+
                     <form id="form" method="post">
-                        <label>Name:
-                            <input class="inputtextboxmail" type="text" name="name">
-                        </label>
-                        <label>EMail:
-                            <input class="inputtextboxmail" type="email" name="email">
-                        </label>
-                        <label>Phone:
-                            <input class="inputtextboxmail" type="tel" name="phone">
-                        </label>
-                        <label id="emailmessage">Message:
+
+                        <div class="formelement">
+                            <input class="inputtextboxmail" type="text" name="name" required placeholder="Your Name">
+                        </div>
+
+                        <div class="formelement">
+                            <input class="inputtextboxmail" type="email" name="email" required placeholder="Best EMail">
+                        </div>
+
+                        <div class="formelement">
+                            <input class="inputtextboxmail" type="tel" name="phone" required placeholder="Phone">
+                        </div>
+
+                        <div class="formelement">
+                            Location:
+                            <select name="Location">
+                                <option value="briarlands" selected>Briarlands Farm, Stirling</option>
+                                <option value="baristas">Baristas Coffee House, Falkirk</option>
+                            </select>
+                        </div>
+
+                        <div class="formelement">
+                            Time:
+                            <select name="Time" >
+                                <option value="1000to1045" selected>10:00am - 10:45am</option>
+                                <option value="1115to1200">11:15am - 12:00 noon</option>
+                            </select>
+                        </div>
+
+                        <div class="formelement">
+                            No. Of Monkeys:
+                            <input type="number" size="2" min="1" max="10" value="1" required>
+                        </div>
+
+                        <br>
+                        <label id="emailmessage">
+                            Message:
                             <textarea class="messagetextboxmail" name="message"></textarea>
                         </label>
+
                         <input class="sendemailbutton" type="submit" value="Send">
                     </form>
                 </article>
             </section>
-            <footer>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-
-                <p class="clr-0">Website Template by <a class="link clr-0" href="http://www.templatemonster.com/"
-                target="_blank"
-                rel="nofollow">www.templatemonster.com</a></p>
-            </footer>
         </div>
+        <footer id="main_footer">
+            <p class="clr-0">Website Template by <a class="link clr-0" href="http://www.templatemonster.com/"
+            target="_blank"
+            rel="nofollow">www.templatemonster.com</a></p>
+        </footer>
+
     </body>
 </html>
