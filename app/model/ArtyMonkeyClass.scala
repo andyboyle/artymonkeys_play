@@ -1,4 +1,4 @@
-package controllers.model
+package model
 
 case class ArtyMonkeyClassBluePrint(
                                      className: Option[String],

@@ -1,4 +1,4 @@
-package controllers.model
+package model
 
 case class NameWrapper(knownAs: Option[String],
                        firstName: Option[String],

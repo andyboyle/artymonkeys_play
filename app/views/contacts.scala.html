@@ -16,10 +16,24 @@
         <script src="@routes.Assets.at("javascripts/tms-0.4.1.js")"></script>
         <script src="@routes.Assets.at("javascripts/menu.js")"></script>
         @*<script>*@
-            @*function populateClassTimeSelect(newValue) {*@
-            @*alert("Hello, new value is now : " + newValue)*@
-            @*}*@
+        @*function populateClassTimeSelect(newValue) {*@
+        @*alert("Hello, new value is now : " + newValue)*@
+        @*}*@
         @*</script>*@
+        <script>
+            function deleteTask ( id ) {
+            var req = new XMLHttpRequest() ;
+            req.open("delete", "/tasks/" + id);
+            req.onload = function ( e ) {
+                if ( req.status = 200 )  {
+                    document.reload(true);
+                }
+            };
+            req.send()
+            }
+        </script>
+
+
         <script>
         $(document).ready(function () {
             $('.slider')._TMS({
@@ -172,7 +186,7 @@
 
                             <div>
                                 <div class="formelementlittlemonkey">
-                                    <input class="howdidyouhear" type="text" name="monkey1name" placeholder="Monkey One's Name"  required>
+                                    <input class="howdidyouhear" type="text" name="monkey1name" placeholder="Monkey One's Name" required>
                                 </div>
 
                                 <div class="formelementlittlemonkey">

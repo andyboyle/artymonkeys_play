@@ -1,4 +1,4 @@
-package controllers.model
+package model
 
 import org.bson.types.ObjectId
 import org.joda.time.LocalDate

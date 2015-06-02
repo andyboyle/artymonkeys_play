@@ -1,6 +1,5 @@
 package controllers.email
 
-import controllers.model.{PhoneWrapper, NameWrapper, EmailWrapper}
 import play.Play
 import play.api.Play.current
 import play.api.data.Form

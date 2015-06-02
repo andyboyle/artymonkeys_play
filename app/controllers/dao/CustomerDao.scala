@@ -2,7 +2,7 @@ package controllers.dao
 
 import com.mongodb.BasicDBObject
 import com.mongodb.casbah.Imports._
-import controllers.model._
+import model._
 
 class CustomerDao {
 

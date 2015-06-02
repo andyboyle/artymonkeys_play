@@ -1,6 +1,6 @@
 package controllers.email
 
-import controllers.model._
+import model._
 import play.Play
 import play.api.Play.current
 import play.api.data.Form

@@ -3,7 +3,7 @@ package controllers.dao
 import java.util.Date
 
 import com.mongodb.casbah.Imports._
-import controllers.model.NewsHomeItem
+import model.NewsHomeItem
 import org.joda.time.LocalDate
 
 class NewsHomeDao {
