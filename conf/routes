@@ -33,4 +33,6 @@ GET         /customers.html            controllers.Application.customers
 GET         /logoutsuccess.html        controllers.Application.logoutSuccess
 
 GET         /managenews.html           controllers.Application.managenews
-POST         /managenews.html           controllers.Application.managenewspost
+POST        /managenews.html           controllers.Application.managenewspost
+
+#GET         /locationclasses/{id}       controllers.Application.locationClasses

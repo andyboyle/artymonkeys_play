@@ -37,7 +37,7 @@
                     <img id="menu_icon" src="@routes.Assets.at("images/menuIcon.png")">
                 </span>
 
-                @if( adminAccess ) {
+                @if(adminAccess) {
                     <div>
                         <nav id="admin_menu">
                             <ul>
@@ -59,7 +59,7 @@
                             <li><a href="skills.html" class="clr-skills">Skills</a></li>
                             <li><a href="classes.html" class="clr-classes">Classes</a></li>
                             <li><a href="monkeynews.html" class="clr-monkeynews">Monkey News</a></li>
-                            <li><a href="contacts.html" class="clr-contact">Contact Us</a></li>
+                            <li><a href="contacts.html" class="clr-contact">Register</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -70,24 +70,60 @@
 
                 <h2 id="managenewsh2">Customers</h2>
 
-                <table class="skills_table">
+                <table class="customers_table">
                     <tr>
                         <th>Customer Name</th>
                         <th>Email</th>
                         <th>Phone Number</th>
+                        <th>Class Preference</th>
+                        <th>Little Monkeys</th>
+                        <th>How Hear About Arty Monkeys</th>
+                        <th>Email Message</th>
                     </tr>
-                @for(customer <- customers) {
-                    <tr>
-                        <td>@customer.knownas.getOrElse("No Name")</td>
-                        <td>
-                            <a href="mailto:@{customer.emailWrapper.email}">
-                                @{customer.emailWrapper.email}
-                            </a>
+                    @for(customer <- customers) {
+                        <tr>
+                            <td>@customer.knownas.getOrElse("No Name")</td>
+                            <td>
+                                <a href="mailto:@{
+                                    customer.emailWrapper.email
+                                }">
+                                @{
+                                    customer.emailWrapper.email
+                                }
+                                </a>
 
-                        </td>
-                        <td>@customer.phoneWrapper.phone</td>
-                    </tr>
-                }
+                            </td>
+                            <td>@customer.phoneWrapper.phone</td>
+                            <td>@customer.customerPreferences.location
+                            <br>
+                            @customer.customerPreferences.time
+                            </td>
+                            <td>
+                            @for(monkey <- customer.monkeys) {
+                                @{
+                                    monkey.name
+                                }
+                                <br>
+                                @{
+                                    monkey.dob
+                                }
+                                <br>
+                                <br>
+                                }
+                            </td>
+                            <td>
+                                <strong class="clr-2">Category:</strong>
+                                @customer.howDidYouHear.category.getOrElse("No Category")
+                                <br><br>
+                                    <strong class="clr-2">Extra Detail:</strong>
+                                    <br>
+                                @customer.howDidYouHear.extraText.getOrElse("No Category")
+                            </td>
+                            <td>
+                                @customer.message.getOrElse("No Message")
+                            </td>
+                        </tr>
+                    }
                 </table>
 
             </section>

@@ -30,7 +30,7 @@ trait EmailInterestRegistered extends EmailSenderBase {
     var error = false
     val (name, phone, email) = interestForm.bindFromRequest.get
 
-    customerDao.addUser(EmailWrapper(Some(email)), Some(name), PhoneWrapper(Some(phone)))
+//    customerDao.addCustomer(EmailWrapper(Some(email)), Some(name), PhoneWrapper(Some(phone)))
 
     val emailOfRegistrationInterestToInfoArtyMonkeys = Email(
       "Registration Of Interest",

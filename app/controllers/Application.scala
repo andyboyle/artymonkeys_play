@@ -91,6 +91,16 @@ with EmailInterestRegistered with EmailEnquiry with Secured  {
     }
   }
 
+//  def locationClasses = SecureAction { request =>
+//    Ok(Seq("Hello1","Hello2"))
+//    if (isAdminUser(request)) {
+//      Ok(views.html.managenews(true, newsHomeDao.getLastNewsItems()))
+//    } else {
+//      Unauthorized(views.html.unauthorised())
+//    }
+//  }
+
+
   def customers = SecureAction { request =>
     if (isAdminUser(request)) {
       val allCustomers = customersDao.retrieveAllCustomers()

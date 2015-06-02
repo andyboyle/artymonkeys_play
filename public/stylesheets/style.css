@@ -377,15 +377,12 @@ h4 {
 
 #navbar {
     font-size: x-small;
-    color: white;
-    background: white;
     float: right;
     display: block;
     /*width: 10%;*/
 }
 
 #navbar li {
-    background: white;
     color: forestgreen;
 }
 
@@ -402,6 +399,12 @@ h4 {
     display: inline-block;
     margin-right: 3em;
     margin-bottom:  2em;
+}
+
+.formelementlittlemonkey {
+    display: inline-block;
+    margin-right: 1em;
+    margin-bottom:  0.5em;
 }
 
 .registerinterestcontainer {
@@ -578,21 +581,49 @@ h4 {
 .inputtextboxmail {
     display: inline-block;
     margin-left: 0.4em;
-    padding: 3px;
+    padding: 0.6em;
     color: blue;
     font-size: 0.9em;
     background-color: lightgray;
     border-radius: 7px;
 }
 
+.howdidyouhear {
+    padding: 0.5em;
+}
+
+.select {
+    padding: 3em;
+}
+
+.howdidyouhearextratextbox {
+    width: 35em;
+    display: inline-block;
+    margin-top: 1em;
+    margin-bottom: 0;
+    margin-left: 1em;
+    padding: 2em;
+    color: blue;
+    font-size: 1em;
+    background-color: lightgray;
+    border-radius: 8px;
+}
+
+fieldset {
+    margin: 1em 0;
+    padding: 1em;
+    border: groove;
+    background-color: #ccc2cd;
+}
+
 .messagetextboxmail {
-    width: 80%;
+    width: 90%;
     height: 10em;
     display: block;
-    margin-top: 0;
-    margin-bottom: 25px;
-    margin-left: 40px;
-    padding: 5px;
+    margin-top: 1em;
+    margin-bottom: 0;
+    margin-left: 1em;
+    padding: 2em;
     color: blue;
     font-size: 1.1em;
     background-color: lightgray;
@@ -873,6 +904,47 @@ h4 {
     font-size: 1em;
     padding: 0.5em;
     white-space: nowrap;
+}
+
+
+
+.customers_table table {
+    border-collapse: collapse;
+    box-shadow: 5px 5px 10px seagreen;
+    border-radius: 10px;
+}
+
+.customers_table ul {
+    list-style-type: none;
+    margin: 0;
+}
+
+.customers_table li {
+    margin: 0;
+    font-style: italic;
+    color: lightgoldenrodyellow;
+}
+
+.customers_table table, th, td {
+    border: 1px solid #140676;
+}
+
+.customers_table th {
+    padding: 0.9em;
+    background-color: #140676;
+    color: orange;
+    align-content: center;
+    text-align: center;
+    font-size: 1em;
+}
+
+.customers_table td {
+    text-align: left;
+    font-weight: bold;
+    background: lightslategrey;
+    color: yellow;
+    font-size: 1em;
+    padding: 0.7em;
 }
 
 .latestnewstime {

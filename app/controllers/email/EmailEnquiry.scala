@@ -1,6 +1,6 @@
 package controllers.email
 
-import controllers.model.{PhoneWrapper, NameWrapper, EmailWrapper}
+import controllers.model._
 import play.Play
 import play.api.Play.current
 import play.api.data.Form
@@ -16,18 +16,45 @@ trait EmailEnquiry extends EmailSenderBase {
       "name" -> text,
       "phone" -> text,
       "email" -> text,
+      "location" -> text,
+      "time" -> text,
+      "numberofmonkeys" -> number,
+      "monkey1name" -> text,
+      "monkey1dob" -> text,
+      "monkey2name" -> text,
+      "monkey2dob" -> text,
+      "monkey3name" -> text,
+      "monkey3dob" -> text,
+      "howdidyouhear" -> text,
+      "howdidyouhearextra" -> text,
       "message" -> text
     )
   )
 
   def emailOfEnquiry = Action { implicit request =>
     var error = false
-    val (name, phone, email, message) = enquiryForm.bindFromRequest.get
+    val (name, phone, email, location, time, numberofmonkeys,
+    monkey1name, monkey1dob,
+    monkey2name, monkey2dob,
+    monkey3name, monkey3dob,
+    howdidyouhear, howdidyouhearextra, message) = enquiryForm.bindFromRequest.get
 
-    customerDao.addUser(
-      EmailWrapper(Some(email)),
+    val theMonkeys = List(
+      new Monkey(Some(monkey1name), Some(monkey1dob)),
+      new Monkey(Some(monkey2name), Some(monkey2dob)),
+      new Monkey(Some(monkey3name), Some(monkey3dob)) ).toSeq
+
+    val customer = new Customer(
       Some(name),
-      PhoneWrapper(Some(phone)))
+      EmailWrapper(Some(email)),
+      PhoneWrapper(Some(phone)),
+      new CustomerPreferences(Some(location), Some(time)),
+      theMonkeys,
+      new HowDidYouHear(Some(howdidyouhear), Some(howdidyouhearextra)),
+      Some(message)
+    )
+
+    customerDao.addCustomer(customer)
 
     val emailEnquiry = Email(
       "Enquiry To Arty Monkeys",
@@ -37,8 +64,14 @@ trait EmailEnquiry extends EmailSenderBase {
       bodyText = Some("Name : " + name + "\n" +
         "Phone: " + phone + "\n" +
         "Email: " + email + "\n" +
+        "Interested Location: " + location + ", and Time " + time + "\n" +
+        "Number Of Monkeys: " + numberofmonkeys + ",\n" +
+        "\t\tMonkey One Name: " + monkey1name + ", dob: " + monkey1dob + "\n" +
+        "\t\tMonkey Two Name: " + monkey2name + ", dob: " + monkey2dob + "\n" +
+        "\t\tMonkey Three Name: " + monkey3name + ", dob: " + monkey3dob + "\n" +
+        "How did they hear about Arty Monkeys?  Category: " + howdidyouhear + "," +
+        "  Text:" + howdidyouhearextra + "\n" +
         "\nMessage:\n\n" + message)
-
     )
 
     try {
