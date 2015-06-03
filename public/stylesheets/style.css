@@ -374,6 +374,34 @@ h4 {
     border-radius: 8px;
 }
 
+.howdidyouheardiv {
+    display: block;
+    padding: 0.2em;
+    margin: 0.8em 0;
+    font-size: 1em;
+    font-weight: bold;
+    border: groove;
+    border-color: #daAb00;
+    border-radius: 8px;
+}
+
+.howdidyouhearcombo {
+    display: block;
+    width: 85%;
+    margin: 0.4em 2em 0 2em;
+    padding: 0.4em;
+    color: darkblue;
+    font-size: 1em;
+    background-color: #daAb00;
+    border-radius: 8px;
+}
+
+.howdidyouhearextratextbox {
+    display: block;
+    width: 85%;
+    margin: 0.8em 2em 0.7em 2em;
+}
+
 .inputemailtextbox_last {
     display: block;
     padding: 0.2em;

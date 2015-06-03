@@ -84,20 +84,6 @@
                         </div>
                     </div>
 
-                    <div id="newclasses">
-                        <div id="artymonkeys_blurb_sub">
-                            <p id="classes_full">
-                                A few spaces still available at Briarlands!
-                            </p>
-                            <p id="classes_full">See <a href="classes.html">available
-                                classes</a>
-                            </p>
-                        </div>
-                        <div id="briarlands_icon"><a href="http://briarlandsfarm.co.uk/">
-                            <img src="@routes.Assets.at("images/briarlands.jpg")"/></a>
-                        </div>
-                    </div>
-
                     <div id="sociallinks">
                         <a href="https://www.facebook.com/artymonkeys.uk"><img id="facebook_icon"
                         src="@routes.Assets.at("images/facebook.jpg")"/></a>
@@ -112,9 +98,29 @@
                                 <input class="inputemailtextbox" placeholder="Best Phone Number" type="tel" name="phone" required>
                                 <input class="inputemailtextbox_last" placeholder="Enter Your Best Email" type="email" name="email" required>
                             </div>
+
                             <div class="inlineblocked">
                                 <input class="registerinterestbutton" type="submit" value="Register Interest">
                             </div>
+
+                            <div class="howdidyouheardiv">
+                                <div class="block">How did you hear about us?</div>
+                                <select class="howdidyouhearcombo" name="howdidyouhearcategory" required>
+                                    <option selected disabled hidden value=''>Please Select ...</option>
+                                    <option value="briarlands">Briarlands Farm</option>
+                                    <option value="baristas" >Baristas Coffee House</option>
+                                    <option value="facebook">Facebook</option>
+                                    <option value="google" >Google</option>
+                                    <option value="netmums">Netmums</option>
+                                    <option value="nursery" >Nursery</option>
+                                    <option value="referral" >Referral</option>
+                                    <option value="other" >Other - please state</option>
+                                </select>
+
+                                <textarea class="howdidyouhearextratextbox" name="howdidyouhearextra"></textarea>
+                            </div>
+
+
                         </form>
                     </div>
 
@@ -153,7 +159,7 @@
                     <time datetime="Friday 8th May 2015" pubdate>
                         posted Friday 8th May 2015</time>
                     <div>
-                        <p>The 10:15-11:00am class at Briarlands Farm on 28th of May is now full!</p>
+                        <p>The 10:15-11:00am class at Briarlands Farm is filling up, please register your interest today</p>
                         <p>Spaces are still available for the 11:30-12:15 class</p>
                         <p>Register your interest NOW!</p>
                     </div>

@@ -14,13 +14,15 @@ trait EmailInterestRegistered extends EmailSenderBase {
     tuple(
       "name" -> text,
       "phone" -> text,
-      "email" -> text
+      "email" -> text,
+      "howdidyouhearcategory" -> text,
+      "howdidyouhearextra" -> text
     )
   )
 
   def emailOfRegisteredInterest = Action { implicit request =>
     var error = false
-    val (name, phone, email) = interestForm.bindFromRequest.get
+    val (name, phone, email, howdidyouhearCategory, howdidyouhearExtra) = interestForm.bindFromRequest.get
 
     val emailOfRegistrationInterestToInfoArtyMonkeys = Email(
       "Registration Of Interest",
@@ -29,7 +31,10 @@ trait EmailInterestRegistered extends EmailSenderBase {
 
       bodyText = Some("Name : " + name + "\n" +
         "Phone: " + phone + "\n" +
-        "Email: " + email + "\n")
+        "Email: " + email + "\n\n" +
+        "How Did They Hear: " + howdidyouhearCategory + "\n" +
+        howdidyouhearExtra
+      )
     )
 
     try {
@@ -53,17 +58,17 @@ trait EmailInterestRegistered extends EmailSenderBase {
 
       attachments = Seq(
         AttachmentFile("artyMonkeysLogoCrop.jpg", Play.application().getFile("conf/artyMonkeysLogoCrop.jpg"))
-        ),
+      ),
 
-        bodyText = Some(
-          thankYou1OpeningLine + "\n\n" +
-            thankYou2Body + "\n\n\n" +
-            thankYou3KindRegards + "\n\n" +
-            thankYou4ArtyMonkeys + "\n\n\n\n" +
-            thankYou5AutoMessage + "\n\n\n"
-        ),
+      bodyText = Some(
+        thankYou1OpeningLine + "\n\n" +
+          thankYou2Body + "\n\n\n" +
+          thankYou3KindRegards + "\n\n" +
+          thankYou4ArtyMonkeys + "\n\n\n\n" +
+          thankYou5AutoMessage + "\n\n\n"
+      ),
 
-        bodyHtml = Some( """
+      bodyHtml = Some( """
       <html>
       <head>
 <style>
@@ -75,14 +80,14 @@ p {
 </style>
 </head>
         <body bgcolor=”#ffffff”>
-                         """ +
-          "<p>" + thankYou1OpeningLine + "</p>" +
-          "<p>" + thankYou2Body + "</p><br>" +
-          "<p>" + thankYou3KindRegards + "</p>" +
-          "<p>" + thankYou4ArtyMonkeys + "</p><br><br>" +
-          "<p>" + thankYou5AutoMessage + "</p>" +
-          "</body></html>")
-      )
+                       """ +
+        "<p>" + thankYou1OpeningLine + "</p>" +
+        "<p>" + thankYou2Body + "</p><br>" +
+        "<p>" + thankYou3KindRegards + "</p>" +
+        "<p>" + thankYou4ArtyMonkeys + "</p><br><br>" +
+        "<p>" + thankYou5AutoMessage + "</p>" +
+        "</body></html>")
+    )
 
     try {
       MailerPlugin.send(confirmationEmail)
