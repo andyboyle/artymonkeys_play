@@ -15,24 +15,27 @@
         <script src="@routes.Assets.at("javascripts/jquery.easing.1.3.js")"></script>
         <script src="@routes.Assets.at("javascripts/tms-0.4.1.js")"></script>
         <script src="@routes.Assets.at("javascripts/menu.js")"></script>
-        @*<script>*@
-        @*function populateClassTimeSelect(newValue) {*@
-        @*alert("Hello, new value is now : " + newValue)*@
-        @*}*@
-        @*</script>*@
         <script>
-            function deleteTask ( id ) {
+            function populateClassTimeSelect(classLocation) {
             var req = new XMLHttpRequest() ;
-            req.open("delete", "/tasks/" + id);
+            req.open("post", "/locationclasstimes/" + classLocation);
             req.onload = function ( e ) {
                 if ( req.status = 200 )  {
                     document.reload(true);
                 }
             };
-            req.send()
+            req.send();
             }
         </script>
-
+        <script>
+$(document).ready(function(){
+    $("#ajaxButtonTesting").click(function(){
+        $.ajax({url: "/ajax", success: function(result){
+            $("#div1").html(result);
+        }});
+    });
+});
+</script>
 
         <script>
         $(document).ready(function () {
@@ -156,7 +159,7 @@
                         <br>
 
                         <div class="formelement">
-                            Location:
+                            Preferred Class Location:
                             <select class="howdidyouhear" name="location" required onchange="populateClassTimeSelect(this.value)" >
                                 <option selected disabled hidden value=''></option>
                                 <option value="briarlands">Briarlands Farm, Stirling</option>
@@ -166,14 +169,17 @@
 
                         <div class="formelement">
                             Time:
-                            <select class="howdidyouhear" name="time" required>
+                            <select id="monkeyclasstimes" class="howdidyouhear" name="time" required>
                                 <option selected disabled hidden value=''></option>
-                                <option value="1000to1045">10:00am - 10:45am</option>
-                                <option value="1115to1200">11:15am - 12:00 noon</option>
                             </select>
                         </div>
 
                         <br>
+
+                        <div id="div1"><h1>Oooo hello</h1></div>
+
+                        <input type="button" id="ajaxButtonTesting" value="AButton">
+
 
                         <fieldset>
                             <strong>Little Monkey Details</strong>
