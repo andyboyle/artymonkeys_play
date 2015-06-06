@@ -16,27 +16,15 @@
         <script src="@routes.Assets.at("javascripts/tms-0.4.1.js")"></script>
         <script src="@routes.Assets.at("javascripts/menu.js")"></script>
         <script>
-            function populateClassTimeSelect(classLocation) {
-            var req = new XMLHttpRequest() ;
-            req.open("post", "/locationclasstimes/" + classLocation);
-            req.onload = function ( e ) {
-                if ( req.status = 200 )  {
-                    document.reload(true);
-                }
-            };
-            req.send();
-            }
+        function populateLocationClassTimes(classLoc){
+            var theurl = "/ajax/" + classLoc;
+            $.ajax({url: theurl,
+                    success: function(result){
+                        $("#monkeyclasstimesdiv").html(result);
+                    }
+            })
+        }
         </script>
-        <script>
-$(document).ready(function(){
-    $("#ajaxButtonTesting").click(function(){
-        $.ajax({url: "/ajax", success: function(result){
-            $("#div1").html(result);
-        }});
-    });
-});
-</script>
-
         <script>
         $(document).ready(function () {
             $('.slider')._TMS({
@@ -158,16 +146,16 @@ $(document).ready(function(){
 
                         <br>
 
-                        <div class="formelement">
+                        <div id="" class="formelement">
                             Preferred Class Location:
-                            <select class="howdidyouhear" name="location" required onchange="populateClassTimeSelect(this.value)" >
+                            <select class="howdidyouhear" name="location" required onchange="populateLocationClassTimes(this.value);" >
                                 <option selected disabled hidden value=''></option>
-                                <option value="briarlands">Briarlands Farm, Stirling</option>
+                                <option value="briarlands">Briarlands Farm, Near Stirling</option>
                                 <option value="baristas">Baristas Coffee House, Falkirk</option>
                             </select>
                         </div>
 
-                        <div class="formelement">
+                        <div id="monkeyclasstimesdiv" class="formelement">
                             Time:
                             <select id="monkeyclasstimes" class="howdidyouhear" name="time" required>
                                 <option selected disabled hidden value=''></option>
@@ -176,18 +164,13 @@ $(document).ready(function(){
 
                         <br>
 
-                        <div id="div1"><h1>Oooo hello</h1></div>
-
-                        <input type="button" id="ajaxButtonTesting" value="AButton">
-
-
                         <fieldset>
                             <strong>Little Monkey Details</strong>
                             <br>
                             <br>
                             <div class="formelementlittlemonkey">
-                                Total Number: ( max three )
-                                <input class="howdidyouhear" name="numberofmonkeys" type="number" size="2" min="1" max="3" value="1" required>
+                                Total Number:
+                                <input class="howdidyouhear" name="numberofmonkeys" type="number" size="2" min="1" max="20" value="1" required>
                             </div>
 
                             <div>
