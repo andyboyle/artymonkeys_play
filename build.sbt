@@ -1,6 +1,6 @@
 name := "artymonkeys_play"
 
-version := "1.0.0.2"
+version := "1.0.0.3-SNAPSHOT"
 
 lazy val `artymonkeys_play` = (project in file(".")).enablePlugins(PlayScala)
 
