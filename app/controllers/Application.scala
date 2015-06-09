@@ -1,7 +1,8 @@
 package controllers
 
-import controllers.dao.{NewsHomeDao, CustomerDao, UserDao}
+import controllers.dao.{VenueDao, NewsHomeDao, CustomerDao, UserDao}
 import controllers.email.{EmailEnquiry, EmailInterestRegistered}
+import model.VenueHelper
 import play.Routes
 import play.api.mvc._
 
@@ -29,39 +30,8 @@ with EmailInterestRegistered with EmailEnquiry with Secured {
     Ok(views.html.contacts(isAdminUser(request)))
   }
 
-  //  def locationClassTimes(classLocation: String) = SecureAction { request =>
-  //    val validClassTimesForLocation = List("Hello1", "Hello2", classLocation)
-  //    Ok(views.html.contacts(!isAdminUser(request), validClassTimesForLocation))
-  //  }
-
-//  def ajaxTest() = SecureAction { request =>
   def ajaxTest(classLoc: String) = Action { request =>
-    if (classLoc == "baristas") {
-      Ok(
-        """
-          |  <div id="monkeyclasstimesdiv" class="formelement">
-          |  Time:
-          |     <select id="monkeyclasstimes" class="howdidyouhear" name="time" required>
-          |     <option selected disabled hidden value=''></option>
-          |     <option value='9to10'>9am to 10am</option>
-          |     <option value='10to11'>10am to 11am</option>
-          |     <option value='11to12'>11am to 12noon</option>
-          |     <option value='12to13'>12noon to 1pm</option>
-          |     </select>
-          |  </div>
-        """.stripMargin)
-    } else {
-      Ok(
-        """
-          |  <div id="monkeyclasstimesdiv" class="formelement">
-          |  Time:
-          |     <select id="monkeyclasstimes" class="howdidyouhear" name="time" required>
-          |     <option selected disabled hidden value=''></option>
-          |     <option value='10to11'>10am to 11am</option>
-          |     </select>
-          |  </div>
-        """.stripMargin)
-    }
+    Ok(new VenueHelper().getVenueTimesHtml(classLoc))
   }
 
   def locationClassTimes: List[String] = {
