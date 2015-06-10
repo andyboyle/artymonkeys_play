@@ -11,9 +11,9 @@ class VenueDao {
     val result = venueCollection.findOne(query)
     if ( result.isDefined ) {
       val times = result.get.get("defaultClassTimes").asInstanceOf[com.mongodb.BasicDBList]
-      return times.toList.map( x => x.toString )
+      times.toList.map( x => x.toString )
     } else {
-      return List()
+      List()
     }
   }
 }

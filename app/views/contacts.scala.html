@@ -26,6 +26,22 @@
         }
         </script>
         <script>
+            function generateMonkeyDetails(numberOfMonkeys) {
+
+            var htmlMonkeyDetails = "";
+            for ( var index = 1; index <= numberOfMonkeys ; index++ ) {
+                htmlMonkeyDetails = htmlMonkeyDetails +
+                " <div><div class=\"formelementlittlemonkey\">" +
+                "<input class=\"howdidyouhear\" type=\"text\" name=\"monkey" +  index + "name\" placeholder=\"Monkey's Name\" required>" +
+                "</div><div class=\"formelementlittlemonkey\">Date Of Birth:" +
+                "<input class=\"howdidyouhear\" type=\"date\" name=\"monkey" + index + "dob\" required>" +
+                "</div></div>"
+            }
+
+                $("#formlittlemonkeys").html("<div id=\"formlittlemonkeys\">" + htmlMonkeyDetails + "</div>")
+            }
+        </script>
+        <script>
         $(document).ready(function () {
             $('.slider')._TMS({
                 show: 0,
@@ -162,51 +178,30 @@
                             </select>
                         </div>
 
-                        <br>
-
                         <fieldset>
                             <strong>Little Monkey Details</strong>
                             <br>
                             <br>
                             <div class="formelementlittlemonkey">
                                 Total Number:
-                                <input class="howdidyouhear" name="numberofmonkeys" type="number" size="2" min="1" max="20" value="1" required>
+                                <input class="howdidyouhear" name="numberofmonkeys" type="number"
+                                size="2" min="1" max="20" value="1" onchange="generateMonkeyDetails(this.value)" required>
                             </div>
 
-                            <div>
-                                <div class="formelementlittlemonkey">
-                                    <input class="howdidyouhear" type="text" name="monkey1name" placeholder="Monkey One's Name" required>
-                                </div>
+                            <div id="formlittlemonkeys">
+                                <div>
+                                    <div class="formelementlittlemonkey">
+                                        <input class="howdidyouhear" type="text" name="monkey1name" placeholder="Monkey One's Name" required>
+                                    </div>
 
-                                <div class="formelementlittlemonkey">
-                                    Date Of Birth:
-                                    <input class="howdidyouhear" type="date" name="monkey1dob" required>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="formelementlittlemonkey">
-                                    <input class="howdidyouhear" type="text" name="monkey2name" placeholder="Monkey Two's Name">
-                                </div>
-
-                                <div class="formelementlittlemonkey">
-                                    Date Of Birth:
-                                    <input class="howdidyouhear" type="date" name="monkey2dob">
+                                    <div class="formelementlittlemonkey">
+                                        Date Of Birth:
+                                        <input class="howdidyouhear" type="date" name="monkey1dob" required>
+                                    </div>
                                 </div>
                             </div>
-
-                            <div>
-                                <div class="formelementlittlemonkey">
-                                    <input class="howdidyouhear" type="text" name="monkey3name" placeholder="Monkey Three's Name">
-                                </div>
-
-                                <div class="formelementlittlemonkey">
-                                    Date Of Birth:
-                                    <input class="howdidyouhear" type="date" name="monkey3dob">
-                                </div>
-                            </div>
-
                         </fieldset>
+
                         <br>
 
                         <div class="formelementhowdidyouhear">

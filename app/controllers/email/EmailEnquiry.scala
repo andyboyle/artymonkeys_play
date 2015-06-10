@@ -3,55 +3,64 @@ package controllers.email
 import model._
 import play.Play
 import play.api.Play.current
-import play.api.data.Form
-import play.api.data.Forms._
 import play.api.libs.mailer._
 import play.api.mvc.{Action, Results}
 
 trait EmailEnquiry extends EmailSenderBase {
   this: Results =>
 
-  val enquiryForm = Form(
-    tuple(
-      "name" -> text,
-      "phone" -> text,
-      "email" -> text,
-      "location" -> text,
-      "time" -> text,
-      "numberofmonkeys" -> number,
-      "monkey1name" -> text,
-      "monkey1dob" -> text,
-      "monkey2name" -> text,
-      "monkey2dob" -> text,
-      "monkey3name" -> text,
-      "monkey3dob" -> text,
-      "howdidyouhear" -> text,
-      "howdidyouhearextra" -> text,
-      "message" -> text
-    )
-  )
-
   def emailOfEnquiry = Action { implicit request =>
     var error = false
-    val (name, phone, email, location, time, numberofmonkeys,
-    monkey1name, monkey1dob,
-    monkey2name, monkey2dob,
-    monkey3name, monkey3dob,
-    howdidyouhear, howdidyouhearextra, message) = enquiryForm.bindFromRequest.get
 
-    val theMonkeys = List(
-      new Monkey(Some(monkey1name), Some(monkey1dob)),
-      new Monkey(Some(monkey2name), Some(monkey2dob)),
-      new Monkey(Some(monkey3name), Some(monkey3dob)) ).toSeq
+    var customerName = ""
+    var customerPhone = ""
+    var customerEmail = ""
+    var customerPreferredVenue = ""
+    var customerPreferredClassTime = ""
+    var customerNumberOfMonkeys = ""
+    var customerMonkeyNames = scala.collection.mutable.ListBuffer.empty[String]
+    var customerMonkeyDobs = scala.collection.mutable.ListBuffer.empty[String]
+    var customerHowDidYouHear = ""
+    var customerHowDidYouHearExtra = ""
+    var customerMessage = ""
+
+    val monkeyNamePattern = "monkey(\\d+)name".r
+    val monkeyDobPattern = "monkey(\\d+)dob".r
+
+    val formDetailsOption = request.body.asFormUrlEncoded
+    if ( formDetailsOption.isDefined ) {
+      val formDetails = formDetailsOption.get
+      for ( key <- formDetails.keys ) {
+        val formValue = formDetails(key)
+        key match {
+          case "name" => customerName = formValue.head
+          case "email" => customerEmail = formValue.head
+          case "phone" => customerPhone = formValue.head
+          case "location" => customerPreferredVenue = formValue.head
+          case "time" => customerPreferredClassTime = formValue.head
+          case "numberofmonkeys" => customerNumberOfMonkeys = formValue.head
+          case "howdidyouhear" => customerHowDidYouHear = formValue.head
+          case "howdidyouhearextra" => customerHowDidYouHearExtra = formValue.head
+          case "message" => customerMessage = formValue.head
+          case monkeyNamePattern(key) => customerMonkeyNames += formValue.head
+          case monkeyDobPattern(key) => customerMonkeyDobs += formValue.head
+        }
+      }
+    }
+
+    val monkeyTuple =  customerMonkeyNames zip customerMonkeyDobs
+    val monkeysList = for ( monkey <- monkeyTuple ) yield {
+      Monkey(Some(monkey._1), Some(monkey._2))
+    }
 
     val customer = new Customer(
-      Some(name),
-      EmailWrapper(Some(email)),
-      PhoneWrapper(Some(phone)),
-      new CustomerPreferences(Some(location), Some(time)),
-      theMonkeys,
-      new HowDidYouHear(Some(howdidyouhear), Some(howdidyouhearextra)),
-      Some(message)
+      Some(customerName),
+      EmailWrapper(Some(customerEmail)),
+      PhoneWrapper(Some(customerPhone)),
+      new CustomerPreferences(Some(customerPreferredVenue), Some(customerPreferredClassTime)),
+      monkeysList.toList,
+      new HowDidYouHear(Some(customerHowDidYouHear), Some(customerHowDidYouHearExtra)),
+      Some(customerMessage)
     )
 
     customerDao.addCustomer(customer)
@@ -61,17 +70,7 @@ trait EmailEnquiry extends EmailSenderBase {
       "No Reply Arty Monkeys <" + NO_REPLY_ARTY_MONKEYS + ">",
       Seq("Info Arty Monkeys <" + INFO_ARTY_MONKEYS + ">"),
 
-      bodyText = Some("Name : " + name + "\n" +
-        "Phone: " + phone + "\n" +
-        "Email: " + email + "\n" +
-        "Interested Location: " + location + ", and Time " + time + "\n" +
-        "Number Of Monkeys: " + numberofmonkeys + ",\n" +
-        "\t\tMonkey One Name: " + monkey1name + ", dob: " + monkey1dob + "\n" +
-        "\t\tMonkey Two Name: " + monkey2name + ", dob: " + monkey2dob + "\n" +
-        "\t\tMonkey Three Name: " + monkey3name + ", dob: " + monkey3dob + "\n" +
-        "How did they hear about Arty Monkeys?  Category: " + howdidyouhear + "," +
-        "  Text:" + howdidyouhearextra + "\n" +
-        "\nMessage:\n\n" + message)
+      bodyText = Some(customer.toString)
     )
 
     try {
@@ -91,7 +90,7 @@ trait EmailEnquiry extends EmailSenderBase {
     val confirmationEmail = Email(
       "Confirmation Of Your Enquiry In Arty Monkeys",
       "No Reply Arty Monkeys <" + NO_REPLY_ARTY_MONKEYS + ">",
-      Seq(name + " <" + email + ">"),
+      Seq(customer.knownas.get + " <" + customer.emailWrapper.email.get + ">"),
 
       attachments = Seq(
         AttachmentFile("artyMonkeysLogoCrop.jpg", Play.application().getFile("conf/artyMonkeysLogoCrop.jpg"))
