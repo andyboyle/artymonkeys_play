@@ -30,7 +30,7 @@ with EmailInterestRegistered with EmailEnquiry with Secured {
     Ok(views.html.contacts(isAdminUser(request)))
   }
 
-  def ajaxTest(classLoc: String) = Action { request =>
+  def classVenueTimes(classLoc: String) = Action { request =>
     Ok(new VenueHelper().getVenueTimesHtml(classLoc))
   }
 
