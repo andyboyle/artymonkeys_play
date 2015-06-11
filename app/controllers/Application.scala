@@ -1,8 +1,8 @@
 package controllers
 
-import controllers.dao.{VenueDao, NewsHomeDao, CustomerDao, UserDao}
+import controllers.dao.{VenueDao, NewsHomeDao, CustomerDao}
 import controllers.email.{EmailEnquiry, EmailInterestRegistered}
-import model.VenueHelper
+import model.{AdminHelper, VenueHelper}
 import play.Routes
 import play.api.mvc._
 
@@ -10,7 +10,6 @@ import play.api.mvc._
 object Application extends Controller
 with EmailInterestRegistered with EmailEnquiry with Secured {
 
-  val usersDao = new UserDao()
   val customersDao = new CustomerDao()
   val newsHomeDao = new NewsHomeDao()
 
@@ -105,12 +104,7 @@ with EmailInterestRegistered with EmailEnquiry with Secured {
 
   private def isAdminUser(request: Request[AnyContent]): Boolean = {
     val user = userIdFromHeader(request)
-    val users = usersDao.retrieveAllUsers()
-    if (user.isDefined && users.exists(theuser => theuser.id == user.get.toString.replace("\"", ""))) {
-      true
-    } else {
-      false
-    }
+    AdminHelper.isAdminUser(user)
   }
 
 }

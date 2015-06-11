@@ -1,13 +1,14 @@
-package controllers.dao
+package controllers.dao.user
 
 import com.mongodb.casbah.Imports._
+import controllers.dao.user.UserDaoTrait
 import model.{EmailWrapper, User}
 
-class UserDao {
+class UserDao extends UserDaoTrait {
 
   val userCollection = MongoConnection()("artymonkeys")("users")
 
-  def retrieveAllUsers(): Seq[User] = {
+  override def retrieveAllUsers(): Seq[User] = {
     println("Retrieving users now ...")
     val userCursor = userCollection.find()
     val allusers = for {userObj <- userCursor} yield {
