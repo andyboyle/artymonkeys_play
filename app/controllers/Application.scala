@@ -1,9 +1,8 @@
 package controllers
 
 import controllers.dao.customer.CustomerDao
-import controllers.dao.news.NewsHomeDao
 import controllers.email.{EmailEnquiry, EmailInterestRegistered}
-import model.{AdminHelper, VenueHelper}
+import model.{NewsHomeHelper, AdminHelper, VenueHelper}
 import play.Routes
 import play.api.mvc._
 
@@ -12,10 +11,9 @@ object Application extends Controller
 with EmailInterestRegistered with EmailEnquiry with Secured {
 
   val customersDao = new CustomerDao()
-  val newsHomeDao = new NewsHomeDao()
 
   def index = SecureAction { request =>
-    Ok(views.html.index(isAdminUser(request), newsHomeDao.getLastNewsItems()))
+    Ok(views.html.index(isAdminUser(request), NewsHomeHelper.getLastNewsItems()))
   }
 
   def about = SecureAction { request =>
@@ -80,7 +78,7 @@ with EmailInterestRegistered with EmailEnquiry with Secured {
 
   def managenews = SecureAction { request =>
     if (isAdminUser(request)) {
-      Ok(views.html.managenews(true, newsHomeDao.getLastNewsItems()))
+      Ok(views.html.managenews(true, NewsHomeHelper.getLastNewsItems()))
     } else {
       Unauthorized(views.html.unauthorised())
     }
@@ -88,7 +86,7 @@ with EmailInterestRegistered with EmailEnquiry with Secured {
 
   def managenewspost = SecureAction { request =>
     if (isAdminUser(request)) {
-      Ok(views.html.managenews(true, newsHomeDao.getLastNewsItems()))
+      Ok(views.html.managenews(true, NewsHomeHelper.getLastNewsItems()))
     } else {
       Unauthorized(views.html.unauthorised())
     }
