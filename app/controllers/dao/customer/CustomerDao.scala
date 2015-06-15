@@ -1,4 +1,4 @@
-package controllers.dao
+package controllers.dao.customer
 
 import com.mongodb.BasicDBObject
 import com.mongodb.casbah.Imports._

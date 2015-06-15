@@ -1,6 +1,7 @@
 package controllers
 
-import controllers.dao.{VenueDao, NewsHomeDao, CustomerDao}
+import controllers.dao.customer.CustomerDao
+import controllers.dao.news.NewsHomeDao
 import controllers.email.{EmailEnquiry, EmailInterestRegistered}
 import model.{AdminHelper, VenueHelper}
 import play.Routes
@@ -30,7 +31,7 @@ with EmailInterestRegistered with EmailEnquiry with Secured {
   }
 
   def classVenueTimes(classLoc: String) = Action { request =>
-    Ok(new VenueHelper().getVenueTimesHtml(classLoc))
+    Ok(VenueHelper.getVenueTimesHtml(classLoc))
   }
 
   def locationClassTimes: List[String] = {

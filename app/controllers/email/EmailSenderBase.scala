@@ -1,6 +1,6 @@
 package controllers.email
 
-import controllers.dao.CustomerDao
+import controllers.dao.customer.CustomerDao
 import play.api.Play
 
 trait EmailSenderBase {

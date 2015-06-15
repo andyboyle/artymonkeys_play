@@ -1,4 +1,4 @@
-package controllers.dao
+package controllers.dao.news
 
 import java.util.Date
 

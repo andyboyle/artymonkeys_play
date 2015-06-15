@@ -3,7 +3,9 @@ package controllers
 import com.mongodb.casbah.Imports._
 import com.mongodb.casbah.MongoCollection
 import controllers.dao.user.UserRepositoryMongoComponent
+import controllers.dao.venue.VenueRepositoryMongoComponent
 import controllers.service.user.DefaultUserServiceComponent
+import controllers.service.venue.DefaultVenueServiceComponent
 
 object ApplicationCake {
 
@@ -12,5 +14,12 @@ object ApplicationCake {
   }
 
   val userService = userServiceComponent.userService
+
+
+  val venueServiceComponent = new DefaultVenueServiceComponent with VenueRepositoryMongoComponent {
+    override val venueCollection: MongoCollection = MongoConnection()("artymonkeys")("venue")
+  }
+
+  val venueService = venueServiceComponent.venueService
 
 }

@@ -1,12 +1,11 @@
 package model
 
-import controllers.dao.VenueDao
+import controllers.ApplicationCake
 
-class VenueHelper {
-  val venueDao = new VenueDao()
+object VenueHelper {
 
   def getVenueTimesHtml(venueName: String) : String = {
-    val times = venueDao.getVenueTimes(venueName)
+    val times = ApplicationCake.venueService.retrieveVenueClassTimes(venueName)
     val htmlOptions = times.map( x => "<option value='" + x.replaceAll(" ","") + "'>" + x +"</option>" )
 
     val htmlToReturn =
