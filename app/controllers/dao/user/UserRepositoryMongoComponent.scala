@@ -4,13 +4,14 @@ import com.mongodb.casbah.MongoCollection
 import model.{EmailWrapper, User}
 
 trait UserRepositoryMongoComponent extends UserRepositoryComponent {
+
   val userCollection: MongoCollection
 
-  def userLocator = new UserLocatorJPA(userCollection)
+  def userLocator = new UserLocatorMongoDb(userCollection)
 
-  def userUpdater = new UserUpdaterJPA(userCollection)
+  def userUpdater = new UserUpdaterMongoDb(userCollection)
 
-  class UserLocatorJPA(val collection: MongoCollection) extends UserLocator {
+  class UserLocatorMongoDb(val collection: MongoCollection) extends UserLocator {
     def retrieveAllUsers = {
       val userCursor = collection.find()
       val allUsers = for {userObj <- userCursor} yield {
@@ -23,9 +24,8 @@ trait UserRepositoryMongoComponent extends UserRepositoryComponent {
     }
   }
 
-  class UserUpdaterJPA(val collection: MongoCollection) extends UserUpdater {
+  class UserUpdaterMongoDb(val collection: MongoCollection) extends UserUpdater {
     def save(user: User) {
-//      collection.update()
     }
   }
 

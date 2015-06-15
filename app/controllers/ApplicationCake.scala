@@ -6,8 +6,11 @@ import controllers.dao.user.UserRepositoryMongoComponent
 import controllers.service.user.DefaultUserServiceComponent
 
 object ApplicationCake {
+
   val userServiceComponent = new DefaultUserServiceComponent with UserRepositoryMongoComponent {
     override val userCollection: MongoCollection = MongoConnection()("artymonkeys")("users")
   }
+
   val userService = userServiceComponent.userService
+
 }
