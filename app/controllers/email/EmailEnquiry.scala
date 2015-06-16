@@ -2,17 +2,35 @@ package controllers.email
 
 import controllers.ApplicationCake
 import model._
-import play.Play
+import play.api.Play
 import play.api.Play.current
 import play.api.libs.mailer._
-import play.api.mvc.{Action, Results}
+import play.api.mvc._
 
 trait EmailEnquiry extends EmailSenderBase {
   this: Results =>
 
   def emailOfEnquiry = Action { implicit request =>
-    var error = false
+    val customer = buildCustomerFromRequest(request)
+    ApplicationCake.customerService.save(customer)
+    handleEmailSending(customer)
+  }
 
+
+  def handleEmailSending(customer: Customer): Result = {
+    val weShouldSendEmails = Play.current.configuration.getBoolean("send.emails")
+    if (weShouldSendEmails.getOrElse(true)) {
+      if (sendEmails(customer)) {
+        Ok(views.html.errorsendingemail())
+      } else {
+        Ok(views.html.thankyou())
+      }
+    } else {
+      Ok(views.html.thankyou())
+    }
+  }
+
+  def buildCustomerFromRequest(request: Request[AnyContent]): Customer = {
     var customerName = ""
     var customerPhone = ""
     var customerEmail = ""
@@ -29,9 +47,9 @@ trait EmailEnquiry extends EmailSenderBase {
     val monkeyDobPattern = "monkey(\\d+)dob".r
 
     val formDetailsOption = request.body.asFormUrlEncoded
-    if ( formDetailsOption.isDefined ) {
+    if (formDetailsOption.isDefined) {
       val formDetails = formDetailsOption.get
-      for ( key <- formDetails.keys ) {
+      for (key <- formDetails.keys) {
         val formValue = formDetails(key)
         key match {
           case "name" => customerName = formValue.head
@@ -49,8 +67,8 @@ trait EmailEnquiry extends EmailSenderBase {
       }
     }
 
-    val monkeyTuple =  customerMonkeyNames zip customerMonkeyDobs
-    val monkeysList = for ( monkey <- monkeyTuple ) yield {
+    val monkeyTuple = customerMonkeyNames zip customerMonkeyDobs
+    val monkeysList = for (monkey <- monkeyTuple) yield {
       Monkey(Some(monkey._1), Some(monkey._2))
     }
 
@@ -64,7 +82,11 @@ trait EmailEnquiry extends EmailSenderBase {
       Some(customerMessage)
     )
 
-    ApplicationCake.customerService.save(customer)
+    customer
+  }
+
+  def sendEmails(customer: Customer): Boolean = {
+    var error = false
 
     val emailEnquiry = Email(
       "Enquiry To Arty Monkeys",
@@ -92,10 +114,6 @@ trait EmailEnquiry extends EmailSenderBase {
       "Confirmation Of Your Enquiry In Arty Monkeys",
       "No Reply Arty Monkeys <" + NO_REPLY_ARTY_MONKEYS + ">",
       Seq(customer.knownas.get + " <" + customer.emailWrapper.email.get + ">"),
-
-      attachments = Seq(
-        AttachmentFile("artyMonkeysLogoCrop.jpg", Play.application().getFile("conf/artyMonkeysLogoCrop.jpg"))
-      ),
 
       bodyText = Some(thankYouEnquiryLine1 + "\n\n\n" +
         thankYouEnquiryLine2 + "\n\n\n" +
@@ -135,10 +153,6 @@ p {
         error = true
     }
 
-    if (error) {
-      Ok(views.html.errorsendingemail())
-    } else {
-      Ok(views.html.thankyou())
-    }
+    !error
   }
 }
