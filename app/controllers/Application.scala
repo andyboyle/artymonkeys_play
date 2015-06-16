@@ -1,7 +1,7 @@
 package controllers
 
 import controllers.email.{EmailEnquiry, EmailInterestRegistered}
-import model.{AdminHelper, VenueHelper}
+import model.{NewsHomeHelper, AdminHelper, VenueHelper}
 import play.Routes
 import play.api.mvc._
 
@@ -83,6 +83,7 @@ with EmailInterestRegistered with EmailEnquiry with Secured {
 
   def managenewspost = SecureAction { request =>
     if (isAdminUser(request)) {
+      NewsHomeHelper.addNewsItem(request)
       Ok(views.html.managenews(true, ApplicationCake.newsHomeService.getLastNewsItems(5)))
     } else {
       Unauthorized(views.html.unauthorised())

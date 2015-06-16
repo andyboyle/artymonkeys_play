@@ -72,7 +72,7 @@ trait EmailEnquiry extends EmailSenderBase {
       Monkey(Some(monkey._1), Some(monkey._2))
     }
 
-    val customer = new Customer(
+    new Customer(
       Some(customerName),
       EmailWrapper(Some(customerEmail)),
       PhoneWrapper(Some(customerPhone)),
@@ -81,8 +81,6 @@ trait EmailEnquiry extends EmailSenderBase {
       new HowDidYouHear(Some(customerHowDidYouHear), Some(customerHowDidYouHearExtra)),
       Some(customerMessage)
     )
-
-    customer
   }
 
   def sendEmails(customer: Customer): Boolean = {

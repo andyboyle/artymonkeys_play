@@ -70,8 +70,6 @@
 
                 <h2 id="managenewsh2">Manage News</h2>
 
-                <button type="button" name="addnewnews" onclick="">Add New News</button>
-
                 <table class="newshome_table">
                     <tr>
                         <th>Posted</th>
@@ -93,6 +91,17 @@
                     }
                 </table>
 
+                <form id="newnewsform" method="post">
+                    <div class="newnewsformelement">
+                        <textarea class="inputemailtextbox" name="newnewsitemheadline"
+                        required placeholder="New News Headline"></textarea>
+
+                        <textarea class="messagetextboxnews" name="newnewsitemtext"
+                        required placeholder="Enter New News Details"></textarea>
+                    </div>
+
+                    <input class="sendemailbutton" type="submit" value="Add New News">
+                </form>
 
             </section>
         </div>

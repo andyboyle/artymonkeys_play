@@ -4,6 +4,7 @@ import java.util.Date
 
 import com.mongodb.casbah.Imports._
 import com.mongodb.casbah.MongoCollection
+import com.mongodb.casbah.commons.ValidBSONType.BSONTimestamp
 import model.NewsHomeItem
 import org.joda.time.LocalDate
 
@@ -25,12 +26,13 @@ trait NewsHomeRepositoryMongoComponent extends NewsHomeRepositoryComponent {
         val id = item.get("_id").asInstanceOf[ObjectId]
         val postedValue = item.get("posted").asInstanceOf[Date]
         val postedValueLocalDate = new LocalDate(postedValue)
+        val headline = item.get("headline").asInstanceOf[String]
         val newsDetails = item.get("newsDetails").asInstanceOf[BasicDBList]
         val lines = for (newsLine <- newsDetails) yield {
           newsLine.toString
         }
         println("The news item is : " + item)
-        NewsHomeItem(id, postedValueLocalDate, lines)
+        NewsHomeItem(id, postedValueLocalDate, headline, lines)
       }
       println(" To Show : " + newsItems.underlying)
       newsItemsToShow.toSeq
@@ -39,7 +41,12 @@ trait NewsHomeRepositoryMongoComponent extends NewsHomeRepositoryComponent {
   }
 
   class NewsHomeUpdaterMongoDb(val collection: MongoCollection) extends NewsHomeUpdater {
-    def save(newsItem: NewsHomeItem) {
+    def save(newsItem: NewsHomeItem): Unit = {
+      val dateJavaUtil : java.util.Date = newsItem.posted.toDate
+      val doc = MongoDBObject("posted" -> dateJavaUtil)
+        .+=("headline" -> newsItem.headline)
+      .+=("newsDetails" -> newsItem.newsDetails)
+      collection.save(doc)
     }
   }
 

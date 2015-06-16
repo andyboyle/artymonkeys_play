@@ -395,6 +395,12 @@ h4 {
     /*display: none;*/
 /*}*/
 
+.newnewsformelement {
+    display: inline-block;
+    margin-right: 0;
+    margin-bottom:  0;
+}
+
 .formelement {
     display: inline-block;
     margin-right: 3em;
@@ -528,6 +534,16 @@ h4 {
     border-radius: 8px;
 }
 
+.inputemailtextbox {
+    display: block;
+    padding: 0.2em;
+    margin-bottom: 1em;
+    color: darkblue;
+    font-size: 1em;
+    background-color: #ccc2cd;
+    border-radius: 8px;
+}
+
 .inputemailtextbox_last {
     display: block;
     padding: 0.2em;
@@ -578,12 +594,13 @@ h4 {
     border-radius: 8px;
 }
 
-.inputtextboxmail {
+.inputtextboxnews {
     display: inline-block;
     margin-left: 0.4em;
     padding: 0.6em;
     color: blue;
-    font-size: 0.9em;
+    width: 40%;
+    font-size: 1.1em;
     background-color: lightgray;
     border-radius: 7px;
 }
@@ -630,6 +647,18 @@ fieldset {
     border-radius: 8px;
 }
 
+.messagetextboxnews {
+    width: 300%;
+    height: 10em;
+    display: block;
+    margin: 0;
+    padding: 0.3em;
+    color: blue;
+    font-size: 1em;
+    background-color: lightgray;
+    border-radius: 8px;
+}
+
 /*#emailmessage {*/
     /*display: block;*/
     /*transform: translate(-20px, -245px);*/
@@ -641,10 +670,14 @@ fieldset {
     background: blue;
 }
 
+#newnewsform {
+    display: inline-block;
+}
+
 .sendemailbutton {
     display: block;
     float: none;
-    margin: 80px 0 0 70px;
+    margin-top: 1em;
     padding: 8px 20px 5px 20px;
     color: #a8d8d5;
     font-size: 1.5em;
