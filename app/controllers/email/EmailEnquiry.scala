@@ -1,5 +1,6 @@
 package controllers.email
 
+import controllers.ApplicationCake
 import model._
 import play.Play
 import play.api.Play.current
@@ -63,7 +64,7 @@ trait EmailEnquiry extends EmailSenderBase {
       Some(customerMessage)
     )
 
-    customerDao.addCustomer(customer)
+    ApplicationCake.customerService.save(customer)
 
     val emailEnquiry = Email(
       "Enquiry To Arty Monkeys",

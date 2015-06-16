@@ -1,8 +1,7 @@
 package controllers
 
-import controllers.dao.customer.CustomerDao
 import controllers.email.{EmailEnquiry, EmailInterestRegistered}
-import model.{NewsHomeHelper, AdminHelper, VenueHelper}
+import model.{AdminHelper, VenueHelper}
 import play.Routes
 import play.api.mvc._
 
@@ -10,10 +9,8 @@ import play.api.mvc._
 object Application extends Controller
 with EmailInterestRegistered with EmailEnquiry with Secured {
 
-  val customersDao = new CustomerDao()
-
   def index = SecureAction { request =>
-    Ok(views.html.index(isAdminUser(request), NewsHomeHelper.getLastNewsItems()))
+    Ok(views.html.index(isAdminUser(request), ApplicationCake.newsHomeService.getLastNewsItems(5)))
   }
 
   def about = SecureAction { request =>
@@ -78,7 +75,7 @@ with EmailInterestRegistered with EmailEnquiry with Secured {
 
   def managenews = SecureAction { request =>
     if (isAdminUser(request)) {
-      Ok(views.html.managenews(true, NewsHomeHelper.getLastNewsItems()))
+      Ok(views.html.managenews(true, ApplicationCake.newsHomeService.getLastNewsItems(5)))
     } else {
       Unauthorized(views.html.unauthorised())
     }
@@ -86,7 +83,7 @@ with EmailInterestRegistered with EmailEnquiry with Secured {
 
   def managenewspost = SecureAction { request =>
     if (isAdminUser(request)) {
-      Ok(views.html.managenews(true, NewsHomeHelper.getLastNewsItems()))
+      Ok(views.html.managenews(true, ApplicationCake.newsHomeService.getLastNewsItems(5)))
     } else {
       Unauthorized(views.html.unauthorised())
     }
@@ -94,7 +91,7 @@ with EmailInterestRegistered with EmailEnquiry with Secured {
 
   def customers = SecureAction { request =>
     if (isAdminUser(request)) {
-      val allCustomers = customersDao.retrieveAllCustomers()
+      val allCustomers = ApplicationCake.customerService.retrieveAllCustomers()
       Ok(views.html.showCustomers(true, allCustomers))
     } else {
       Unauthorized(views.html.unauthorised())
