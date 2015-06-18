@@ -76,14 +76,6 @@
 
                 <div id="blurb_and_email_sender">
 
-                    <div id="newclasses">
-                        <div id="artymonkeys_blurb_sub">
-                            <div id="classesstartingsub" >Classes starting on Tuesday 9th June at
-                                <a href="https://www.facebook.com/pages/Baristas-Coffee-House/587426837984057">
-                                    Baristas Coffee House</a> Falkirk</div>
-                        </div>
-                    </div>
-
                     <div id="sociallinks">
                         <a href="https://www.facebook.com/artymonkeys.uk"><img id="facebook_icon"
                         src="@routes.Assets.at("images/facebook.jpg")"/></a>
@@ -93,6 +85,25 @@
 
                     <div class="inlineblocked">
                         <form method="post" class="registerinterestcontainer">
+
+                            <div class="howdidyouheardiv">
+                                <div class="clr-white howherelabel">How did you hear about us?</div>
+                                <select class="howdidyouhearcombo" name="howdidyouhearcategory" required>
+                                    <option selected disabled hidden value=''>Please Select ...</option>
+                                    <option value="briarlands">Briarlands Farm</option>
+                                    <option value="baristas" >Baristas Coffee House</option>
+                                    <option value="facebook">Facebook</option>
+                                    <option value="families" >Families Magazine</option>
+                                    <option value="google" >Google</option>
+                                    <option value="netmums">Netmums</option>
+                                    <option value="nursery" >Nursery</option>
+                                    <option value="referral" >Referral</option>
+                                    <option value="other" >Other - please state</option>
+                                </select>
+
+                                <textarea class="howdidyouhearextratextbox" name="howdidyouhearextra" placeholder="Extra info in here please"></textarea>
+                            </div>
+
                             <div class="inlineblocked">
                                 <input class="inputemailtextbox_first" placeholder="Your Name" type="text" name="name" required>
                                 <input class="inputemailtextbox" placeholder="Best Phone Number" type="tel" name="phone" required>
@@ -102,24 +113,6 @@
                             <div class="inlineblocked">
                                 <input class="registerinterestbutton" type="submit" value="Register Interest">
                             </div>
-
-                            <div class="howdidyouheardiv">
-                                <div class="block">How did you hear about us?</div>
-                                <select class="howdidyouhearcombo" name="howdidyouhearcategory" required>
-                                    <option selected disabled hidden value=''>Please Select ...</option>
-                                    <option value="briarlands">Briarlands Farm</option>
-                                    <option value="baristas" >Baristas Coffee House</option>
-                                    <option value="facebook">Facebook</option>
-                                    <option value="google" >Google</option>
-                                    <option value="netmums">Netmums</option>
-                                    <option value="nursery" >Nursery</option>
-                                    <option value="referral" >Referral</option>
-                                    <option value="other" >Other - please state</option>
-                                </select>
-
-                                <textarea class="howdidyouhearextratextbox" name="howdidyouhearextra"></textarea>
-                            </div>
-
 
                         </form>
                     </div>
