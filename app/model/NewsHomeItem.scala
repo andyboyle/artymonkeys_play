@@ -1,9 +1,11 @@
 package model
 
+
 import org.bson.types.ObjectId
-import org.joda.time.LocalDate
+import org.joda.time.{LocalDateTime, LocalDate}
 
 case class NewsHomeItem(id: ObjectId,
-                        posted: LocalDate,
+                        posted: LocalDateTime,
                         headline: String,
-                        newsDetails: Seq[String])
+                        newsDetails: Seq[String]
+                         )

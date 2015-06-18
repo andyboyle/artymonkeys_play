@@ -17,7 +17,7 @@
         <script src="@routes.Assets.at("javascripts/menu.js")"></script>
         <script>
         function populateLocationClassTimes(classLoc){
-            var theurl = "/ajax/" + classLoc;
+            var theurl = "/venuetimes/" + classLoc;
             $.ajax({url: theurl,
                     success: function(result){
                         $("#monkeyclasstimesdiv").html(result);

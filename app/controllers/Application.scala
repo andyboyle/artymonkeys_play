@@ -75,7 +75,17 @@ with EmailInterestRegistered with EmailEnquiry with Secured {
 
   def managenews = SecureAction { request =>
     if (isAdminUser(request)) {
-      Ok(views.html.managenews(true, ApplicationCake.newsHomeService.getLastNewsItems(5)))
+      Ok(views.html.managenews(true, ApplicationCake.newsHomeService.getLastNewsItems(20)))
+    } else {
+      Unauthorized(views.html.unauthorised())
+    }
+  }
+
+  def managenewsDeleteItem(newsItemId: String) = SecureAction { request =>
+    if (isAdminUser(request)) {
+      ApplicationCake.newsHomeService.delete(newsItemId)
+      val newsItems = ApplicationCake.newsHomeService.getLastNewsItems(20)
+      Ok(views.html.managenews(true, newsItems))
     } else {
       Unauthorized(views.html.unauthorised())
     }
@@ -84,7 +94,7 @@ with EmailInterestRegistered with EmailEnquiry with Secured {
   def managenewspost = SecureAction { request =>
     if (isAdminUser(request)) {
       NewsHomeHelper.addNewsItem(request)
-      Ok(views.html.managenews(true, ApplicationCake.newsHomeService.getLastNewsItems(5)))
+      Ok(views.html.managenews(true, ApplicationCake.newsHomeService.getLastNewsItems(20)))
     } else {
       Unauthorized(views.html.unauthorised())
     }

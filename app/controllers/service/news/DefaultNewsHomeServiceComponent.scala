@@ -2,6 +2,7 @@ package controllers.service.news
 
 import controllers.dao.news.NewsHomeRepositoryComponent
 import model.NewsHomeItem
+import org.bson.types.ObjectId
 
 trait DefaultNewsHomeServiceComponent extends NewsHomeServiceComponent {
   this: NewsHomeRepositoryComponent =>
@@ -13,6 +14,10 @@ trait DefaultNewsHomeServiceComponent extends NewsHomeServiceComponent {
 
     def save(newsItem: NewsHomeItem) {
       newsHomeUpdater.save(newsItem)
+    }
+
+    def delete(objectIdStr: String): Unit = {
+      newsHomeUpdater.delete(new ObjectId(objectIdStr))
     }
   }
 }

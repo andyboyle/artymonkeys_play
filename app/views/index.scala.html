@@ -161,9 +161,12 @@
                     <h3>News</h3>
 
                     @for(newsItem <- newsItems) {
+                        <div class="block">
+                        <h4 id="newstime">@newsItem.headline</h4>
                         <time datetime="@newsItem.posted" pubdate>
-                            Posted @newsItem.posted
+                            Posted @newsItem.posted.toString("hh:mm:ss a"), on @newsItem.posted.toString(" dd MMM yyyy")
                         </time>
+                        </div>
 
                         <div>
                         @for(line <- newsItem.newsDetails) {

@@ -335,7 +335,15 @@ article {
 }
 
 time {
+    float: right;
+    display: inline-block;
     color: #555555;
+}
+
+#newstime {
+    margin-bottom: 0.3em;
+    padding: 0;
+    display: inline-block;
 }
 
 p {
@@ -370,9 +378,11 @@ h3 {
 }
 
 h4 {
-    font-size: 1.2em;
+    font-size: 1.3em;
     font-weight: bold;
     color: purple;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
 }
 
 #navbar {
@@ -524,12 +534,13 @@ h4 {
     border-radius: 8px;
 }
 
-.inputemailtextbox {
+.newsheadertextbox {
     display: block;
     padding: 0.2em;
+    width: 20em;
     margin: 0.3em 0;
     color: darkblue;
-    font-size: 1em;
+    font-size: 1.3em;
     background-color: #daAb00;
     border-radius: 8px;
 }
@@ -537,10 +548,10 @@ h4 {
 .inputemailtextbox {
     display: block;
     padding: 0.2em;
-    margin-bottom: 1em;
+    margin: 0.3em 0;
     color: darkblue;
     font-size: 1em;
-    background-color: #ccc2cd;
+    background-color: #daAb00;
     border-radius: 8px;
 }
 
@@ -648,22 +659,16 @@ fieldset {
 }
 
 .messagetextboxnews {
-    width: 300%;
+    width: 40em;
     height: 10em;
     display: block;
     margin: 0;
     padding: 0.3em;
     color: blue;
-    font-size: 1em;
+    font-size: 1.1em;
     background-color: lightgray;
     border-radius: 8px;
 }
-
-/*#emailmessage {*/
-    /*display: block;*/
-    /*transform: translate(-20px, -245px);*/
-    /*float: right;*/
-/*}*/
 
 .select {
     color: red;
@@ -711,6 +716,19 @@ fieldset {
     display: inline-block;
     width: 55%;
     margin: 0.5em 0 0 0;
+}
+
+.newslistadmin {
+    display: inline-block;
+    width: 45%;
+    float: left;
+    margin-left: 5%;
+}
+
+.newnewsformdiv {
+    display: inline-block;
+    margin-left: 4em;
+    float: left;
 }
 
 .inlineblocked {

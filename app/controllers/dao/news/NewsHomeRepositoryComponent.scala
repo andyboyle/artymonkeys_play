@@ -1,6 +1,7 @@
 package controllers.dao.news
 
 import model.NewsHomeItem
+import org.bson.types.ObjectId
 
 trait NewsHomeRepositoryComponent {
   def newsHomeLocator : NewsHomeLocator
@@ -12,6 +13,7 @@ trait NewsHomeRepositoryComponent {
 
   trait NewsHomeUpdater {
     def save(newsItem: NewsHomeItem)
+    def delete(objectId: ObjectId)
   }
 
 }
