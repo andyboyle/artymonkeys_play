@@ -21,13 +21,15 @@ trait EmailInterestRegistered extends EmailSenderBase {
     tuple(
       "name" -> text,
       "phone" -> text,
-      "email" -> text
+      "email" -> text,
+      "howdidyouhearcategory" -> text,
+      "howdidyouhearextra" -> text
     )
   )
 
   def emailOfRegisteredInterest = Action { implicit request =>
     var error = false
-    val (name, phone, email) = interestForm.bindFromRequest.get
+    val (name, phone, email, howdidyouhearCategory, howdidyouhearExtra) = interestForm.bindFromRequest.get
 
 //    customerDao.addCustomer(EmailWrapper(Some(email)), Some(name), PhoneWrapper(Some(phone)))
 
@@ -38,7 +40,10 @@ trait EmailInterestRegistered extends EmailSenderBase {
 
       bodyText = Some("Name : " + name + "\n" +
         "Phone: " + phone + "\n" +
-        "Email: " + email + "\n")
+        "Email: " + email + "\n\n" +
+        "How Did They Hear: " + howdidyouhearCategory + "\n" +
+        howdidyouhearExtra
+      )
     )
 
     try {

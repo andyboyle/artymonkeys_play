@@ -424,8 +424,13 @@ h4 {
 }
 
 .registerinterestcontainer {
+    border: groove #c5db44;
+    border-radius: 8px;
     display: block;
+    padding: 0.4em;
+    background-color: #0072ff;
     margin: 1.5em 0.5em 0 0.5em;
+    box-shadow: 5px 5px 10px #deeede;
 }
 
 #artymonkeys_blurb {
@@ -530,7 +535,7 @@ h4 {
     margin-bottom: 0.3em;
     color: darkblue;
     font-size: 1em;
-    background-color: #daAb00;
+    background-color: #c5db44;
     border-radius: 8px;
 }
 
@@ -551,18 +556,51 @@ h4 {
     margin: 0.3em 0;
     color: darkblue;
     font-size: 1em;
-    background-color: #daAb00;
+    background-color: #c5db44;
     border-radius: 8px;
+}
+
+.howdidyouheardiv {
+    display: block;
+    padding: 0.2em;
+    margin: 0.8em 0;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.howherelabel {
+    font-size: 1.2em;
+    float: left;
+    margin-right: 1em;
+    padding: 0.4em;
+}
+
+.howdidyouhearcombo {
+    display: block;
+    width: 10em;
+    padding: 0.4em;
+    color: darkblue;
+    font-size: 1em;
+    background-color: #c5db44;
+    border-radius: 8px;
+}
+
+.howdidyouhearextratextbox {
+    display: block;
+    width: 98%;
+    /*margin: 0.8em 2em 0.7em 2em;*/
+    margin-top: 0.4em;
+    margin-left: 0.4em;
 }
 
 .inputemailtextbox_last {
     display: block;
     padding: 0.2em;
     margin-top: 0.3em;
-    margin-bottom: 0;
+    margin-bottom: 0.7em;
     color: darkblue;
     font-size: 1em;
-    background-color: #daAb00;
+    background-color: #c5db44;
     border-radius: 8px;
 }
 
@@ -801,6 +839,10 @@ fieldset {
 
 .clr-kelley {
     color: blue;
+}
+
+.clr-white {
+    color: white;
 }
 
 .borderround {
@@ -1067,7 +1109,6 @@ fieldset {
         text-align: left;
         display: inline-block;
         margin-top: 3em;
-        max-width: 50%;
         font-size: 0.8em;
         padding: 0.7em;
 
@@ -1176,34 +1217,22 @@ fieldset {
 
     .inputemailtextbox_first {
         display: block;
-        padding: 0.2em;
-        margin: 0.3em 0;
         color: darkblue;
-        font-size: 1.4em;
         line-height: 1.6em;
-        background-color: #daAb00;
         border-radius: 8px;
     }
 
     .inputemailtextbox {
         display: block;
-        padding: 0.2em;
-        margin: 0.3em 0;
         color: darkblue;
-        font-size: 1.4em;
         line-height: 1.6em;
-        background-color: #daAb00;
         border-radius: 8px;
     }
 
     .inputemailtextbox_last {
         display: block;
-        padding: 0.2em;
-        margin: 0.3em 0;
         color: darkblue;
-        font-size: 1.4em;
         line-height: 1.6em;
-        background-color: #daAb00;
         border-radius: 8px;
     }
 
@@ -1252,8 +1281,10 @@ fieldset {
     }
 
     .registerinterestcontainer {
+        width: 95%;
         margin: 0 auto;
         display: block;
+        font-size: 1em;
     }
 
     #artymonkeys_logo {
@@ -1578,7 +1609,14 @@ fieldset {
         width: 97%;
     }
 
+
     #briarlands_icon {
         display: none;
     }
+
+    .howdidyouhearcombo {
+        font-size: 1em;
+    }
+
+
 }
