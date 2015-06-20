@@ -102,28 +102,6 @@
 
                 <div id="blurb_and_email_sender">
 
-                    <div id="newclasses">
-                        <div id="artymonkeys_blurb_sub">
-                            <div id="classesstartingsub" >Classes starting on Tuesday 9th June at
-                                <a href="https://www.facebook.com/pages/Baristas-Coffee-House/587426837984057">
-                                    Baristas Coffee House</a> Falkirk</div>
-                        </div>
-                    </div>
-
-                    <div id="newclasses">
-                        <div id="artymonkeys_blurb_sub">
-                            <p id="classes_full">
-                                A few spaces still available at Briarlands!
-                            </p>
-                            <p id="classes_full">See <a href="classes.html">available
-                                classes</a>
-                            </p>
-                        </div>
-                        <div id="briarlands_icon"><a href="http://briarlandsfarm.co.uk/">
-                            <img src="@routes.Assets.at("images/briarlands.jpg")"/></a>
-                        </div>
-                    </div>
-
                     <div id="sociallinks">
                         <a href="https://www.facebook.com/artymonkeys.uk"><img id="facebook_icon"
                         src="@routes.Assets.at("images/facebook.jpg")"/></a>
@@ -133,14 +111,35 @@
 
                     <div class="inlineblocked">
                         <form method="post" class="registerinterestcontainer">
-                            <div class="inlineblocked">
-                                <input class="inputemailtextbox_first" placeholder="Your Name" type="text" name="name">
-                                <input class="inputemailtextbox" placeholder="Best Phone Number" type="tel" name="phone">
-                                <input class="inputemailtextbox_last" placeholder="Enter Your Best Email" type="email" name="email">
+
+                            <div class="howdidyouheardiv">
+                                <div class="clr-white howherelabel">How did you hear about us?</div>
+                                <select class="howdidyouhearcombo" name="howdidyouhearcategory" required>
+                                    <option selected disabled hidden value=''>Please Select ...</option>
+                                    <option value="briarlands">Briarlands Farm</option>
+                                    <option value="baristas" >Baristas Coffee House</option>
+                                    <option value="facebook">Facebook</option>
+                                    <option value="families" >Families Magazine</option>
+                                    <option value="google" >Google</option>
+                                    <option value="netmums">Netmums</option>
+                                    <option value="nursery" >Nursery</option>
+                                    <option value="referral" >Referral</option>
+                                    <option value="other" >Other - please state</option>
+                                </select>
+
+                                <textarea class="howdidyouhearextratextbox" name="howdidyouhearextra" placeholder="Extra info in here please"></textarea>
                             </div>
+
+                            <div class="inlineblocked">
+                                <input class="inputemailtextbox_first" placeholder="Your Name" type="text" name="name" required>
+                                <input class="inputemailtextbox" placeholder="Best Phone Number" type="tel" name="phone" required>
+                                <input class="inputemailtextbox_last" placeholder="Enter Your Best Email" type="email" name="email" required>
+                            </div>
+
                             <div class="inlineblocked">
                                 <input class="registerinterestbutton" type="submit" value="Register Interest">
                             </div>
+
                         </form>
                     </div>
 
@@ -160,9 +159,13 @@
                 <article id="news_article">
                     <h3>News</h3>
 
-                    @for(newsItem <- newsItems) {
+                    @for((newsItem,index) <- newsItems.zipWithIndex) {
                         <div class="block">
-                        <h4 id="newstime">@newsItem.headline</h4>
+                            @if(index==0) {
+                        <h4 id="newsheadline1">@newsItem.headline</h4>
+                            } else {
+                        <h4 id="newsheadline">@newsItem.headline</h4>
+                            }
                         <time datetime="@newsItem.posted" pubdate>
                             Posted @newsItem.posted.toString("hh:mm:ss a"), on @newsItem.posted.toString(" dd MMM yyyy")
                         </time>
@@ -170,7 +173,11 @@
 
                         <div>
                         @for(line <- newsItem.newsDetails) {
-                            <p>@line</p>
+                            @if(index==0) {
+                                <p id="newsPara1">@line</p>
+                            } else {
+                                <p id="newsPara">@line</p>
+                            }
                         }
                         </div>
                         <br>
