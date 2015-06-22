@@ -32,6 +32,10 @@ object Application extends Controller with EmailInterestRegistered with EmailEnq
     Ok(views.html.monkeynews())
   }
 
+  def artyparties = SecureAction {
+    Ok(views.html.artyparties())
+  }
+
 }
 
 object SecureAction extends ActionBuilder[Request] {

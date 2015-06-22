@@ -252,6 +252,12 @@ h4 {
     color: purple;
 }
 
+#artyparties {
+    font-size: 2.3em;
+    margin-top: 8em;
+    margin-bottom: 20em;
+}
+
 .registerinterestcontainer {
     border: groove #c5db44;
     border-radius: 8px;
@@ -571,6 +577,10 @@ h4 {
 
 .clr-about {
     color: #0072ff;
+}
+
+.clr-party {
+    color: mediumvioletred;
 }
 
 .clr-skills {
