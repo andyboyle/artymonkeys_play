@@ -17,8 +17,8 @@ GET           /assets/*file                     controllers.Assets.at(path="/pub
 GET           /login                            controllers.Application.login
 GET           /logout                           controllers.Application.logout
 
-POST          /                                 controllers.Application.emailOfRegisteredInterest
-POST          /index.html                       controllers.Application.emailOfRegisteredInterest
+POST          /                                 controllers.Application.emailOfEnquiry
+POST          /index.html                       controllers.Application.emailOfEnquiry
 POST          /contacts.html                    controllers.Application.emailOfEnquiry
 
 GET           /oauth2callback                   controllers.Application.oauth2call

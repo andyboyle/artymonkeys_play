@@ -1,13 +1,12 @@
 package controllers
 
-import controllers.email.{EmailEnquiry, EmailInterestRegistered}
+import controllers.email.EmailEnquiry
 import model.{NewsHomeHelper, AdminHelper, VenueHelper}
 import play.Routes
 import play.api.mvc._
 
 
-object Application extends Controller
-with EmailInterestRegistered with EmailEnquiry with Secured {
+object Application extends Controller with EmailEnquiry with Secured {
 
   def index = SecureAction { request =>
     Ok(views.html.index(isAdminUser(request), ApplicationCake.newsHomeService.getLastNewsItems(5)))
