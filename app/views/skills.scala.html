@@ -48,128 +48,137 @@
         </script>
     </head>
     <body>
-        <header id="main_header">
-            <div class="fixedContainer">
-                <div id="navbar"></div>
-                <span class="home_icon_trigger">
-                    <a href="index.html">
-                        <img id="home_icon" src="@routes.Assets.at("images/home.png")">
-                    </a>
-                </span>
+        <div id="borderleaves">
+            <header id="main_header">
+                <div class="fixedContainer">
+                    <div id="navbar"></div>
+                    <span class="home_icon_trigger">
+                        <a href="index.html">
+                            <img id="home_icon" src="@routes.Assets.at("images/home.png")">
+                        </a>
+                    </span>
 
-                <figure id="artymonkeys_logo_img">
-                    <img id="artymonkeys_logo" src="@routes.Assets.at("images/artyMonkeysLogoCrop.jpg")">
-                </figure>
+                    <figure id="artymonkeys_logo_img">
+                        <img id="artymonkeys_logo" src="@routes.Assets.at("images/artyMonkeysLogoCrop.jpg")">
+                    </figure>
 
-                <span class="menu_trigger">
-                    <img id="menu_icon" src="@routes.Assets.at("images/menuIcon.png")">
-                </span>
+                    <span class="menu_trigger">
+                        <img id="menu_icon" src="@routes.Assets.at("images/menuIcon.png")">
+                    </span>
 
-                @if( adminAccess ) {
-                    <div>
-                        <nav id="admin_menu">
+                    @if(adminAccess) {
+                        <div>
+                            <nav id="admin_menu">
+                                <ul>
+                                    <li><a href="loginsuccess.html" class="clr-about">Admin Home</a></li>
+                                    <li><a href="managenews.html" class="clr-skills">Manage News</a></li>
+                                    <li><a href="customers.html" class="clr-classes">Customers</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    } else {
+                        <div id="no_login_header_space"></div>
+                    }
+
+                    <div class="inlineblocked">
+                        <nav id="main_menu">
                             <ul>
-                                <li><a href="loginsuccess.html" class="clr-about">Admin Home</a></li>
-                                <li><a href="managenews.html" class="clr-skills">Manage News</a></li>
-                                <li><a href="customers.html" class="clr-classes">Customers</a></li>
+                                <li><a href="index.html" class="clr-home">Home</a></li>
+                                <li><a href="about.html" class="clr-about">About Us</a></li>
+                                <li class="current"><a href="skills.html" class="clr-skills">Skills</a></li>
+                                <li><a href="classes.html" class="clr-classes">Classes</a></li>
+                                <li><a href="monkeynews.html" class="clr-monkeynews">Monkey News</a></li>
+                                <li><a href="contacts.html" class="clr-contact">Register</a></li>
                             </ul>
                         </nav>
+                        <p id="artymonkeys_blurb">
+                            Encouraging creativity & imagination through fun arts and crafts classes</p>
                     </div>
-                } else {
-                    <div id="no_login_header_space"></div>
-                }
 
-                <div class="inlineblocked">
-                    <nav id="main_menu">
-                        <ul>
-                            <li><a href="index.html" class="clr-home">Home</a></li>
-                            <li><a href="about.html" class="clr-about">About Us</a></li>
-                            <li class="current"><a href="skills.html" class="clr-skills">Skills</a></li>
-                            <li><a href="classes.html" class="clr-classes">Classes</a></li>
-                            <li><a href="monkeynews.html" class="clr-monkeynews">Monkey News</a></li>
-                            <li><a href="contacts.html" class="clr-contact">Register</a></li>
-                        </ul>
-                    </nav>
-                    <p id="artymonkeys_blurb">Encouraging creativity & imagination through fun arts and crafts classes</p>
                 </div>
+            </header>
+            <div id="wrapper_skills">
+                <section id="main_section" class="skills_top_margin">
+                    <table class="skills_table">
+                        <tr>
+                            <th>Core Skills</th>
+                            <th>How Can Arty Monkeys Help?</th>
+                        </tr>
+                        <tr>
+                            <td>Cognitive
+                                <ul class="skills_ul">
+                                    <li class="skills_li"> Problem solving</li>
+                                    <li class="skills_li"> Fine motor skills</li>
+                                    <li class="skills_li"> Spatial awareness</li>
+                                    <li class="skills_li"> Memory</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="skills_ul">
+                                    <li class="skills_li">
+                                        Through use of art and craft materials and tools children will develop
+                                        their fine motor skills.
+                                    </li>
+                                    <li class="skills_li">
+                                        By choosing suitable tools and materials problem solving skills will be
+                                        developed.
+                                    </li>
+                                    <li class="skills_li">
+                                        Children will be discussing stories, rhymes and illustrations from books
+                                        which will improve their memory and observation skills.
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Language Acquisition
+                                <ul class="skills_ul">
+                                    <li class="skills_li">Speech</li>
+                                    <li class="skills_li">Communication</li>
+                                    <li class="skills_li">Phonological awareness</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="skills_ul">
+                                    <li class="skills_li">
+                                        Through stories, songs and rhymes to introduce and close each class children
+                                        will begin to recognise rhyme and initial sounds. These will be discussed and activities
+                                        will be designed around these themes.
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Social
+                                <ul class="skills_ul">
+                                    <li class="skills_li">Self-esteem</li>
+                                    <li class="skills_li">Sharing</li>
+                                    <li class="skills_li">Respect</li>
+                                    <li class="skills_li">Emotional self-regulation</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="skills_ul">
+                                    <li class="skills_li">
+                                        Through following class routines and instructions the children will learn about
+                                        successful sharing of equipment and space.
+                                    </li>
+                                    <li class="skills_li">
+                                        By regularly sharing their own artwork with the group and celebrating their
+                                        masterpieces on our website and Facebook.
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
 
+                    </table>
+                </section>
             </div>
-        </header>
-        <div id="wrapper_skills">
-            <section id="main_section" class="skills_top_margin">
-                <table class="skills_table">
-                    <tr>
-                        <th>Core Skills</th>
-                        <th>How Can Arty Monkeys Help?</th>
-                    </tr>
-                    <tr>
-                        <td>Cognitive
-                            <ul class="skills_ul">
-                                <li class="skills_li"> Problem solving</li>
-                                <li class="skills_li"> Fine motor skills</li>
-                                <li class="skills_li"> Spatial awareness</li>
-                                <li class="skills_li"> Memory</li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul class="skills_ul">
-                                <li class="skills_li"> Through use of art and craft materials and tools children will develop
-                                    their fine motor skills.
-                                </li>
-                                <li class="skills_li"> By choosing suitable tools and materials problem solving skills will be
-                                    developed.
-                                </li>
-                                <li class="skills_li"> Children will be discussing stories, rhymes and illustrations from books
-                                    which will improve their memory and observation skills.
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Language Acquisition
-                            <ul class="skills_ul">
-                                <li class="skills_li">Speech</li>
-                                <li class="skills_li">Communication</li>
-                                <li class="skills_li">Phonological awareness</li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul class="skills_ul">
-                                <li class="skills_li">Through stories, songs and rhymes to introduce and close each class children
-                                    will begin to recognise rhyme and initial sounds. These will be discussed and activities
-                                    will be designed around these themes.
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Social
-                            <ul class="skills_ul">
-                                <li class="skills_li">Self-esteem</li>
-                                <li class="skills_li">Sharing</li>
-                                <li class="skills_li">Respect</li>
-                                <li class="skills_li">Emotional self-regulation</li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul class="skills_ul">
-                                <li class="skills_li"> Through following class routines and instructions the children will learn about
-                                    successful sharing of equipment and space.
-                                </li>
-                                <li class="skills_li"> By regularly sharing their own artwork with the group and celebrating their
-                                    masterpieces on our website and Facebook.
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-
-                </table>
-            </section>
+            <footer id="main_footer">
+                <p class="clr-0">Website Template by <a class="link clr-0" href="http://www.templatemonster.com/"
+                target="_blank"
+                rel="nofollow">www.templatemonster.com</a></p>
+            </footer>
         </div>
-        <footer id="main_footer">
-            <p class="clr-0">Website Template by <a class="link clr-0" href="http://www.templatemonster.com/"
-            target="_blank"
-            rel="nofollow">www.templatemonster.com</a></p>
-        </footer>
     </body>
 </html>

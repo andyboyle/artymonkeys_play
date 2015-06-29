@@ -48,110 +48,112 @@
         </script>
     </head>
     <body>
-        <header id="main_header">
-            <div class="fixedContainer">
-                <div id="navbar"></div>
-                <span class="home_icon_trigger">
-                    <a href="index.html">
-                        <img id="home_icon" src="@routes.Assets.at("images/home.png")">
-                    </a>
-                </span>
+        <div id="borderleaves">
+            <header id="main_header">
+                <div class="fixedContainer">
+                    <div id="navbar"></div>
+                    <span class="home_icon_trigger">
+                        <a href="index.html">
+                            <img id="home_icon" src="@routes.Assets.at("images/home.png")">
+                        </a>
+                    </span>
 
-                <figure id="artymonkeys_logo_img">
-                    <img id="artymonkeys_logo" src="@routes.Assets.at("images/artyMonkeysLogoCrop.jpg")">
-                </figure>
+                    <figure id="artymonkeys_logo_img">
+                        <img id="artymonkeys_logo" src="@routes.Assets.at("images/artyMonkeysLogoCrop.jpg")">
+                    </figure>
 
-                <span class="menu_trigger">
-                    <img id="menu_icon" src="@routes.Assets.at("images/menuIcon.png")">
-                </span>
+                    <span class="menu_trigger">
+                        <img id="menu_icon" src="@routes.Assets.at("images/menuIcon.png")">
+                    </span>
 
-                @if( adminAccess ) {
-                    <div>
-                        <nav id="admin_menu">
+                    @if(adminAccess) {
+                        <div>
+                            <nav id="admin_menu">
+                                <ul>
+                                    <li><a href="loginsuccess.html" class="clr-about">Admin Home</a></li>
+                                    <li><a href="managenews.html" class="clr-skills">Manage News</a></li>
+                                    <li><a href="customers.html" class="clr-classes">Customers</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    } else {
+                        <div id="no_login_header_space"></div>
+                    }
+
+                    <div class="inlineblocked">
+                        <nav id="main_menu">
                             <ul>
-                                <li><a href="loginsuccess.html" class="clr-about">Admin Home</a></li>
-                                <li><a href="managenews.html" class="clr-skills">Manage News</a></li>
-                                <li><a href="customers.html" class="clr-classes">Customers</a></li>
+                                <li><a href="index.html" class="clr-home">Home</a></li>
+                                <li class="current"><a href="about.html" class="clr-about">About Us</a></li>
+                                <li><a href="skills.html" class="clr-skills">Skills</a></li>
+                                <li><a href="classes.html" class="clr-classes">Classes</a></li>
+                                <li><a href="monkeynews.html" class="clr-monkeynews">Monkey News</a></li>
+                                <li><a href="contacts.html" class="clr-contact">Register</a></li>
                             </ul>
                         </nav>
+                        <p id="artymonkeys_blurb">
+                            Encouraging creativity & imagination through fun arts and crafts classes</p>
                     </div>
-                } else {
-                    <div id="no_login_header_space"></div>
-                }
 
-                <div class="inlineblocked">
-                    <nav id="main_menu">
-                        <ul>
-                            <li><a href="index.html" class="clr-home">Home</a></li>
-                            <li class="current"><a href="about.html" class="clr-about">About Us</a></li>
-                            <li><a href="skills.html" class="clr-skills">Skills</a></li>
-                            <li><a href="classes.html" class="clr-classes">Classes</a></li>
-                            <li><a href="monkeynews.html" class="clr-monkeynews">Monkey News</a></li>
-                            <li><a href="contacts.html" class="clr-contact">Register</a></li>
-                        </ul>
-                    </nav>
-                    <p id="artymonkeys_blurb">Encouraging creativity & imagination through fun arts and crafts classes</p>
                 </div>
+            </header>
+            <div id="wrapper">
+                <section id="main_section" class="about_us_top_margin">
+                    <article class="clr-yvonne">
+                        <h3 class="clr-yvonne">Yvonne</h3>
+                        <img class="aboutsusimg fleft borderround" src="@routes.Assets.at("images/YvonneAndGirlsSmall.JPG")" height="155" width="107"
+                        alt="Yvonne">
 
+                        <p class="clr-yvonne">As a mum and primary teacher I love making learning fun.</p>
+
+                        <p class="clr-yvonne">I have designed all our Arty Monkeys classes to appeal to young children's
+                            interests whilst allowing them to learn other important life skills for their age.</p>
+
+                        <p class="clr-yvonne">
+                            For me arts and crafts play a huge part of my family life - both my
+                            children love painting, drawing and making things together. A cereal box is never "rubbish" in
+                            our
+                            house. It's been a television, a spaceship and even part of a bike!</p>
+
+                        <p class="clr-yvonne">Children have the most amazing imaginations because they see the world through new
+                            eyes. I set up Arty Monkeys to allow these imaginations to flourish and be celebrated. Having
+                            taken
+                            my own children to various classes over the years I am keen that our classes will be fun for the
+                            adults too!</p>
+
+                    </article>
+
+                    <article class="clr-kelley">
+                        <h3 class="clr-kelley">Kelley</h3>
+
+                        <img class="aboutsusimg fleft borderround" src="@routes.Assets.at("images/kelley.jpg")" height="155" width="160" alt="Kelley">
+
+                        <p class="clr-kelley">Ever since I was young I have had an interest and appreciation of things
+                            which
+                            were made instead of reproduced or bought off the shelf.</p>
+
+                        <p class="clr-kelley">Over the years, especially since having kids, I have </p>
+
+                        <p class="clr-kelley">learned that as well as it
+                            being rewarding to create something from scratch, it's actually really really fun! It's also
+                            a great way of communicating with my kids. There is nothing better than to see the pure
+                            excitement in their eyes while they engineer their ideas. The twinkle when you tell them
+                            just how good it looks - priceless!</p>
+
+                        <p class="clr-kelley">With a background running a successful business and a bachelors degree in
+                            English Language and Linguistics, I knew I had to do something with this burning desire to
+                            bring the same joy and inspiration into other families through arts and crafts.</p>
+
+                    </article>
+
+                </section>
             </div>
-        </header>
-        <div id="wrapper">
-            <section id="main_section" class="about_us_top_margin">
-                <article class="clr-yvonne">
-                    <h3 class="clr-yvonne">Yvonne</h3>
-                    <img class="aboutsusimg fleft borderround" src="@routes.Assets.at("images/YvonneAndGirlsSmall.JPG")" height="155" width="107"
-                    alt="Yvonne">
 
-                    <p>As a mum and primary teacher I love making learning fun.</p>
-
-                    <p>I have designed all our Arty Monkeys classes to appeal to young children's
-                        interests whilst allowing them to learn other important life skills for their age.</p>
-
-                    <p>
-                For me arts and crafts play a huge part of my family life - both my
-                        children love painting, drawing and making things together. A cereal box is never "rubbish" in
-                        our
-                        house. It's been a television, a spaceship and even part of a bike!</p>
-
-                    <p>Children have the most amazing imaginations because they see the world through new
-                        eyes. I set up Arty Monkeys to allow these imaginations to flourish and be celebrated. Having
-                        taken
-                        my own children to various classes over the years I am keen that our classes will be fun for the
-                        adults too!</p>
-
-                </article>
-
-                <article class="clr-kelley">
-                    <h3 class="clr-kelley">Kelley</h3>
-
-                    <img class="aboutsusimg fleft borderround" src="@routes.Assets.at("images/kelley.jpg")" height="155" width="160" alt="Kelley">
-
-                    <p>Ever since I was young I have had an interest and appreciation of things
-                        which
-                        were made instead of reproduced or bought off the shelf.</p>
-
-                    <p>Over the years, especially since having kids, I have </p>
-
-                    <p>learned that as well as it
-                        being rewarding to create something from scratch, it's actually really really fun! It's also
-                        a great way of communicating with my kids. There is nothing better than to see the pure
-                        excitement in their eyes while they engineer their ideas. The twinkle when you tell them
-                        just how good it looks - priceless!</p>
-
-                    <p>With a background running a successful business and a bachelors degree in
-                        English Language and Linguistics, I knew I had to do something with this burning desire to
-                        bring the same joy and inspiration into other families through arts and crafts.</p>
-
-                </article>
-
-            </section>
+            <footer id="main_footer">
+                <p class="clr-0">Website Template by <a class="link clr-0" href="http://www.templatemonster.com/"
+                target="_blank"
+                rel="nofollow">www.templatemonster.com</a></p>
+            </footer>
         </div>
-
-        <footer id="main_footer">
-            <p class="clr-0">Website Template by <a class="link clr-0" href="http://www.templatemonster.com/"
-            target="_blank"
-            rel="nofollow">www.templatemonster.com</a></p>
-        </footer>
-
     </body>
 </html>

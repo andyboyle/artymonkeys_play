@@ -48,89 +48,100 @@
         </script>
     </head>
     <body>
-        <header id="main_header">
-            <div class="fixedContainer">
-                <div id="navbar"></div>
-                <span class="home_icon_trigger">
-                    <a href="index.html">
-                        <img id="home_icon" src="@routes.Assets.at("images/home.png")">
-                    </a>
-                </span>
+        <div id="borderleaves">
+            <header id="main_header">
+                <div class="fixedContainer">
+                    <div id="navbar"></div>
+                    <span class="home_icon_trigger">
+                        <a href="index.html">
+                            <img id="home_icon" src="@routes.Assets.at("images/home.png")">
+                        </a>
+                    </span>
 
-                <figure id="artymonkeys_logo_img">
-                    <img id="artymonkeys_logo" src="@routes.Assets.at("images/artyMonkeysLogoCrop.jpg")">
-                </figure>
+                    <figure id="artymonkeys_logo_img">
+                        <img id="artymonkeys_logo" src="@routes.Assets.at("images/artyMonkeysLogoCrop.jpg")">
+                    </figure>
 
-                <span class="menu_trigger">
-                    <img id="menu_icon" src="@routes.Assets.at("images/menuIcon.png")">
-                </span>
+                    <span class="menu_trigger">
+                        <img id="menu_icon" src="@routes.Assets.at("images/menuIcon.png")">
+                    </span>
 
-                @if( adminAccess ) {
-                    <div>
-                        <nav id="admin_menu">
+                    @if(adminAccess) {
+                        <div>
+                            <nav id="admin_menu">
+                                <ul>
+                                    <li><a href="loginsuccess.html" class="clr-about">Admin Home</a></li>
+                                    <li><a href="managenews.html" class="clr-skills">Manage News</a></li>
+                                    <li><a href="customers.html" class="clr-classes">Customers</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    } else {
+                        <div id="no_login_header_space"></div>
+                    }
+
+                    <div class="inlineblocked">
+                        <nav id="main_menu">
                             <ul>
-                                <li><a href="loginsuccess.html" class="clr-about">Admin Home</a></li>
-                                <li><a href="managenews.html" class="clr-skills">Manage News</a></li>
-                                <li><a href="customers.html" class="clr-classes">Customers</a></li>
+                                <li><a href="index.html" class="clr-home">Home</a></li>
+                                <li><a href="about.html" class="clr-about">About Us</a></li>
+                                <li><a href="skills.html" class="clr-skills">Skills</a></li>
+                                <li><a href="classes.html" class="clr-classes">Classes</a></li>
+                                <li class="current"><a href="monkeynews.html" class="clr-monkeynews">Monkey News</a></li>
+                                <li><a href="contacts.html" class="clr-contact">Register</a></li>
                             </ul>
                         </nav>
+                        <p id="artymonkeys_blurb">
+                            Encouraging creativity & imagination through fun arts and crafts classes</p>
                     </div>
-                } else {
-                    <div id="no_login_header_space"></div>
-                }
 
-                <div class="inlineblocked">
-                    <nav id="main_menu">
-                        <ul>
-                            <li><a href="index.html" class="clr-home">Home</a></li>
-                            <li><a href="about.html" class="clr-about">About Us</a></li>
-                            <li><a href="skills.html" class="clr-skills">Skills</a></li>
-                            <li><a href="classes.html" class="clr-classes">Classes</a></li>
-                            <li class="current"><a href="monkeynews.html" class="clr-monkeynews">Monkey News</a></li>
-                            <li><a href="contacts.html" class="clr-contact">Register</a></li>
-                        </ul>
-                    </nav>
-                    <p id="artymonkeys_blurb">Encouraging creativity & imagination through fun arts and crafts classes</p>
                 </div>
+            </header>
+            <div id="wrapper">
+                <section id="main_section" class="skills_top_margin">
 
+                    <article class="monkeynews">
+                        <h3 class="monkeyh3">The Importance of Art in Child Development</h3>
+                        <time class="monkeytime" datetime="27th April 2015" pubdate>27th April 2015</time>
+                        <br>
+                        <div id="nofloat"></div>
+                        <br>
+                        <img class="borderround aboutsusimg" src="@routes.Assets.at("images/childDevelopment.jpg")">
+                        We love
+                        <a href="http://www.pbs.org/parents/education/music-arts/the-importance-of-art-in-child-development/">
+                            this article </a>
+                        which explains why the arts are becoming even more important in preparing our children for the modern world.
+                    </article>
+
+                    <article class="monkeynews">
+                        <h3 class="monkeyh3">Cbeebies - How art and music help children to learn</h3>
+                        <time class="monkeytime" datetime="18th April 2015" pubdate>18th April 2015</time>
+                        <br>
+                        <div id="nofloat"></div>
+                        <br>
+                        <a href="http://www.bbc.co.uk/cbeebies/grownups/article-art-and-music">This article</a>
+                        from cbeebies gives some good suggestions for encouraging mark making in your pre-schooler.
+                        Mark making is a fundamental step in learning to write 
+                    </article>
+
+                    <article class="monkeynews">
+                        <h3 class="monkeyh3">The Value of Art for the Preschool Child</h3>
+                        <time class="monkeytime" datetime="25th April 2015" pubdate>25th April 2015</time>
+                        <br>
+                        <div id="nofloat"></div>
+                        <br>
+                        <a href="http://www.education.com/pdf/value-art-preschool-children/">This article </a>
+                        sums up everything we believe in at Arty Monkeys! There are just so many skills gained
+                        from the experience of creating and making things.
+                    </article>
+
+                </section>
             </div>
-        </header>
-        <div id="wrapper">
-            <section id="main_section" class="skills_top_margin">
-
-                <article class="monkeynews">
-                    <h3 class="monkeyh3">The Importance of Art in Child Development</h3>
-                    <time class="monkeytime" datetime="27th April 2015" pubdate>27th April 2015</time>
-                    <img class="fleft borderround aboutsusimg" src="@routes.Assets.at("images/childDevelopment.jpg")">
-
-                    We love
-                    <a href="http://www.pbs.org/parents/education/music-arts/the-importance-of-art-in-child-development/">
-                        this article </a>
-                    which explains why the arts are becoming even more important in preparing our children for the modern world.
-                </article>
-
-                <article class="monkeynews">
-                    <h3 class="monkeyh3">Cbeebies - How art and music help children to learn</h3>
-                    <time class="monkeytime" datetime="18th April 2015" pubdate>18th April 2015</time>
-                    <a href="http://www.bbc.co.uk/cbeebies/grownups/article-art-and-music">This article</a>
-                    from cbeebies gives some good suggestions for encouraging mark making in your pre-schooler.
-                    Mark making is a fundamental step in learning to write 
-                </article>
-
-                <article class="monkeynews">
-                    <h3 class="monkeyh3">The Value of Art for the Preschool Child</h3>
-                    <time class="monkeytime" datetime="25th April 2015" pubdate>25th April 2015</time>
-                    <a href="http://www.education.com/pdf/value-art-preschool-children/">This article </a>
-                     sums up everything we believe in at Arty Monkeys! There are just so many skills gained
-                    from the experience of creating and making things.
-                </article>
-
-            </section>
+            <footer id="main_footer">
+                <p class="clr-0">Website Template by <a class="link clr-0" href="http://www.templatemonster.com/"
+                target="_blank"
+                rel="nofollow">www.templatemonster.com</a></p>
+            </footer>
         </div>
-        <footer id="main_footer">
-            <p class="clr-0">Website Template by <a class="link clr-0" href="http://www.templatemonster.com/"
-            target="_blank"
-            rel="nofollow">www.templatemonster.com</a></p>
-        </footer>
     </body>
 </html>

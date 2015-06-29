@@ -75,167 +75,169 @@
 
     </head>
     <body>
-        <header id="main_header">
-            <div class="fixedContainer">
-                <div id="navbar"></div>
-                <span class="home_icon_trigger">
-                    <a href="index.html">
-                        <img id="home_icon" src="@routes.Assets.at("images/home.png")">
-                    </a>
-                </span>
+        <div id="borderleaves">
+            <header id="main_header">
+                <div class="fixedContainer">
+                    <div id="navbar"></div>
+                    <span class="home_icon_trigger">
+                        <a href="index.html">
+                            <img id="home_icon" src="@routes.Assets.at("images/home.png")">
+                        </a>
+                    </span>
 
-                <figure id="artymonkeys_logo_img">
-                    <img id="artymonkeys_logo" src="@routes.Assets.at("images/artyMonkeysLogoCrop.jpg")">
-                </figure>
+                    <figure id="artymonkeys_logo_img">
+                        <img id="artymonkeys_logo" src="@routes.Assets.at("images/artyMonkeysLogoCrop.jpg")">
+                    </figure>
 
-                <span class="menu_trigger">
-                    <img id="menu_icon" src="@routes.Assets.at("images/menuIcon.png")">
-                </span>
+                    <span class="menu_trigger">
+                        <img id="menu_icon" src="@routes.Assets.at("images/menuIcon.png")">
+                    </span>
 
-                @if(adminAccess) {
-                    <div>
-                        <nav id="admin_menu">
+                    @if(adminAccess) {
+                        <div>
+                            <nav id="admin_menu">
+                                <ul>
+                                    <li><a href="loginsuccess.html" class="clr-about">Admin Home</a></li>
+                                    <li><a href="managenews.html" class="clr-skills">Manage News</a></li>
+                                    <li><a href="customers.html" class="clr-classes">Customers</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    } else {
+                        <div id="no_login_header_space"></div>
+                    }
+
+                    <div class="inlineblocked">
+                        <nav id="main_menu">
                             <ul>
-                                <li><a href="loginsuccess.html" class="clr-about">Admin Home</a></li>
-                                <li><a href="managenews.html" class="clr-skills">Manage News</a></li>
-                                <li><a href="customers.html" class="clr-classes">Customers</a></li>
+                                <li><a href="index.html" class="clr-home">Home</a></li>
+                                <li><a href="about.html" class="clr-about">About Us</a></li>
+                                <li><a href="skills.html" class="clr-skills">Skills</a></li>
+                                <li><a href="classes.html" class="clr-classes">Classes</a></li>
+                                <li><a href="monkeynews.html" class="clr-monkeynews">Monkey News</a></li>
+                                <li class="current"><a href="contacts.html" class="clr-contact">Register</a></li>
                             </ul>
                         </nav>
-                    </div>
-                } else {
-                    <div id="no_login_header_space"></div>
-                }
+                        <p id="artymonkeys_blurb">
+                            Encouraging creativity & imagination through fun arts and crafts classes</p>
 
-                <div class="inlineblocked">
-                    <nav id="main_menu">
-                        <ul>
-                            <li><a href="index.html" class="clr-home">Home</a></li>
-                            <li><a href="about.html" class="clr-about">About Us</a></li>
-                            <li><a href="skills.html" class="clr-skills">Skills</a></li>
-                            <li><a href="classes.html" class="clr-classes">Classes</a></li>
-                            <li><a href="monkeynews.html" class="clr-monkeynews">Monkey News</a></li>
-                            <li class="current"><a href="contacts.html" class="clr-contact">Register</a></li>
-                        </ul>
-                    </nav>
-                    <p id="artymonkeys_blurb">Encouraging creativity & imagination through fun arts and crafts classes</p>
+                    </div>
 
                 </div>
+            </header>
+            <div id="wrapper">
+                <section id="main_section_contact_us" class="contacts_top_margin">
 
-            </div>
-        </header>
-        <div id="wrapper">
-            <section id="main_section_contact_us" class="contacts_top_margin">
+                    <article id="contactus">
+                        <h3>Contact Us</h3>
 
-                <article id="contactus">
-                    <h3>Contact Us</h3>
-
-                    <p>Send us your details now and we'll let you know about classes coming to you soon.</p>
-
-                    <br>
-                    <dl>
-                        <dd><span>Telephone: </span>07794 190060</dd>
-                    </dl>
-
-                    <br>
-                    <p>
-                        We look forward to meeting you and your Arty Monkey soon!
-                    </p>
-
-                </article>
-
-                <article id="emailus">
-                    <h3 id="contactformh3" class="clr-4">Contact Form</h3>
-
-                    <form id="form" method="post">
-
-                        <div class="formelement">
-                            <input class="inputtextboxmail" type="text" name="name" required placeholder="Your Name">
-                        </div>
-
-                        <div class="formelement">
-                            <input class="inputtextboxmail" type="email" name="email" required placeholder="Best EMail">
-                        </div>
-
-                        <div class="formelement">
-                            <input class="inputtextboxmail" type="tel" name="phone" required placeholder="Phone">
-                        </div>
-
-                        <div id="" class="formelement">
-                            Preferred Class Location:
-                            <select class="howdidyouhear" name="location" required onchange="populateLocationClassTimes(this.value);" >
-                                <option selected disabled hidden value=''></option>
-                                <option value="briarlands">Briarlands Farm, Near Stirling</option>
-                                <option value="baristas">Baristas Coffee House, Falkirk</option>
-                            </select>
-                        </div>
-
-                        <div id="monkeyclasstimesdiv" class="formelement">
-                            Time:
-                            <select id="monkeyclasstimes" class="howdidyouhear" name="time" required>
-                                <option selected disabled hidden value=''></option>
-                            </select>
-                        </div>
-
-                        <fieldset>
-                            <strong>Little Monkey Details</strong>
-                            <div class="formelementlittlemonkey">
-                                Total Number:
-                                <input class="howdidyouhear" name="numberofmonkeys" type="number"
-                                size="2" min="1" max="20" value="1" onchange="generateMonkeyDetails(this.value)" required>
-                            </div>
-
-                            <div id="formlittlemonkeys">
-                                <div>
-                                    <div class="formelementlittlemonkey">
-                                        <input class="howdidyouhear" type="text" name="monkey1name" placeholder="Monkey's Name" required>
-                                    </div>
-
-                                    <div class="formelementlittlemonkey">
-                                        Date Of Birth:
-                                        <input class="howdidyouhear" type="date" name="monkey1dob" required>
-                                    </div>
-                                </div>
-                            </div>
-                        </fieldset>
-
-                        <div class="formelementhowdidyouhear">
-                            How did you hear about us?
-                            <select class="howdidyouhear" name="howdidyouhear" required>
-                                <option selected disabled hidden value=''></option>
-                                <option value="briarlands">Briarlands Farm</option>
-                                <option value="baristas" >Baristas Coffee House</option>
-                                <option value="facebook">Facebook</option>
-                                <option value="families" >Families Magazine</option>
-                                <option value="google" >Google</option>
-                                <option value="netmums">Netmums</option>
-                                <option value="nursery" >Nursery</option>
-                                <option value="referral" >Referral</option>
-                                <option value="other" >Other - please state</option>
-                            </select>
-                        </div>
-
-                        <div class="formelementhowdidyouhear">
-                            <textarea class="howdidyouhearextratextbox" name="howdidyouhearextra"
-                            placeholder="Extra Info In Here Please"></textarea>
-                        </div>
+                        <p>Send us your details now and we'll let you know about classes coming to you soon.</p>
 
                         <br>
+                        <dl>
+                            <dd><span>Telephone: </span>07794 190060</dd>
+                        </dl>
 
-                        <label id="emailmessage">
-                            Message:
-                            <textarea class="messagetextboxmail" name="message"></textarea>
-                        </label>
+                        <br>
+                        <p>
+                            We look forward to meeting you and your Arty Monkey soon!
+                        </p>
 
-                        <input class="sendemailbutton" type="submit" value="Send">
-                    </form>
-                </article>
-            </section>
+                    </article>
+
+                    <article id="emailus">
+                        <h3 id="contactformh3" class="clr-4">Contact Form</h3>
+
+                        <form id="form" method="post">
+
+                            <div class="formelement">
+                                <input class="inputtextboxmail" type="text" name="name" required placeholder="Your Name">
+                            </div>
+
+                            <div class="formelement">
+                                <input class="inputtextboxmail" type="email" name="email" required placeholder="Best EMail">
+                            </div>
+
+                            <div class="formelement">
+                                <input class="inputtextboxmail" type="tel" name="phone" required placeholder="Phone">
+                            </div>
+
+                            <div id="preferredclasslocationdiv" class="formelement">
+                                Preferred Class Location:
+                                <select class="howdidyouhear" name="location" required onchange="populateLocationClassTimes(this.value);" >
+                                    <option selected disabled hidden value=''></option>
+                                    <option value="briarlands">Briarlands Farm, Near Stirling</option>
+                                    <option value="baristas">Baristas Coffee House, Falkirk</option>
+                                </select>
+                            </div>
+
+                            <div id="monkeyclasstimesdiv" class="formelement">
+                                Time:
+                                <select id="monkeyclasstimes" class="howdidyouhear" name="time" required>
+                                    <option selected disabled hidden value=''></option>
+                                </select>
+                            </div>
+
+                            <fieldset>
+                                <strong>Little Monkey Details</strong>
+                                <div class="formelementlittlemonkey">
+                                    Total Number:
+                                    <input class="howdidyouhear" name="numberofmonkeys" type="number"
+                                    size="2" min="1" max="20" value="1" onchange="generateMonkeyDetails(this.value)" required>
+                                </div>
+
+                                <div id="formlittlemonkeys">
+                                    <div>
+                                        <div class="formelementlittlemonkey">
+                                            <input class="howdidyouhear" type="text" name="monkey1name" placeholder="Monkey's Name" required>
+                                        </div>
+
+                                        <div class="formelementlittlemonkey">
+                                            Date Of Birth:
+                                            <input class="howdidyouhear" type="date" name="monkey1dob" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <div class="formelementhowdidyouhear">
+                                How did you hear about us?
+                                <select class="howdidyouhear" name="howdidyouhear" required>
+                                    <option selected disabled hidden value=''></option>
+                                    <option value="briarlands">Briarlands Farm</option>
+                                    <option value="baristas" >Baristas Coffee House</option>
+                                    <option value="facebook">Facebook</option>
+                                    <option value="families" >Families Magazine</option>
+                                    <option value="google" >Google</option>
+                                    <option value="netmums">Netmums</option>
+                                    <option value="nursery" >Nursery</option>
+                                    <option value="referral" >Referral</option>
+                                    <option value="other" >Other - please state</option>
+                                </select>
+                            </div>
+
+                            <div id="formelementhowdidyouhearextra">
+                                <textarea class="howdidyouhearextratextbox" name="howdidyouhearextra"
+                                placeholder="Other details how you heard."></textarea>
+                            </div>
+
+                            <br>
+
+                            <label id="emailmessage">
+                                Message:
+                                <textarea class="messagetextboxmail" name="message"></textarea>
+                            </label>
+
+                            <input class="sendemailbutton" type="submit" value="Send">
+                        </form>
+                    </article>
+                </section>
+            </div>
+            <footer id="main_footer">
+                <p class="clr-0">Website Template by <a class="link clr-0" href="http://www.templatemonster.com/"
+                target="_blank"
+                rel="nofollow">www.templatemonster.com</a></p>
+            </footer>
         </div>
-        <footer id="main_footer">
-            <p class="clr-0">Website Template by <a class="link clr-0" href="http://www.templatemonster.com/"
-            target="_blank"
-            rel="nofollow">www.templatemonster.com</a></p>
-        </footer>
-
     </body>
 </html>

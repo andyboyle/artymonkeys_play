@@ -48,149 +48,152 @@
         </script>
     </head>
     <body>
-        <header id="main_header">
-            <div class="fixedContainer">
-                <div id="navbar"></div>
-                <span class="home_icon_trigger">
-                    <a href="index.html">
-                        <img id="home_icon" src="@routes.Assets.at("images/home.png")">
-                    </a>
-                </span>
+        <div id="borderleaves">
+            <header id="main_header">
+                <div class="fixedContainer">
+                    <div id="navbar"></div>
+                    <span class="home_icon_trigger">
+                        <a href="index.html">
+                            <img id="home_icon" src="@routes.Assets.at("images/home.png")">
+                        </a>
+                    </span>
 
-                <figure id="artymonkeys_logo_img">
-                    <img id="artymonkeys_logo" src="@routes.Assets.at("images/artyMonkeysLogoCrop.jpg")">
-                </figure>
+                    <figure id="artymonkeys_logo_img">
+                        <img id="artymonkeys_logo" src="@routes.Assets.at("images/artyMonkeysLogoCrop.jpg")">
+                    </figure>
 
-                <span class="menu_trigger">
-                    <img id="menu_icon" src="@routes.Assets.at("images/menuIcon.png")">
-                </span>
+                    <span class="menu_trigger">
+                        <img id="menu_icon" src="@routes.Assets.at("images/menuIcon.png")">
+                    </span>
 
-                @if( adminAccess ) {
-                    <div>
-                        <nav id="admin_menu">
+                    @if(adminAccess) {
+                        <div>
+                            <nav id="admin_menu">
+                                <ul>
+                                    <li><a href="loginsuccess.html" class="clr-about">Admin Home</a></li>
+                                    <li><a href="managenews.html" class="clr-skills">Manage News</a></li>
+                                    <li><a href="customers.html" class="clr-classes">Customers</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    } else {
+                        <div id="no_login_header_space"></div>
+                    }
+
+                    <div class="inlineblocked">
+                        <nav id="main_menu">
                             <ul>
-                                <li><a href="loginsuccess.html" class="clr-about">Admin Home</a></li>
-                                <li><a href="managenews.html" class="clr-skills">Manage News</a></li>
-                                <li><a href="customers.html" class="clr-classes">Customers</a></li>
+                                <li><a href="index.html" class="clr-home">Home</a></li>
+                                <li><a href="about.html" class="clr-about">About Us</a></li>
+                                <li><a href="skills.html" class="clr-skills">Skills</a></li>
+                                <li class="current"><a href="classes.html" class="clr-classes">Classes</a></li>
+                                <li><a href="monkeynews.html" class="clr-monkeynews">Monkey News</a></li>
+                                <li><a href="contacts.html" class="clr-contact">Register</a></li>
                             </ul>
                         </nav>
+                        <p id="artymonkeys_blurb">
+                            Encouraging creativity & imagination through fun arts and crafts classes</p>
                     </div>
-                } else {
-                    <div id="no_login_header_space"></div>
-                }
 
-                <div class="inlineblocked">
-                    <nav id="main_menu">
-                        <ul>
-                            <li><a href="index.html" class="clr-home">Home</a></li>
-                            <li><a href="about.html" class="clr-about">About Us</a></li>
-                            <li><a href="skills.html" class="clr-skills">Skills</a></li>
-                            <li class="current"><a href="classes.html" class="clr-classes">Classes</a></li>
-                            <li><a href="monkeynews.html" class="clr-monkeynews">Monkey News</a></li>
-                            <li><a href="contacts.html" class="clr-contact">Register</a></li>
-                        </ul>
-                    </nav>
-                    <p id="artymonkeys_blurb">Encouraging creativity & imagination through fun arts and crafts classes</p>
                 </div>
-
-            </div>
-        </header>
-        <div id="wrapper_skills">
-            <section id="main_section" class="classes_top_margin">
-                <table class="classes_table">
-                    <tr>
-                        <th>Venue</th>
-                        <th>Day</th>
-                        <th>Time</th>
-                        <th>Ages</th>
-                        <th>Class Dates<br>Block 1</th>
-                    </tr>
-                    <tr>
-                        <td rowspan="2">Briarlands Farm<br>Blairdrummond, Stirling
-                            <a id="briarlands_icon" href="http://briarlandsfarm.co.uk/">
-                                <img src="@routes.Assets.at("images/briarlands.jpg")"/></a>
-                        </td>
-                        <td>Thursdays</td>
-                        <td>10:15 - 11:00</td>
-                        <td>18 months - 5 years</td>
-                        <td rowspan="2">
-                            <ul>
-                                <li>28th May <div class="onebooked">10:15am Full</div></li>
-                                <li>4th June</li>
-                                <li>11th June</li>
-                                <li>18th June</li>
-                                <li>25th June</li>
-                                <li>2nd July</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Thursdays</td>
-                        <td>11:30 - 12:15</td>
-                        <td>18 months - 5 years</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="https://www.facebook.com/pages/Baristas-Coffee-House/587426837984057">
+            </header>
+            <div id="wrapper_skills">
+                <section id="main_section" class="classes_top_margin">
+                    <table class="classes_table">
+                        <tr>
+                            <th>Venue</th>
+                            <th>Day</th>
+                            <th>Time</th>
+                            <th>Ages</th>
+                            <th>Class Dates<br>Block 1</th>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">Briarlands Farm<br>Blairdrummond, Stirling
+                                <a id="briarlands_icon" href="http://briarlandsfarm.co.uk/">
+                                    <img src="@routes.Assets.at("images/briarlands.jpg")"/></a>
+                            </td>
+                            <td>Thursdays</td>
+                            <td>10:15 - 11:00</td>
+                            <td>18 months - 5 years</td>
+                            <td rowspan="2">
+                                <ul>
+                                    <li>28th May <div class="onebooked">10:15am Full</div></li>
+                                    <li>4th June</li>
+                                    <li>11th June</li>
+                                    <li>18th June</li>
+                                    <li>25th June</li>
+                                    <li>2nd July</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Thursdays</td>
+                            <td>11:30 - 12:15</td>
+                            <td>18 months - 5 years</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="https://www.facebook.com/pages/Baristas-Coffee-House/587426837984057">
                                     Baristas Coffee House</a>, Falkik
-                        </td>
-                        <td>Tuesdays</td>
-                        <td>10:00 - 10:45</td>
-                        <td>18 months - 5 years</td>
-                        <td>
-                            <li>9th June</li>
-                            <li>16th June</li>
-                            <li>23th June</li>
-                            <li>30th June</li>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="5" class="othervenuessoon">Other venues and days coming soon!</td>
-                    </tr>
-                </table>
+                            </td>
+                            <td>Tuesdays</td>
+                            <td>10:00 - 10:45</td>
+                            <td>18 months - 5 years</td>
+                            <td>
+                                <li>9th June</li>
+                                <li>16th June</li>
+                                <li>23th June</li>
+                                <li>30th June</li>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="5" class="othervenuessoon">Other venues and days coming soon!</td>
+                        </tr>
+                    </table>
 
-                <article id="pricingarticle">
-                    <h3 class="top-6 p6 clr-4">Pricing</h3>
-                    <h4>What does the price include?</h4>
-                    <p>Our aim is to provide our arty monkeys with as many different art and craft
-                        experiences as possible, using a wide range of materials. We will supply waterproof aprons
-                        to protect their clothing and all our products are child friendly.
-                    </p>
-                    <p>Every week your child will take home their masterpieces!</p>
-                    <br>
-                    <h4>* £6 per class</h4>
-                    <br>
-                    <h4>* Special Offer for block bookings available</h4>
-                    <br>
-
-                </article>
-
-                <article id="venuesarticle">
-
-                    <h3>Our Venues</h3>
-
-                    <p class="p7">We have selected two fantastic venues which help us create a relaxed, creative environment.
-                    </p>
-                    <br>
-                    <ul>
-                        <li class="clr-about">Briarlands Farm, Near Stirling</li>
+                    <article id="pricingarticle">
+                        <h3 class="top-6 p6 clr-4">Pricing</h3>
+                        <h4>What does the price include?</h4>
+                        <p>Our aim is to provide our arty monkeys with as many different art and craft
+                            experiences as possible, using a wide range of materials. We will supply waterproof aprons
+                            to protect their clothing and all our products are child friendly.
+                        </p>
+                        <p>Every week your child will take home their masterpieces!</p>
                         <br>
-                        <li class="clr-about">Baristas Coffee House, Falkirk</li>
-                    </ul>
+                        <h4>* £6 per class</h4>
+                        <br>
+                        <h4>* Special Offer for block bookings available</h4>
+                        <br>
 
-                    <br>
+                    </article>
 
-                    <p class="p7">We are also in discussions with other venues.</p>
-                </article>
+                    <article id="venuesarticle">
 
-            </section>
+                        <h3>Our Venues</h3>
+
+                        <p class="p7">
+                            We have selected two fantastic venues which help us create a relaxed, creative environment.
+                        </p>
+                        <br>
+                        <ul>
+                            <div class="clr-home">Briarlands Farm, Near Stirling</div>
+                            <br>
+                            <div class="clr-home">Baristas Coffee House, Falkirk</div>
+                        </ul>
+
+                        <br>
+
+                        <p class="p7">We are also in discussions with other venues.</p>
+                    </article>
+
+                </section>
+            </div>
+
+            <footer id="main_footer">
+                <p class="clr-0">Website Template by <a class="link clr-0" href="http://www.templatemonster.com/"
+                target="_blank"
+                rel="nofollow">www.templatemonster.com</a></p>
+            </footer>
         </div>
-
-        <footer id="main_footer">
-            <p class="clr-0">Website Template by <a class="link clr-0" href="http://www.templatemonster.com/"
-            target="_blank"
-            rel="nofollow">www.templatemonster.com</a></p>
-        </footer>
-
     </body>
 </html>

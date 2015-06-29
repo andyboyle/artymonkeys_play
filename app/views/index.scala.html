@@ -49,169 +49,170 @@
         </script>
     </head>
     <body>
-        <header id="main_header">
-            <div class="fixedContainer">
-                <div id="navbar"></div>
-                <span class="home_icon_trigger">
-                    <a href="index.html">
-                        <img id="home_icon" src="@routes.Assets.at("images/home.png")">
-                    </a>
-                </span>
+        <div id="borderleaves">
+            <header id="main_header">
+                <div class="fixedContainer">
+                    <div id="navbar"></div>
+                    <span class="home_icon_trigger">
+                        <a href="index.html">
+                            <img id="home_icon" src="@routes.Assets.at("images/home.png")">
+                        </a>
+                    </span>
 
-                <figure id="artymonkeys_logo_img">
-                    <img id="artymonkeys_logo" src="@routes.Assets.at("images/artyMonkeysLogoCrop.jpg")">
-                </figure>
+                    <figure id="artymonkeys_logo_img">
+                        <img id="artymonkeys_logo" src="@routes.Assets.at("images/artyMonkeysLogoCrop.jpg")">
+                    </figure>
 
-                <span class="menu_trigger">
-                    <img id="menu_icon" src="@routes.Assets.at("images/menuIcon.png")">
-                </span>
+                    <span class="menu_trigger">
+                        <img id="menu_icon" src="@routes.Assets.at("images/menuIcon.png")">
+                    </span>
 
-                @if(adminAccess) {
-                    <div>
-                        <nav id="admin_menu">
-                            <ul>
-                                <li><a href="loginsuccess.html" class="clr-about">Admin Home</a></li>
-                                <li><a href="managenews.html" class="clr-skills">Manage News</a></li>
-                                <li><a href="customers.html" class="clr-classes">Customers</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                } else {
-                    <div id="no_login_header_space"></div>
-                }
-
-                <div class="inlineblocked">
-                    <nav id="main_menu">
-                        <ul>
-                            <li class="current"><a href="index.html" class="clr-home">Home</a></li>
-                            <li><a href="about.html" class="clr-about">About Us</a></li>
-                            <li><a href="skills.html" class="clr-skills">Skills</a></li>
-                            <li><a href="classes.html" class="clr-classes">Classes</a></li>
-                            <li><a href="monkeynews.html" class="clr-monkeynews">Monkey News</a></li>
-                            <li><a href="contacts.html" class="clr-contact">Register</a></li>
-                        </ul>
-                    </nav>
-                    <p id="artymonkeys_blurb">Encouraging creativity & imagination through fun arts and crafts classes</p>
-
-                </div>
-
-            </div>
-        </header>
-        <div id="wrapper">
-            <section id="main_section">
-
-                <div id="blurb_and_email_sender">
-
-                    <div id="sociallinks">
-                        <a href="https://www.facebook.com/artymonkeys.uk"><img id="facebook_icon"
-                        src="@routes.Assets.at("images/facebook.jpg")"/></a>
-                        <a href="https://twitter.com/arty_monkeys">
-                            <img id="twitter_icon" src="@routes.Assets.at("images/twitter.png")"/></a>
-                    </div>
+                    @if(adminAccess) {
+                        <div>
+                            <nav id="admin_menu">
+                                <ul>
+                                    <li><a href="loginsuccess.html" class="clr-about">Admin Home</a></li>
+                                    <li><a href="managenews.html" class="clr-skills">Manage News</a></li>
+                                    <li><a href="customers.html" class="clr-classes">Customers</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    } else {
+                        <div id="no_login_header_space"></div>
+                    }
 
                     <div class="inlineblocked">
-                        <form method="post" class="registerinterestcontainer">
+                        <nav id="main_menu">
+                            <ul>
+                                <li class="current"><a href="index.html" class="clr-home">Home</a></li>
+                                <li><a href="about.html" class="clr-about">About Us</a></li>
+                                <li><a href="skills.html" class="clr-skills">Skills</a></li>
+                                <li><a href="classes.html" class="clr-classes">Classes</a></li>
+                                <li><a href="monkeynews.html" class="clr-monkeynews">Monkey News</a></li>
+                                <li><a href="contacts.html" class="clr-contact">Register</a></li>
+                            </ul>
+                        </nav>
+                        <p id="artymonkeys_blurb">
+                            Encouraging creativity & imagination through fun arts and crafts classes</p>
 
-                            <div class="howdidyouheardiv">
-                                <div class="clr-white howherelabel">How did you hear about us?</div>
-                                <select class="howdidyouhearcombo" name="howdidyouhear" required>
-                                    <option selected disabled hidden value=''>Please Select ...</option>
-                                    <option value="briarlands">Briarlands Farm</option>
-                                    <option value="baristas" >Baristas Coffee House</option>
-                                    <option value="facebook">Facebook</option>
-                                    <option value="families" >Families Magazine</option>
-                                    <option value="google" >Google</option>
-                                    <option value="netmums">Netmums</option>
-                                    <option value="nursery" >Nursery</option>
-                                    <option value="referral" >Referral</option>
-                                    <option value="other" >Other - please state</option>
-                                </select>
-
-                                <textarea class="howdidyouhearextratextbox" name="howdidyouhearextra" placeholder="Extra info in here please"></textarea>
-                            </div>
-
-                            <div class="inlineblocked">
-                                <input class="inputemailtextbox_first" placeholder="Your Name" type="text" name="name" required>
-                                <input class="inputemailtextbox" placeholder="Best Phone Number" type="tel" name="phone" required>
-                                <input class="inputemailtextbox_last" placeholder="Enter Your Best Email" type="email" name="email" required>
-                            </div>
-
-                            <div class="inlineblocked">
-                                <input class="registerinterestbutton" type="submit" value="Register Interest">
-                            </div>
-
-                        </form>
                     </div>
 
                 </div>
+            </header>
+            <div id="wrapper">
+                <section id="main_section">
+                    <div id="blurb_and_email_sender">
 
-                <div class="sliderbk">
-                    <nav id="slide" class="slider">
-                        <ul class="items">
-                            <li><img src="@routes.Assets.at("images/slider-1-half.jpg")" alt="" height="460" width="215"/></li>
-                            <li><img src="@routes.Assets.at("images/slider-2-half.jpg")" alt="" height="460" width="215"/></li>
-                            <li><img src="@routes.Assets.at("images/slider-3-half.jpg")" alt="" height="460" width="215"/></li>
-                        </ul>
-                        <a href="#" class="prev"></a><a href="#" class="next"></a>
-                    </nav>
-                </div>
+                        <div id="sociallinks">
+                            <a href="https://www.facebook.com/artymonkeys.uk"><img id="facebook_icon"
+                            src="@routes.Assets.at("images/facebook.jpg")"/></a>
+                            <a href="https://twitter.com/arty_monkeys">
+                                <img id="twitter_icon" src="@routes.Assets.at("images/twitter.png")"/></a>
+                        </div>
 
-                <article id="news_article">
-                    <h3>News</h3>
+                        <div class="inlineblocked">
+                            <form method="post" class="registerinterestcontainer">
 
-                    @for((newsItem,index) <- newsItems.zipWithIndex) {
-                        <div class="block">
-                            @if(index==0) {
-                        <h4 id="newsheadline1">@newsItem.headline</h4>
-                            } else {
-                        <h4 id="newsheadline">@newsItem.headline</h4>
-                            }
-                        <time datetime="@newsItem.posted" pubdate>
+                                <div class="howdidyouheardiv">
+                                    <div class="clr-white howherelabel">How did you hear about us?</div>
+                                    <select class="howdidyouhearcombo" name="howdidyouhear" required>
+                                        <option selected disabled hidden value=''>Please Select ...</option>
+                                        <option value="briarlands">Briarlands Farm</option>
+                                        <option value="baristas" >Baristas Coffee House</option>
+                                        <option value="facebook">Facebook</option>
+                                        <option value="families" >Families Magazine</option>
+                                        <option value="google" >Google</option>
+                                        <option value="netmums">Netmums</option>
+                                        <option value="nursery" >Nursery</option>
+                                        <option value="referral" >Referral</option>
+                                        <option value="other" >Other - please state</option>
+                                    </select>
+
+                                    <textarea class="howdidyouhearextratextbox" name="howdidyouhearextra" placeholder="Extra info in here please"></textarea>
+                                </div>
+
+                                <div class="inlineblocked">
+                                    <input class="inputemailtextbox_first" placeholder="Your Name" type="text" name="name" required>
+                                    <input class="inputemailtextbox" placeholder="Best Phone Number" type="tel" name="phone" required>
+                                    <input class="inputemailtextbox_last" placeholder="Enter Your Best Email" type="email" name="email" required>
+                                </div>
+
+                                <div class="inlineblocked">
+                                    <input class="registerinterestbutton" type="submit" value="Register Interest">
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+
+                    <div class="sliderbk">
+                        <nav id="slide" class="slider">
+                            <ul class="items">
+                                <li><img src="@routes.Assets.at("images/slider-1-half.jpg")" alt="" height="460" width="215"/></li>
+                                <li><img src="@routes.Assets.at("images/slider-2-half.jpg")" alt="" height="460" width="215"/></li>
+                                <li><img src="@routes.Assets.at("images/slider-3-half.jpg")" alt="" height="460" width="215"/></li>
+                            </ul>
+                            <a href="#" class="prev"></a><a href="#" class="next"></a>
+                        </nav>
+                    </div>
+
+                    <article id="news_article">
+                        <h3>News</h3>
+
+                        @for((newsItem, index) <- newsItems.zipWithIndex) {
+                            <div class="block">
+                                @if(index == 0) {
+                                    <h4 id="newsheadline1">@newsItem.headline</h4>
+                                } else {
+                                    <h4 id="newsheadline">@newsItem.headline</h4>
+                                }
+                            <time datetime="@newsItem.posted" pubdate>
                             Posted @newsItem.posted.toString("hh:mm:ss a"), on @newsItem.posted.toString(" dd MMM yyyy")
                         </time>
-                        </div>
+                            </div>
 
-                        <div>
-                        @for(line <- newsItem.newsDetails) {
-                            @if(index==0) {
-                                <p id="newsPara1">@line</p>
-                            } else {
-                                <p id="newsPara">@line</p>
+                            <div id="newsParaBlock">
+                            @for(line <- newsItem.newsDetails) {
+                                @if(index == 0) {
+                                    <p id="newsPara1">@line</p>
+                                } else {
+                                    <p id="newsPara">@line</p>
+                                }
                             }
-                        }
-                        </div>
+                            </div>
+                            <br>
+                            }
+                    </article>
+
+                    <article id="what_we_do_article">
+                        <h3>What We Do</h3>
+
+                        <p>Our Mission is to create a relaxed and supportive environment which ignites the imagination
+                            and creativity of young minds.</p>
                         <br>
-                    }
-                </article>
+                        <p>Through exploring different materials such as paint, clay,
+                            sponges, rollers and textured papers we will help develop your child's cognitive, social and
+                            language skills.</p>
+                        <br>
+                        <p>Our weekly classes are all based on popular stories or nursery rhymes which gives
+                            children a context
+                            for their ideas and creativity.
+                        </p>
 
-                <article id="what_we_do_article">
-                    <h3>What We Do</h3>
-
-                    <p>Our Mission is to create a relaxed and supportive environment which ignites the imagination
-                        and creativity of young minds.</p>
-                    <br>
-                    <p>Through exploring different materials such as paint, clay,
-                        sponges, rollers and textured papers we will help develop your child's cognitive, social and
-                        language skills.</p>
-                    <br>
-                    <p>Our weekly classes are all based on popular stories or nursery rhymes which gives
-                        children a context
-                        for their ideas and creativity.
-                    </p>
-
-                    <p class="p7">You and your little monkey(s) will have 45 minutes creative fun together.
-                        We guarantee that no two classes will be the same.</p>
-                    <br>
-                    <p>Best of all ... you get to take home whatever you create to show off to other loved ones!
-                    </p>
-                </article>
-
-            </section>
-            <footer id="main_footer">
-                <p class="clr-0">Website Template by <a class="link clr-0" href="http://www.templatemonster.com/"
-                target="_blank"
-                rel="nofollow">www.templatemonster.com</a></p>
-            </footer>
+                        <p class="p7">You and your little monkey(s) will have 45 minutes creative fun together.
+                            We guarantee that no two classes will be the same.</p>
+                        <br>
+                        <p>Best of all ... you get to take home whatever you create to show off to other loved ones!
+                        </p>
+                    </article>
+                </section>
+                <footer id="main_footer">
+                    <p class="clr-0">Website Template by <a class="link clr-0" href="http://www.templatemonster.com/"
+                    target="_blank"
+                    rel="nofollow">www.templatemonster.com</a></p>
+                </footer>
+            </div>
         </div>
     </body>
 </html>
