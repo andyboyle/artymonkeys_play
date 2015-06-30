@@ -84,13 +84,11 @@ trait CustomerRepositoryMongoComponent extends CustomerRepositoryComponent {
         )
 
         customerCollection += customerObj
-        true
       }
       catch {
         case e: Exception => {
           println("Error is : " + e)
           println("Error is : " + e.getMessage)
-          false
         }
       }
     }

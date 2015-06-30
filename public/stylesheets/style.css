@@ -138,7 +138,7 @@ a:hover {
     color-stop(40%, darkorange),
     color-stop(100%, orangered));
 
-    background: -moz-linear-gradient(top, seagreen, darkseagreen, mediumseagreen);
+    background: -moz-linear-gradient(top, yellow, darkorange, orangered);
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -407,6 +407,22 @@ time {
 
     dl {
         color: blue;
+    }
+
+    #artyparties {
+        font-size: 2.3em;
+        margin-top: 8em;
+        margin-bottom: 20em;
+    }
+
+    .registerinterestcontainer {
+        border: groove #c5db44;
+        border-radius: 8px;
+        display: block;
+        padding: 0.4em;
+        background-color: #0072ff;
+        margin: 1.5em 0.5em 0 0.5em;
+        box-shadow: 5px 5px 10px #deeede;
     }
 
     h1 {
@@ -723,14 +739,12 @@ time {
         float: left;
     }
 
-    #leftleaves {
-        background: url("../images/jungle-leaves-hi.png") repeat-y;
-        float: left;
+    .clr-party {
+        color: mediumvioletred;
     }
 
-    #rightleaves {
-        background: url("../images/jungle-leaves-right.png") repeat-y;
-        float: right;
+    .clr-skills {
+        color: yellow;
     }
 
     #facebook_icon {
@@ -1020,7 +1034,7 @@ time {
     }
 
     #contactus {
-        width: 15%;
+        width: 25%;
     }
 
     #emailus {
@@ -1215,87 +1229,155 @@ time {
     }
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1650px) {
+    #borderleaves {
+        height: auto;
 
-    #artymonkeys_logo {
-        display: block;
-        background: white;
-        max-height: 5em;
+        border-style: solid;
+        border-width: 0 73px;
+        -moz-border-image: url("../images/dreamstime_m_12515100.png") 183 146 164 repeat;
+        -webkit-border-image: url("../images/dreamstime_m_12515100.png") 183 146 164 repeat;
+        -o-border-image: url("../images/dreamstime_m_12515100.png") 183 146 164 repeat;
+        border-image: url("../images/dreamstime_m_12515100.png") 183 146 164 repeat;
     }
 
     #main_menu {
-        padding: 0.1em 0;
-        margin: 0.1em 0 1em 0;
-
-        display: block;
-        background: white;
-        font-weight: bold;
-        font-family: Purisa, "Times New Roman", Times, serif;
-        text-transform: uppercase;
-
-        background: -webkit-gradient(linear,
-        left top,
-        left bottom,
-        color-stop(0%, seagreen),
-        color-stop(40%, darkseagreen),
-        color-stop(100%, mediumseagreen));
-
-        background: -moz-linear-gradient(top, seagreen, darkseagreen, mediumseagreen);
-        -webkit-border-radius: 5px;
-        -moz-border-radius: 5px;
-        border-radius: 5px;
+        margin-right: 6em;
+        padding: 6px;
     }
 
-    #main_section {
-        margin-top: 7em;
-        width: 100%;
+    #artymonkeys_logo {
+        padding: 7px;
     }
 
-    #blurb_and_email_sender {
-        vertical-align: top;
-        display: block;
-        width: 100%;
-        margin-bottom: 0;
+    #artymonkeys_logo_img {
+        border-radius: 10px;
+        margin: 10px 10px 10px 100px;
+        z-index: 150;
     }
 
-    #artymonkeys_blurb {
-        display: block;
-        max-width: 30%;
-        font-size: 1.3em;
-        line-height: 1.7em;
-        vertical-align: top;
-        margin: 1em 0 0 0;
+    h3.clr-yvonne {
+        font-size: 2em;
     }
 
-    .registerinterestcontainer {
-        text-align: left;
-        display: inline-block;
-        margin-top: 3em;
-        font-size: 0.8em;
-        padding: 0.7em;
-
+    .clr-yvonne {
+        padding-top: 0.5em;
+        color: #600060;
+        font-size: 1.07em;
     }
 
-    article {
-        padding: 0.5em;
-        margin: 1em 0.3em 0 0.3em;
+    h3.clr-kelley {
+        font-size: 2em;
+    }
+
+    .clr-kelley {
+        padding-top: 0.5em;
+        font-size: 1.07em;
+        color: #112244;
     }
 
 }
 
-@media screen and (max-width: 850px) {
-    * {
+@media screen and (max-width: 1450px) {
+    #main_menu {
+        margin-right: 5em;
+        padding: 10px auto;
+    }
+
+    #main_menu li {
+        display: inline-block;
+        list-style: none;
+        padding: 0.2em 0.5em;
+    }
+
+    #artymonkeys_logo_img {
+        border-radius: 10px;
+        margin-left: 80px;
+        z-index: 150;
+    }
+
+    #contactus {
+        width: 18%;
+    }
+
+    h3 {
+        font-size: 2.4em;
+    }
+
+}
+
+
+@media screen and (max-width: 1350px) {
+    #main_menu {
+    }
+
+    #artyparties {
+        font-size: 1.5em;
+        margin-top: 16em;
+        margin-bottom: 20em;
+    }
+
+    #main_menu ul.menu {
+        min-height: 2em;
+    }
+
+    #main_menu li {
+        float: left;
+    }
+
+    #main_menu a {
+        display: block;
+    }
+
+    #artymonkeys_logo {
+        display: block;
+        background: white;
+        max-height: 7em;
+    }
+
+    #contactus {
+        width: 60%;
+    }
+
+    #sociallinks {
+        margin-top: 4em;
+    }
+
+    #blurb_and_email_sender {
+        width: 90%;
+    }
+
+    .registerinterestcontainer {
+        margin-bottom: 3em;
+    }
+
+    .sliderbk .slider .items {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+
+    #main_section_contact_us {
+        margin-top: 18em;
+    }
+
+    #navbar {
+        display: none;
         padding: 0;
         margin: 0;
     }
 
-    .fixedContainer {
-        position: static;
-        vertical-align: bottom;
+    #artymonkeys_logo {
+        display: inline-block;
+        background: white;
+        max-height: 5em;
+        float: right;
     }
 
-    #main_section {
-        margin-top: 0;
+    #main_menu {
+        display: inline-block;
+        width: 100%;
     }
 
     #main_menu ul.menu li.menu a {
@@ -1314,6 +1396,10 @@ time {
         width: 30%;
     }
 
+    #sociallinks {
+        margin-top: 4em;
+    }
+
     #main_menu li a {
         font-size: 1.1em;
         line-height: 1.2em;
@@ -1327,51 +1413,58 @@ time {
         border-radius: 5px;
     }
 
-    #wrapper {
+    #main_section {
+        margin-top: 18em;
         width: 100%;
-        margin: auto;
-    }
-
-    #artymonkeys_logo {
-        display: block;
-        max-height: 5em;
     }
 
     #blurb_and_email_sender {
+        vertical-align: top;
         display: block;
         width: 100%;
-    }
-
-    .registerinterestcontainer {
-        text-align: center;
-        font-size: 0.7em;
+        margin-bottom: 0;
     }
 
     #artymonkeys_blurb {
-        text-align: center;
+        display: block;
+        max-width: 100%;
+        font-size: 1.3em;
+        line-height: 1.7em;
+        vertical-align: top;
+        margin-top: 1em;
+        margin-bottom: 3em;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .registerinterestcontainer {
+        text-align: left;
         display: inline-block;
-        font-size: 1em;
-        padding-left: 1em;
+        margin-top: 0;
+        font-size: 0.8em;
+        padding: 0.7em;
+
     }
 
     article {
         padding: 0.5em;
-        margin: 0.3em;
-    }
-
-    #news_article {
-        display: inline-block;
-        width: 40%;
-    }
-
-    #what_we_do_article {
-        display: inline-block;
-        width: 45%
+        margin: 1em 0.3em 0 0.3em;
     }
 
 }
 
-@media screen and (max-width: 530px) {
+@media screen and (max-width: 750px) {
+
+    #artyparties {
+        font-size: 1.5em;
+        margin-top: 4em;
+        margin-bottom: 20em;
+    }
+
+
+    #main_section {
+        margin-top: 0;
+    }
 
     #wrapper_skills {
         width: 100%;
@@ -1521,12 +1614,6 @@ time {
 
     #artymonkeys_blurb {
         display: none;
-        /*text-align: center;*/
-        /*display: block;*/
-        /*width: 100%;*/
-        /*max-width: 100%;*/
-        /*font-size: 1.2em;*/
-        /*padding: 0.4em;*/
     }
 
     article {
@@ -1741,7 +1828,6 @@ time {
         -o-border-image: url("../images/dreamstime_m_12515100.png") 0 0 0 repeat;
         border-image: url("../images/dreamstime_m_12515100.png") 0 0 0 repeat;
     }
-
 
     .fixedContainer {
         width: 100%;

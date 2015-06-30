@@ -36,6 +36,10 @@ object Application extends Controller with EmailEnquiry with Secured {
     Ok(views.html.skills(isAdminUser(request)))
   }
 
+  def artyparties = SecureAction { request =>
+    Ok(views.html.artyparties(isAdminUser(request)))
+  }
+
   def monkeynews = SecureAction { request =>
     Ok(views.html.monkeynews(isAdminUser(request)))
   }
