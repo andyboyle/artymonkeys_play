@@ -88,10 +88,24 @@
                 </div>
             </div>
         </header>
-        <div id="wrapper">
+        <div id="wrapper_admin">
             <section id="main_section_admin" class="skills_top_margin">
 
                 <h2 id="managenewsh2">Manage News</h2>
+
+                <div class="newnewsformdiv">
+                    <form id="newnewsform" method="post">
+                        <div class="newnewsformelement">
+                            <textarea class="newsheadertextbox" name="newnewsitemheadline"
+                            required placeholder="New News Headline"></textarea>
+
+                            <textarea class="messagetextboxnews" name="newnewsitemtext"
+                            required placeholder="Enter New News Details"></textarea>
+                        </div>
+
+                        <input class="sendemailbutton" type="submit" value="Add New News">
+                    </form>
+                </div>
 
                 <div class="newslistadmin">
                 <table class="newshome_table">
@@ -118,20 +132,6 @@
                         </tr>
                     }
                 </table>
-                </div>
-
-                <div class="newnewsformdiv">
-                <form id="newnewsform" method="post">
-                    <div class="newnewsformelement">
-                        <textarea class="newsheadertextbox" name="newnewsitemheadline"
-                        required placeholder="New News Headline"></textarea>
-
-                        <textarea class="messagetextboxnews" name="newnewsitemtext"
-                        required placeholder="Enter New News Details"></textarea>
-                    </div>
-
-                    <input class="sendemailbutton" type="submit" value="Add New News">
-                </form>
                 </div>
 
             </section>

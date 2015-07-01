@@ -6,7 +6,8 @@ import play.api.Play.current
 import play.api.libs.mailer._
 import play.api.mvc._
 
-trait EmailEnquiry extends EmailSenderBase {
+trait EmailEnquiry extends EmailSenderBase
+{
   this: Results =>
 
   def emailOfEnquiry = Action { implicit request =>
@@ -15,15 +16,31 @@ trait EmailEnquiry extends EmailSenderBase {
     handleEmailSending(customer)
   }
 
-  override def sendEmails(customer: Customer): Boolean = {
+  override def sendEmails(customer: Customer): Boolean =
+  {
     var error = false
+
+    val littleMonkeyDetails = for (monkey <- customer.monkeys) yield {
+      "\tName: " + monkey.name.getOrElse("Not Provided") +
+        "   Dob: " + monkey.dob.getOrElse("Not Provided") + "\n"
+    }
 
     val emailEnquiry = Email(
       "Enquiry To Arty Monkeys",
       "No Reply Arty Monkeys <" + NO_REPLY_ARTY_MONKEYS + ">",
       Seq("Info Arty Monkeys <" + INFO_ARTY_MONKEYS + ">"),
 
-      bodyText = Some(customer.toString)
+      bodyText = Some(
+        "Customer Name: " + customer.knownas.getOrElse("Not Provided") + "\n" +
+          "Email: " + customer.emailWrapper.email.getOrElse("Not Provided") + "\n" +
+          "Phone: " + customer.phoneWrapper.phone.getOrElse("Not Provided") + "\n" +
+          "Little Monkeys :\n" + littleMonkeyDetails.mkString(" ") +
+          "\n\nPreferred Location: " + customer.customerPreferences.location.getOrElse("Not Provided") + "\n" +
+          "Preferred Time: " + customer.customerPreferences.time.getOrElse("Not Provided") + "\n" +
+          "\n\nHow Did They Hear About Arty Monkeys: " + customer.howDidYouHear.category.getOrElse("Not Provided") + "\n" +
+          "Any Extra Details How They Heard: " + customer.howDidYouHear.extraText.getOrElse("Not Provided") + "\n" +
+          "\nCustomer Message: " + customer.message.getOrElse("Not Provided") + "\n\n\n"
+      )
     )
 
     try {
@@ -83,6 +100,6 @@ p {
         error = true
     }
 
-    !error
+    error
   }
 }

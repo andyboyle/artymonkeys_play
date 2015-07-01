@@ -296,6 +296,19 @@ form {
     text-align: center;
 }
 
+#wrapper_admin {
+    width: 100%;
+    margin-top: 5em;
+    padding: 0;
+    text-align: center;
+}
+
+.customers_table {
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    width: 95%;
+}
+
 .onebooked {
     padding: 0.3em;
     border-radius: 10px;
@@ -321,7 +334,7 @@ form {
 #main_section_admin {
     text-align: center;
     width: 100%;
-    margin-top: 4.7em;
+    margin-top: 0;
 }
 
 #main_footer {
@@ -867,7 +880,7 @@ time {
     .sendemailbutton {
         display: block;
         float: none;
-        margin-top: 1em;
+        margin-top: 0.5em;
         padding: 8px 20px 5px 20px;
         color: #a8d8d5;
         font-size: 1.5em;
@@ -907,15 +920,17 @@ time {
 
     .newslistadmin {
         display: inline-block;
-        width: 45%;
+        width: 95%;
         float: left;
-        margin-left: 5%;
+        margin-left: 2.5%;
+        margin-right: 2.5%;
     }
 
     .newnewsformdiv {
         display: inline-block;
-        margin-left: 4em;
+        margin-left: 2.5%;
         float: left;
+        margin-bottom: 3em;
     }
 
     .inlineblocked {
@@ -981,6 +996,10 @@ time {
 
     .clr-contact {
         color: red;
+    }
+
+    .clr-darkblue {
+        color: darkblue;
     }
 
     h3.clr-yvonne {
@@ -1079,23 +1098,22 @@ time {
 
     .newshome_table th {
         padding: 1em;
-        background-color: lightcoral;
-        color: white;
+        background-color: papayawhip;
+        color: darkblue;
         align-content: center;
         text-align: center;
-        font-size: 1.2em;
+        font-size: 1.3em;
     }
 
     .newshome_table td {
         font-family: Arial, serif;
         text-align: left;
         font-weight: bold;
-        background: yellowgreen;
+        background: white;
         border-radius: 5px;
-        color: #773ecc;
-        font-size: 1em;
+        color: purple;
+        font-size: 1.2em;
         padding: 5px 10px 5px 10px;
-        max-width: 550px;
     }
 
     .skills_table table {
@@ -1209,8 +1227,8 @@ time {
     .customers_table td {
         text-align: left;
         font-weight: bold;
-        background: lightslategrey;
-        color: yellow;
+        background: papayawhip;
+        color: darkred;
         font-size: 1em;
         padding: 0.7em;
     }
