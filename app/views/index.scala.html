@@ -24,11 +24,11 @@
                 prevBu: '.prev',
                 nextBu: '.next',
                 playBu: false,
-                duration: 800,
+                duration: 1000,
                 preset: 'fade',
                 pagination: true,
                 pagNums: false,
-                slideshow: 7000,
+                slideshow: 4000,
                 numStatus: false,
                 banners: false,
                 waitBannerAnimation: false,
@@ -102,50 +102,38 @@
             </header>
             <div id="wrapper">
                 <section id="main_section">
-                    <div id="blurb_and_email_sender">
 
-                        <div id="sociallinks">
-                            <a href="https://www.facebook.com/artymonkeys.uk"><img id="facebook_icon"
-                            src="@routes.Assets.at("images/facebook.jpg")"/></a>
-                            <a href="https://twitter.com/arty_monkeys">
-                                <img id="twitter_icon" src="@routes.Assets.at("images/twitter.png")"/></a>
+                    <form method="post" class="registerinterestcontainer">
+
+                        <div class="howdidyouheardiv">
+                            <div class="clr-white howherelabel">How did you hear about us?</div>
+                            <select class="howdidyouhearcombo" name="howdidyouhear" required>
+                                <option selected disabled hidden value=''>Please Select ...</option>
+                                <option value="briarlands">Briarlands Farm</option>
+                                <option value="baristas" >Baristas Coffee House</option>
+                                <option value="facebook">Facebook</option>
+                                <option value="families" >Families Magazine</option>
+                                <option value="google" >Google</option>
+                                <option value="netmums">Netmums</option>
+                                <option value="nursery" >Nursery</option>
+                                <option value="referral" >Referral</option>
+                                <option value="other" >Other - please state</option>
+                            </select>
+
+                            <textarea class="howdidyouhearextratextbox" name="howdidyouhearextra" placeholder="Extra info in here please"></textarea>
                         </div>
 
                         <div class="inlineblocked">
-                            <form method="post" class="registerinterestcontainer">
-
-                                <div class="howdidyouheardiv">
-                                    <div class="clr-white howherelabel">How did you hear about us?</div>
-                                    <select class="howdidyouhearcombo" name="howdidyouhear" required>
-                                        <option selected disabled hidden value=''>Please Select ...</option>
-                                        <option value="briarlands">Briarlands Farm</option>
-                                        <option value="baristas" >Baristas Coffee House</option>
-                                        <option value="facebook">Facebook</option>
-                                        <option value="families" >Families Magazine</option>
-                                        <option value="google" >Google</option>
-                                        <option value="netmums">Netmums</option>
-                                        <option value="nursery" >Nursery</option>
-                                        <option value="referral" >Referral</option>
-                                        <option value="other" >Other - please state</option>
-                                    </select>
-
-                                    <textarea class="howdidyouhearextratextbox" name="howdidyouhearextra" placeholder="Extra info in here please"></textarea>
-                                </div>
-
-                                <div class="inlineblocked">
-                                    <input class="inputemailtextbox_first" placeholder="Your Name" type="text" name="name" required>
-                                    <input class="inputemailtextbox" placeholder="Best Phone Number" type="tel" name="phone" required>
-                                    <input class="inputemailtextbox_last" placeholder="Enter Your Best Email" type="email" name="email" required>
-                                </div>
-
-                                <div class="inlineblocked">
-                                    <input class="registerinterestbutton" type="submit" value="Register Interest">
-                                </div>
-
-                            </form>
+                            <input class="inputemailtextbox_first" placeholder="Your Name" type="text" name="name" required>
+                            <input class="inputemailtextbox" placeholder="Best Phone Number" type="tel" name="phone" required>
+                            <input class="inputemailtextbox_last" placeholder="Enter Your Best Email" type="email" name="email" required>
                         </div>
 
-                    </div>
+                        <div class="inlineblocked">
+                            <input class="registerinterestbutton" type="submit" value="Register Interest">
+                        </div>
+
+                    </form>
 
                     <div class="sliderbk">
                         <nav id="slide" class="slider">
@@ -156,6 +144,13 @@
                             </ul>
                             <a href="#" class="prev"></a><a href="#" class="next"></a>
                         </nav>
+                    </div>
+
+                    <div id="sociallinks">
+                        <a href="https://www.facebook.com/artymonkeys.uk"><img id="facebook_icon"
+                        src="@routes.Assets.at("images/facebook.jpg")"/></a>
+                        <a href="https://twitter.com/arty_monkeys">
+                            <img id="twitter_icon" src="@routes.Assets.at("images/twitter.png")"/></a>
                     </div>
 
                     <article id="what_we_do_article">

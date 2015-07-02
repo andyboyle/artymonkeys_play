@@ -1,11 +1,15 @@
 package controllers.dao.customer
 
+import java.util.Date
+
 import com.mongodb.BasicDBObject
 import com.mongodb.casbah.Imports._
 import com.mongodb.casbah.MongoCollection
 import model._
+import org.joda.time.{LocalDateTime, LocalDate}
 
-trait CustomerRepositoryMongoComponent extends CustomerRepositoryComponent {
+trait CustomerRepositoryMongoComponent extends CustomerRepositoryComponent
+{
 
   val customerCollection: MongoCollection
 
@@ -13,11 +17,13 @@ trait CustomerRepositoryMongoComponent extends CustomerRepositoryComponent {
 
   def customerUpdater = new CustomerUpdaterMongoDb(customerCollection)
 
-  class CustomerLocatorMongoDb(val customersCollection: MongoCollection) extends CustomerLocator {
+  class CustomerLocatorMongoDb(val customersCollection: MongoCollection) extends CustomerLocator
+  {
 
-    def retrieveAllCustomers(): Seq[Customer] = {
+    def retrieveAllCustomers(): Seq[Customer] =
+    {
       println("Retrieving customers now ...")
-      val customersCursor = customersCollection.find()
+      val customersCursor = customersCollection.find().sort(MongoDBObject("enquirydatetime" -> -1))
       val allCustomers = for {customerObj <- customersCursor} yield {
         println("the cust is : " + customerObj)
         val customerName =
@@ -31,7 +37,7 @@ trait CustomerRepositoryMongoComponent extends CustomerRepositoryComponent {
         val howdidyouhearCategory = customerObj.get("howdidyouhear").asInstanceOf[BasicDBObject].get("category").asInstanceOf[String]
         val howdidyouhearExtra = customerObj.get("howdidyouhear").asInstanceOf[BasicDBObject].get("extra").asInstanceOf[String]
         val message = customerObj.get("message").asInstanceOf[String]
-
+        val enquiryDateTime = Option(customerObj.get("enquirydatetime").asInstanceOf[java.util.Date] )
         val monkeys = for {monkey <- monkeysList
                            name = monkey.asInstanceOf[BasicDBList].get(0).asInstanceOf[String]
                            if name != null && name != ""
@@ -45,7 +51,8 @@ trait CustomerRepositoryMongoComponent extends CustomerRepositoryComponent {
           new CustomerPreferences(Some(preferenceLocation), Some(preferenceTime)),
           monkeys,
           new HowDidYouHear(Some(howdidyouhearCategory), Some(howdidyouhearExtra)),
-          Some(message)
+          Some(message),
+          Some(new LocalDateTime(enquiryDateTime.getOrElse(new Date(0))))
         )
       }
       allCustomers.toSeq
@@ -53,8 +60,10 @@ trait CustomerRepositoryMongoComponent extends CustomerRepositoryComponent {
 
   }
 
-  class CustomerUpdaterMongoDb(val customerCollection: MongoCollection) extends CustomerUpdater {
-    def save(customer: Customer): Unit = {
+  class CustomerUpdaterMongoDb(val customerCollection: MongoCollection) extends CustomerUpdater
+  {
+    def save(customer: Customer): Unit =
+    {
       try {
 
         val names = MongoDBObject(
@@ -80,7 +89,8 @@ trait CustomerRepositoryMongoComponent extends CustomerRepositoryComponent {
           "howdidyouhear" ->
             new BasicDBObject("category", customer.howDidYouHear.category.getOrElse("No Category"))
               .append("extra", customer.howDidYouHear.extraText.getOrElse("No Category")),
-          "message" -> customer.message
+          "message" -> customer.message,
+          "enquirydatetime" -> new java.util.Date()
         )
 
         customerCollection += customerObj

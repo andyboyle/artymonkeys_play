@@ -1,6 +1,6 @@
 /*--------- slider ---------*/
 #slide {
-    position: relative;
+    position: inherit;
     overflow: hidden;
     width: 36em;
     margin: 2.5em 0 0 1.3em;
@@ -8,7 +8,7 @@
 }
 
 .slider {
-    height: 17em;
+    height: 255px;
     z-index: 1;
 }
 
@@ -59,7 +59,14 @@
     display: none;
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1200px) {
+
+    .sliderbk {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 1160px) {
     .sliderbk {
         display: none;
     }

@@ -279,11 +279,6 @@ a:hover {
     border-radius: 5px;
 }
 
-form {
-    margin: 0;
-    padding: 0;
-}
-
 #wrapper {
     width: 100%;
     margin: 12em auto auto auto;
@@ -304,6 +299,8 @@ form {
 }
 
 .customers_table {
+    font-family: Times, serif;
+    font-size: 1.1em;
     margin-left: 2.5%;
     margin-right: 2.5%;
     width: 95%;
@@ -384,6 +381,7 @@ time {
 }
 
 @media screen and (max-width: 2300px) {
+
     article {
         display: inline-block;
     }
@@ -426,16 +424,6 @@ time {
         font-size: 2.3em;
         margin-top: 8em;
         margin-bottom: 20em;
-    }
-
-    .registerinterestcontainer {
-        border: groove #c5db44;
-        border-radius: 8px;
-        display: block;
-        padding: 0.4em;
-        background-color: #0072ff;
-        margin: 1.5em 0.5em 0 0.5em;
-        box-shadow: 5px 5px 10px #deeede;
     }
 
     h1 {
@@ -495,10 +483,12 @@ time {
     }
 
     .registerinterestcontainer {
+        position: relative;
+        top: -60px;
         border: groove mediumpurple;
         border-radius: 8px;
-        display: block;
-        padding: 0.4em;
+        display: inline-block;
+        padding: 1em;
 
         background: -webkit-gradient(linear,
         left top,
@@ -508,7 +498,7 @@ time {
         color-stop(100%, #9370DB));
         background: -moz-linear-gradient(top, green, mediumseagreen, palegreen);
 
-        margin: 0 0.5em 0 0.5em;
+        margin: 0 5em 2em 0.5em;
         box-shadow: 7px 7px 10px #deeede;
     }
 
@@ -748,8 +738,7 @@ time {
     }
 
     #sociallinks {
-        margin-top: 2em;
-        float: left;
+        margin-top: 0;
     }
 
     .clr-party {
@@ -761,13 +750,11 @@ time {
     }
 
     #facebook_icon {
-        display: block;
-        margin: 0 0.7em 0.7em 0.7em;
+        display: inline-block;
     }
 
     #twitter_icon {
-        display: block;
-        margin: 0.7em 0 0 1em;
+        display: inline-block;
     }
 
     .inputtextbox {
@@ -914,22 +901,22 @@ time {
     #blurb_and_email_sender {
         vertical-align: top;
         display: inline-block;
-        width: 55%;
+        width: auto;
         margin: 0.5em 0 0 0;
     }
 
     .newslistadmin {
-        display: inline-block;
+        display: block;
         width: 95%;
-        float: left;
+        float: none;
         margin-left: 2.5%;
         margin-right: 2.5%;
     }
 
     .newnewsformdiv {
-        display: inline-block;
+        display: block;
         margin-left: 2.5%;
-        float: left;
+        float: none;
         margin-bottom: 3em;
     }
 
@@ -1112,9 +1099,28 @@ time {
         background: white;
         border-radius: 5px;
         color: purple;
-        font-size: 1.2em;
-        padding: 5px 10px 5px 10px;
+        font-size: 1.1em;
+        padding: 0.5em 0.3em;
     }
+
+    .newshome_table .theid {
+        font-family: Arial, serif;
+        font-weight: 100;
+        border-radius: 0;
+        color: cornflowerblue;
+        font-size: 0.5em;
+        padding: 0;
+    }
+
+    .newshome_table .postednews {
+        font-family: Times, Arial, serif;
+        font-weight: 600;
+        border-radius: 0;
+        color: cornflowerblue;
+        font-size: 1em;
+        padding: 0.1em;
+    }
+
 
     .skills_table table {
         border-collapse: collapse;
@@ -1194,31 +1200,15 @@ time {
         white-space: nowrap;
     }
 
-    .customers_table table {
-        border-collapse: collapse;
-        box-shadow: 5px 5px 10px seagreen;
-        border-radius: 10px;
-    }
-
-    .customers_table ul {
-        list-style-type: none;
-        margin: 0;
-    }
-
-    .customers_table li {
-        margin: 0;
-        font-style: italic;
-        color: lightgoldenrodyellow;
-    }
-
     .customers_table table, th, td {
-        border: 1px solid #140676;
+        border: 1px solid green;
+        margin: 0;
     }
 
     .customers_table th {
-        padding: 0.9em;
+        padding: 0;
         background-color: #140676;
-        color: orange;
+        color: white;
         align-content: center;
         text-align: center;
         font-size: 1em;
@@ -1227,10 +1217,10 @@ time {
     .customers_table td {
         text-align: left;
         font-weight: bold;
-        background: papayawhip;
-        color: darkred;
+        background: mintcream;
+        color: purple;
         font-size: 1em;
-        padding: 0.7em;
+        padding: 0.2em 0.3em;
     }
 
     .latestnewstime {
@@ -1297,6 +1287,14 @@ time {
 }
 
 @media screen and (max-width: 1450px) {
+
+
+    #blurb_and_email_sender {
+        width: auto;
+        margin: 0;
+        padding: 0;
+    }
+
     #main_menu {
         margin-right: 5em;
         padding: 10px auto;
@@ -1357,24 +1355,15 @@ time {
         width: 60%;
     }
 
-    #sociallinks {
-        margin-top: 4em;
-    }
-
-    #blurb_and_email_sender {
-        width: 90%;
-    }
-
     .registerinterestcontainer {
         margin-bottom: 3em;
+        width: 30em;
+        margin-top: 3em;
     }
 
-    .sliderbk .slider .items {
-        display: none;
-    }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1250px) {
 
     #main_section_contact_us {
         margin-top: 18em;
@@ -1414,10 +1403,6 @@ time {
         width: 30%;
     }
 
-    #sociallinks {
-        margin-top: 4em;
-    }
-
     #main_menu li a {
         font-size: 1.1em;
         line-height: 1.2em;
@@ -1439,7 +1424,6 @@ time {
     #blurb_and_email_sender {
         vertical-align: top;
         display: block;
-        width: 100%;
         margin-bottom: 0;
     }
 
@@ -1458,15 +1442,29 @@ time {
     .registerinterestcontainer {
         text-align: left;
         display: inline-block;
-        margin-top: 0;
-        font-size: 0.8em;
+        font-size: 1em;
         padding: 0.7em;
+        margin: 0.3em;
 
     }
 
     article {
         padding: 0.5em;
         margin: 1em 0.3em 0 0.3em;
+    }
+
+}
+
+@media screen and (max-width: 1160px) {
+    .registerinterestcontainer {
+        margin-top: 3em
+    }
+
+}
+
+@media screen and (max-width: 1050px) {
+    .registerinterestcontainer {
+        margin-top: 5em
     }
 
 }
@@ -1556,7 +1554,7 @@ time {
 
     .registerinterestcontainer {
         width: 95%;
-        margin: 0 auto;
+        margin: 7em auto 0 auto;
         display: block;
         font-size: 1em;
     }
@@ -1626,7 +1624,6 @@ time {
 
     #blurb_and_email_sender {
         display: block;
-        width: 100%;
         margin-bottom: 0.5em;
     }
 
@@ -1777,11 +1774,6 @@ time {
         background-color: #140676;
         border-radius: 4px;
         cursor: pointer;
-    }
-
-    #sociallinks {
-        margin-top: 0;
-        float: none;
     }
 
     #facebook_icon {

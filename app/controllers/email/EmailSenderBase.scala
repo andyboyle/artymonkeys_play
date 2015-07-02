@@ -1,19 +1,22 @@
 package controllers.email
 
 import model._
+import org.joda.time.LocalDateTime
 import play.api.Play
-import play.api.mvc.{AnyContent, Request, Result}
 import play.api.mvc.Results.Ok
+import play.api.mvc.{AnyContent, Request, Result}
 
-trait EmailSenderBase {
+trait EmailSenderBase
+{
   val NO_REPLY_ARTY_MONKEYS = "no-reply@artymonkeys.co.uk"
 
   val artyInfoAddress = Play.current.configuration.getString("arty.info.email")
   val INFO_ARTY_MONKEYS = artyInfoAddress.getOrElse("info@artymonkeys.co.uk")
 
-  def sendEmails(customer: Customer) : Boolean
+  def sendEmails(customer: Customer): Boolean
 
-  def handleEmailSending(customer: Customer): Result = {
+  def handleEmailSending(customer: Customer): Result =
+  {
     val weShouldSendEmails = Play.current.configuration.getBoolean("send.emails")
     if (weShouldSendEmails.getOrElse(true)) {
       if (sendEmails(customer)) {
@@ -26,7 +29,8 @@ trait EmailSenderBase {
     }
   }
 
-  def buildCustomerFromRequest(request: Request[AnyContent]): Customer = {
+  def buildCustomerFromRequest(request: Request[AnyContent]): Customer =
+  {
     var customerName = ""
     var customerPhone = ""
     var customerEmail = ""
@@ -75,7 +79,8 @@ trait EmailSenderBase {
       new CustomerPreferences(Some(customerPreferredVenue), Some(customerPreferredClassTime)),
       monkeysList.toList,
       new HowDidYouHear(Some(customerHowDidYouHear), Some(customerHowDidYouHearExtra)),
-      Some(customerMessage)
+      Some(customerMessage),
+      Some(null)
     )
   }
 
