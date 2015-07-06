@@ -380,7 +380,36 @@ time {
     color: #dddddd;
 }
 
+.novisible {
+    opacity: 0;
+}
+
+.artymonkeyclassrow {
+    background: red;
+}
+
+#customerquotes {
+    font-style: italic;
+    font-weight: bold;
+    font-family: Purisa, "Times New Roman", Times, serif;
+    font-size: 1.7em;
+    margin-bottom: 2em;
+}
+
 @media screen and (max-width: 2300px) {
+
+    .tickerbox {
+        border-radius: 10px;
+        background: darkgreen;
+        width: 60%;
+        margin: 14em 20% 4em;
+        padding: 2em;
+    }
+
+    .ticker {
+        font-size: 1.3em;
+        padding-bottom: 1em;
+    }
 
     article {
         display: inline-block;
@@ -484,7 +513,7 @@ time {
 
     .registerinterestcontainer {
         position: relative;
-        top: -60px;
+        top: -100px;
         border: groove mediumpurple;
         border-radius: 8px;
         display: inline-block;
@@ -739,6 +768,8 @@ time {
 
     #sociallinks {
         margin-top: 0;
+        padding: 0;
+        margin-bottom: 2em;
     }
 
     .clr-party {
@@ -1162,6 +1193,13 @@ time {
         padding: 5px 10px 5px 10px;
     }
 
+    .classes_table {
+        font-family: Arial, sans-serif;
+        width: 100%;
+        margin-top: 1em;
+        margin-bottom: 4em;
+    }
+
     .classes_table table {
         border-collapse: collapse;
         box-shadow: 1em 1em 1em darkblue;
@@ -1183,8 +1221,8 @@ time {
 
     .classes_table th {
         padding: 0.2em 0;
-        background-color: lightblue;
-        color: darkblue;
+        background-color: midnightblue;
+        color: white;
         align-content: center;
         text-align: center;
         font-size: 1.3em;
@@ -1193,11 +1231,15 @@ time {
     .classes_table td {
         text-align: left;
         font-weight: bold;
-        background: #d3d4ff;
-        color: purple;
+        background: #ffee66;
+        color: black;
         font-size: 1em;
         padding: 0.5em;
         white-space: nowrap;
+    }
+
+    .classes_table .messyclassesrow {
+        background: orange;
     }
 
     .customers_table table, th, td {
@@ -1323,7 +1365,7 @@ time {
 }
 
 
-@media screen and (max-width: 1350px) {
+@media screen and (max-width: 1400px) {
     #main_menu {
     }
 
@@ -1359,11 +1401,12 @@ time {
         margin-bottom: 3em;
         width: 30em;
         margin-top: 3em;
+        margin-right: 0.4em;
     }
 
 }
 
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 1300px) {
 
     #main_section_contact_us {
         margin-top: 18em;
@@ -1441,10 +1484,12 @@ time {
 
     .registerinterestcontainer {
         text-align: left;
-        display: inline-block;
+        display: block;
+        top: 0;
+        left: 30%;
         font-size: 1em;
         padding: 0.7em;
-        margin: 0.3em;
+        margin: 0.3em 0 4em 0;
 
     }
 
@@ -1455,21 +1500,47 @@ time {
 
 }
 
+@media screen and (max-width: 1200px) {
+    .tickerbox {
+        display: none;
+    }
+}
+
 @media screen and (max-width: 1160px) {
     .registerinterestcontainer {
-        margin-top: 3em
+        margin-top: 3em;
+        left: 26%;
+    }
+
+    .classes_table {
+        font-size: 0.8em;
     }
 
 }
 
 @media screen and (max-width: 1050px) {
+
     .registerinterestcontainer {
-        margin-top: 5em
+        margin-top: 8em;
+        left: 20%;
     }
 
 }
 
+@media screen and (max-width: 950px) {
+    .classes_table {
+        font-size: 0.7em;
+    }
+}
+
+
 @media screen and (max-width: 750px) {
+
+    .classes_table {
+        margin-left: 2.5%;
+        width: 95%;
+        font-size: 1.1em;
+    }
 
     #artyparties {
         font-size: 1.5em;
@@ -1553,8 +1624,10 @@ time {
     }
 
     .registerinterestcontainer {
+        top: 0;
+        left: 0;
         width: 95%;
-        margin: 7em auto 0 auto;
+        margin: 3em auto 3em auto;
         display: block;
         font-size: 1em;
     }
@@ -1703,14 +1776,8 @@ time {
         margin: 0;
     }
 
-    .classes_table table, th, td {
-        border: 1px solid darkblue;
-    }
-
     .classes_table th {
         padding: 0 0;
-        background-color: lightblue;
-        color: darkblue;
         align-content: center;
         text-align: center;
         font-size: 1em;
@@ -1719,10 +1786,7 @@ time {
     .classes_table td {
         text-align: left;
         font-weight: bold;
-        background: #d3d4ff;
-        color: purple;
         font-size: 1em;
-        padding: 0;
         white-space: pre-wrap;
     }
 
