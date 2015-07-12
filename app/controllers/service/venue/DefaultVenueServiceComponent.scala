@@ -1,6 +1,7 @@
 package controllers.service.venue
 
 import controllers.dao.venue.VenueRepositoryComponent
+import model.Venue
 
 trait DefaultVenueServiceComponent extends VenueServiceComponent {
   this: VenueRepositoryComponent =>
@@ -13,6 +14,9 @@ trait DefaultVenueServiceComponent extends VenueServiceComponent {
       venueLocator.retrieveVenueClassTimes(venueName)
     }
 
+    override def retrieveAllVenues(): List[Venue] = {
+      venueLocator.retrieveAllVenues()
+    }
   }
 
 }

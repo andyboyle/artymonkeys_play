@@ -1,9 +1,11 @@
-@(adminAccess: Boolean)
+@import _root_.model.Venue
+
+@(adminAccess: Boolean, venues: Seq[Venue])
 
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Arty Monkeys - Customers</title>
+        <title>Arty Monkeys - Venues</title>
         <meta charset="utf-8">
         <meta name="description" content="Art and Language Classes for children in the Stirling and Falkirk area">
         <meta name="keywords" content="Art,Monkey,Kids,Toddler,Classes,Paint,Craft,Stirling,Falkirk">
@@ -21,6 +23,10 @@
     }
   );
         </script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     </head>
     <body>
         <header id="main_header">
@@ -40,10 +46,10 @@
                     <div>
                         <nav id="admin_menu">
                             <ul>
-                                <li class="current"><a href="loginsuccess.html" class="clr-about">Admin Home</a></li>
+                                <li><a href="loginsuccess.html" class="clr-about">Admin Home</a></li>
                                 <li><a href="managenews.html" class="clr-skills">Manage News</a></li>
                                 <li><a href="customers.html" class="clr-classes">Customers</a></li>
-                                <li><a href="venues.html" class="clr-about">Venues</a></li>
+                                <li class="current"><a href="venues.html" class="clr-about">Venues</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -66,10 +72,60 @@
                 </div>
             </div>
         </header>
-        <div id="wrapper">
+        <div id="wrapper_admin">
             <section id="main_section_admin" class="skills_top_margin">
 
-                <h2 id="managenewsh2">Admin</h2>
+                <h2 id="managenewsh2">Customers</h2>
+
+                <table class="customers_table">
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Short Name</th>
+                        <th>Address</th>
+                        <th>Telephone</th>
+                        <th>Class Times</th>
+                        <th>Website</th>
+                        <th>Facebook</th>
+                    </tr>
+                    @for(venue <- venues) {
+                        <tr>
+                            <td>@venue.id</td>
+                            <td>
+                            @venue.name
+                            </td>
+                            <td>
+                            @venue.shortname
+                            </td>
+                            <td>
+                                @for(line <- venue.addressFirstLines) {
+                                @{line}
+                                <br>
+                                }
+                                @venue.addressTown
+                                <br>
+                                @venue.addressCounty
+                                <br>
+                                @venue.addressPostcode
+                            </td>
+                            <td>
+                            @venue.telephone
+                            </td>
+                            <td>
+                                @for( classTime <- venue.classTimes ) {
+                                @{classTime}
+                                <br>
+                                }
+                            </td>
+                            <td>
+                                <a href="@{venue.website}" class="clr-classes">@venue.website</a>
+                            </td>
+                            <td>
+                                <a href="@{venue.facebook}" class="clr-classes">@venue.facebook</a>
+                            </td>
+                        </tr>
+                    }
+                </table>
 
             </section>
         </div>

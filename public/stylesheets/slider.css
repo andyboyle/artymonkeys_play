@@ -3,7 +3,7 @@
     position: inherit;
     overflow: hidden;
     width: 40em;
-    margin: 3em 0 0 5em;
+    margin: 3em 0 0 4em;
     z-index: 1;
 }
 
@@ -13,6 +13,7 @@
 }
 
 .sliderbk {
+    margin: 0;
     display: inline-block;
     background: url(../images/slider-bg-half.png) 0 0 no-repeat;
     z-index: 1;
@@ -29,7 +30,7 @@
 .prev {
     position: absolute;
     top: 100px;
-    left: 5px;
+    left: 0;
     display: block;
     width: 30px;
     height: 35px;
@@ -44,7 +45,7 @@
 .next {
     position: absolute;
     top: 100px;
-    right: 120px;
+    right: 180px;
     display: block;
     width: 30px;
     height: 35px;

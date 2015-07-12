@@ -2,7 +2,7 @@
     /* WebKit browsers */
     color: blue;
     opacity: 0.6;
-    font-size: 1em;
+    font-size: 1.2em;
 }
 
 :-moz-placeholder {
@@ -89,7 +89,7 @@ html, body {
 
 body {
     text-align: center;
-    font-size: 0.9em;
+    font-size: 1em;
     line-height: 1.5em;
     font-family: Purisa, "Times New Roman", Times, serif;
     color: white;
@@ -389,11 +389,16 @@ time {
 }
 
 #customerquotes {
+    text-shadow: 1px 1px 1px #0072ff;
     font-style: italic;
     font-weight: bold;
     font-family: Purisa, "Times New Roman", Times, serif;
     font-size: 1.7em;
     margin-bottom: 2em;
+}
+
+#classescommence {
+    font-size: 1.5em;
 }
 
 @media screen and (max-width: 2300px) {
@@ -416,14 +421,15 @@ time {
     }
 
     #newsheadline {
-        margin-bottom: 0.3em;
+        margin-bottom: 0.6em;
+        margin-top: 1em;
         padding: 0;
         display: inline-block;
         color: yellow;
     }
 
     #newsheadline1 {
-        margin-bottom: 0.3em;
+        margin-bottom: 0.6em;
         padding: 0;
         color: yellow;
         font-size: 1.5em;
@@ -527,7 +533,7 @@ time {
         color-stop(100%, #9370DB));
         background: -moz-linear-gradient(top, green, mediumseagreen, palegreen);
 
-        margin: 0 5em 2em 0.5em;
+        margin: 0 1em 2em 0.5em;
         box-shadow: 7px 7px 10px #deeede;
     }
 
@@ -617,7 +623,7 @@ time {
 
     #news_article {
         display: inline-block;
-        width: 35%;
+        width: 80%;
 
         background: -webkit-gradient(linear,
         left top,
@@ -630,7 +636,8 @@ time {
     }
 
     #what_we_do_article {
-        width: 50%;
+        display: inline-block;
+        width: 80%;
         font-size: 1.1em;
     }
 
@@ -767,6 +774,7 @@ time {
     }
 
     #sociallinks {
+        display: block;
         margin-top: 0;
         padding: 0;
         margin-bottom: 2em;
@@ -911,6 +919,12 @@ time {
         float: left;
     }
 
+    .monkeyimg {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+    }
+
     .fright {
         float: right;
     }
@@ -949,6 +963,10 @@ time {
         margin-left: 2.5%;
         float: none;
         margin-bottom: 3em;
+    }
+
+    .monkeysocial {
+        display: inline-block;
     }
 
     .inlineblocked {
@@ -1027,7 +1045,7 @@ time {
     .clr-yvonne {
         padding-top: 0.5em;
         color: #600060;
-        font-size: 1.2em;
+        font-size: 1.1em;
     }
 
     h3.clr-kelley {
@@ -1036,7 +1054,7 @@ time {
 
     .clr-kelley {
         padding-top: 0.5em;
-        font-size: 1.2em;
+        font-size: 1.1em;
         color: #112244;
     }
 
@@ -1151,7 +1169,6 @@ time {
         font-size: 1em;
         padding: 0.1em;
     }
-
 
     .skills_table table {
         border-collapse: collapse;
@@ -1279,7 +1296,42 @@ time {
     }
 }
 
+@media screen and (max-width: 1820px) {
+    #borderleaves {
+        border-width: 0 73px;
+        /*-moz-border-image: url("../images/dreamstime_m_12515100.png") 183 146 164 repeat;*/
+        /*-webkit-border-image: url("../images/dreamstime_m_12515100.png") 183 146 164 repeat;*/
+        /*-o-border-image: url("../images/dreamstime_m_12515100.png") 183 146 164 repeat;*/
+        /*border-image: url("../images/dreamstime_m_12515100.png") 183 146 164 repeat;*/
+    }
+
+}
+
+@media screen and (max-width: 1730px) {
+    #customerquotes {
+        margin-top: 10em;
+    }
+
+}
+
 @media screen and (max-width: 1650px) {
+
+    .registerinterestcontainer {
+        margin-bottom: 3em;
+        width: 40em;
+        margin-top: 1em;
+        margin-right: 6em;
+    }
+
+    .sliderbk {
+        display: block;
+    }
+
+    #customerquotes {
+        margin-top: 9em;
+        margin-bottom: 7em;
+    }
+
     #borderleaves {
         height: auto;
 
@@ -1330,7 +1382,6 @@ time {
 
 @media screen and (max-width: 1450px) {
 
-
     #blurb_and_email_sender {
         width: auto;
         margin: 0;
@@ -1363,7 +1414,6 @@ time {
     }
 
 }
-
 
 @media screen and (max-width: 1400px) {
     #main_menu {
@@ -1407,6 +1457,12 @@ time {
 }
 
 @media screen and (max-width: 1300px) {
+
+    #customerquotes {
+        margin-top: 0;
+        margin-bottom: 2em;
+    }
+
 
     #main_section_contact_us {
         margin-top: 18em;
@@ -1520,6 +1576,12 @@ time {
 
 @media screen and (max-width: 1050px) {
 
+    #customerquotes {
+        margin-top: 11em;
+        margin-bottom: 0;
+    }
+
+
     .registerinterestcontainer {
         margin-top: 8em;
         left: 20%;
@@ -1532,7 +1594,6 @@ time {
         font-size: 0.7em;
     }
 }
-
 
 @media screen and (max-width: 750px) {
 
@@ -1547,7 +1608,6 @@ time {
         margin-top: 4em;
         margin-bottom: 20em;
     }
-
 
     #main_section {
         margin-top: 0;
@@ -2027,4 +2087,9 @@ time {
     #formelementhowdidyouhearextra {
         margin-bottom: 1.5em;
     }
+
+    #customerquotes {
+        margin-top: 2em;
+    }
+
 }

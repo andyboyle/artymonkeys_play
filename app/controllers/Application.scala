@@ -85,7 +85,9 @@ object Application extends Controller with EmailEnquiry with Secured {
   }
 
   def managenewsDeleteItem(newsItemId: String) = SecureAction { request =>
+    println("Delete: Request is " + request)
     if (isAdminUser(request)) {
+      println("And deleting item : " + newsItemId)
       ApplicationCake.newsHomeService.delete(newsItemId)
       val newsItems = ApplicationCake.newsHomeService.getLastNewsItems(20)
       Ok(views.html.managenews(true, newsItems))
@@ -107,6 +109,15 @@ object Application extends Controller with EmailEnquiry with Secured {
     if (isAdminUser(request)) {
       val allCustomers = ApplicationCake.customerService.retrieveAllCustomers()
       Ok(views.html.showCustomers(true, allCustomers))
+    } else {
+      Unauthorized(views.html.unauthorised())
+    }
+  }
+
+  def venues = SecureAction { request =>
+    if (isAdminUser(request)) {
+      val allVenues = ApplicationCake.venueService.retrieveAllVenues()
+      Ok(views.html.venues(true, allVenues))
     } else {
       Unauthorized(views.html.unauthorised())
     }
