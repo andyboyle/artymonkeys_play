@@ -2,7 +2,7 @@
     /* WebKit browsers */
     color: blue;
     opacity: 0.6;
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 
 :-moz-placeholder {
@@ -370,7 +370,7 @@ article {
 
     padding: 1em;
     margin: 2em;
-    width: 40%;
+    width: 80%;
     border-radius: 10px;
 }
 
@@ -1045,7 +1045,7 @@ time {
     .clr-yvonne {
         padding-top: 0.5em;
         color: #600060;
-        font-size: 1.1em;
+        font-size: 1em;
     }
 
     h3.clr-kelley {
@@ -1054,7 +1054,7 @@ time {
 
     .clr-kelley {
         padding-top: 0.5em;
-        font-size: 1.1em;
+        font-size: 1em;
         color: #112244;
     }
 
@@ -1198,7 +1198,7 @@ time {
         align-content: center;
         text-align: center;
         min-width: 310px;
-        font-size: 1.8em;
+        font-size: 1.3em;
     }
 
     .skills_table td {
@@ -1206,7 +1206,7 @@ time {
         font-weight: bold;
         background: mediumseagreen;
         color: yellow;
-        font-size: 1.4em;
+        font-size: 1em;
         padding: 5px 10px 5px 10px;
     }
 
@@ -2041,7 +2041,6 @@ time {
     .clr-yvonne {
         padding-top: 0;
         color: #600060;
-        font-size: 1.1em;
     }
 
     h3.clr-kelley {
@@ -2050,7 +2049,6 @@ time {
 
     .clr-kelley {
         padding-top: 0;
-        font-size: 1.1em;
         color: #112244;
     }
 
